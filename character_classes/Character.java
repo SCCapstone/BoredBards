@@ -34,7 +34,7 @@ public abstract class Character {
      * Sets the character's attribute modifiers (dex, str, wis, etc.)
      */
     protected void setModifiers() {
-
+        //gabagabgabgabga
     }
 
     /**
