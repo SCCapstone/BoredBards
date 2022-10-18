@@ -40,14 +40,16 @@ npx react-native init <ProjectName>
 > This is not necessary if you are integrating React Native into an existing project
 
 ##### An Android Device
-> THis can be either a physical device or, more commonly, an Android Virtual Device (accessible from Anroid Studio)
+> This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Anroid Studio)
 
 ## Setup
 
 ## Running the Application
+> To run the application, choose an AVD from Android Studio's lits of virtual devices or connect a physical device to you machine and select it. Then, run the application from Android Studio
 
 ## Deploying the Application
+> To deploy the application, follow the relevant instructions listed at [this](https://developer.android.com/studio/publish) website. In short, you need to remove any calls to **_Log_** and the **_android:debuggable_** attribute from the manifest file. With Gradle, you can use the **_release_** build type to set build settings for the published version of the application
 
 ## Testing (To Be Added Later)
 
-# Authored by: Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
+## Repository and Code Authored by: Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
