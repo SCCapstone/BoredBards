@@ -27,7 +27,7 @@ public abstract class Character {
      * Sets the character's attributes (dex, str, wis, etc.)
      */
     protected void setAttributes() {
-
+        // nothing should be here yet
     }
 
     /**
