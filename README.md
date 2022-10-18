@@ -25,6 +25,7 @@ sudo apt install -y openjdk-18-jre
 * Then download and unpack the android-studio-<version.number>-linux.tar.gz
 * Once unpacked, run the contained studio.sh file and follow all subsequent instructions
 
+
 ##### Environmental Variables (For React Native)
 > Add the following to your **$HOME/.bash_profile** or **$HOME/.bashrc**
 ```sh
@@ -41,6 +42,7 @@ npx react-native init <ProjectName>
 
 ##### An Android Device
 > This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Anroid Studio)
+* Visit [this](https://developers.foxit.com/developer-hub/document/create-an-emulator-for-testing-in-android-studio/) website to download an Android Virtual Device (AVD) for when a physical android phone is not available to test. 
 
 ## Setup
 
