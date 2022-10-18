@@ -27,14 +27,14 @@ public abstract class Character {
      * Sets the character's attributes (dex, str, wis, etc.)
      */
     protected void setAttributes() {
-        this.attributes (that ass)
+        // nothing should be here yet
     }
 
     /**
      * Sets the character's attribute modifiers (dex, str, wis, etc.)
      */
     protected void setModifiers() {
-        //gabagabgabgabga
+        // new merge conflict here
     }
 
     /**
