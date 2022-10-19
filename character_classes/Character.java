@@ -5,7 +5,8 @@ import java.util.*;
 
 public abstract class Character {
     private String type, name, charClass;
-    protected ArrayList<Integer> attributes, ArrayList<Integer> modifiers;
+    protected ArrayList<Integer> attributes;
+    protected ArrayList<Integer> modifiers;
     // Add ArrayLists for equipment and skills
 
     /**
