@@ -8,12 +8,6 @@ This application follows [Google's Style Guide for Java](https://google.github.i
 ## External Requirements
 > To build this application, you'll need the following:
 ### On Ubuntu or Debian Based Linux
-### React Native
-##### Node.js 
-```sh
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
-sudo apt-get install -y nodejs
-```
 ##### OpenJDK
 ```sh
 sudo apt update
