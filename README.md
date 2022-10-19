@@ -1,6 +1,6 @@
 # BoredBards Capstone Project Repository
 
-This is the repository for our Android app for DMs/GMs of the tabletop roleplaying game _Dungeons and Dragons_. It features a section for the DM's campaign(s) and notes for each. The application also has a database of items, spells, monsters, etc. for the DM to use in constructing and running their games.For a more detailed description of the application and it's capabilities, check the repositiry's wiki page [here](https://github.com/SCCapstone/BoredBards/wiki).
+This is the repository for our Android app for DMs/GMs of the tabletop role-playing game _Dungeons and Dragons_. It features a section for the DM's campaign(s) and notes for each. The application also has databases of items, spells, monsters, etc. for the DM to use in constructing and running their games.For a more detailed description of the application and it's capabilities, check the repository's wiki page [here](https://github.com/SCCapstone/BoredBards/wiki).
 
 ## Style Guide
 This application follows [Google's Style Guide for Java](https://google.github.io/styleguide/javaguide.html)
@@ -28,13 +28,13 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
 
 ##### An Android Device
-> This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Anroid Studio)
+> This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Android Studio)
 * Visit [this](https://developers.foxit.com/developer-hub/document/create-an-emulator-for-testing-in-android-studio/) website to download an Android Virtual Device (AVD) for when a physical android phone is not available to test. 
 
 ## Setup
 
 ## Running the Application
-> To run the application, choose an AVD from Android Studio's lits of virtual devices or connect a physical device to you machine and select it. Then, run the application from Android Studio
+> To run the application, choose an AVD from Android Studio's lists of virtual devices or connect a physical device to you machine and select it. Then, run the application from Android Studio
 
 ## Deploying the Application
 > To deploy the application, follow the relevant instructions listed at [this](https://developer.android.com/studio/publish) website. In short, you need to remove any calls to **_Log_** and the **_android:debuggable_** attribute from the manifest file. With Gradle, you can use the **_release_** build type to set build settings for the published version of the application
