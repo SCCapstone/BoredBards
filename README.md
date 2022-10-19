@@ -19,7 +19,6 @@ sudo apt install -y openjdk-18-jre
 * Then download and unpack the android-studio-<version.number>-linux.tar.gz
 * Once unpacked, run the contained studio.sh file and follow all subsequent instructions
 
-
 ##### Environmental Variables (For React Native)
 > Add the following to your **$HOME/.bash_profile** or **$HOME/.bashrc**
 ```sh
@@ -27,12 +26,6 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
-##### React Native CLI
-> To use React Native's built-in CLI in a new project, run
-```sh
-npx react-native init <ProjectName>
-```
-> This is not necessary if you are integrating React Native into an existing project
 
 ##### An Android Device
 > This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Anroid Studio)

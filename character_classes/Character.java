@@ -5,8 +5,7 @@ import java.util.*;
 
 public abstract class Character {
     private String type, name, charClass;
-    protected ArrayList<Integer> attributes;
-    protected  ArrayList<Integer> modifiers;
+    protected ArrayList<Integer> attributes, ArrayList<Integer> modifiers;
     // Add ArrayLists for equipment and skills
 
     /**
@@ -22,6 +21,16 @@ public abstract class Character {
         this.attributes = new ArrayList<Integer>();
         this.modifiers = new ArrayList<Integer>();
     }
+
+    /**
+     * Adds the character's equipment
+     */
+    protected abstract void addEquipment();
+
+    /**
+     * Adds the character's skills
+     */
+    protected abstract void addSkills();
 
     /**
      * Sets the character's attributes (dex, str, wis, etc.)
@@ -41,6 +50,13 @@ public abstract class Character {
      * Sets the character's name
      */
     protected void setName() {
+
+    }
+
+    /**
+     * Sets the character's class
+     */
+    protected void setClass() {
 
     }
 
