@@ -27,6 +27,11 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ```
 
+##
+### On Windows x64
+> Download Android Studios through the [Android Studios website](https://developer.android.com/studio?gclid=Cj0KCQjw48OaBhDWARIsAMd966C3-36dorjYTl49utxjZVQB-1tlXhZzmWTdbtlbZcCPWcbVX_C2B5MaAooNEALw_wcB&gclsrc=aw.ds#downloads)
+
+##
 ##### An Android Device
 > This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Android Studio)
 * Visit [this](https://developers.foxit.com/developer-hub/document/create-an-emulator-for-testing-in-android-studio/) website to download an Android Virtual Device (AVD) for when a physical android phone is not available to test. 
