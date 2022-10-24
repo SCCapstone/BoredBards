@@ -12,6 +12,7 @@ public class Player extends Character {
      */
     public Player(String type, String name, String charClass, String race) {
         super(type, name, charClass, race);//hi charles
+
     }
     
     protected void setAttributes() {
