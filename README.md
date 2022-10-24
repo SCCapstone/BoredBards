@@ -36,7 +36,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ##
 ##### An Android Device
 > This can be either a physical device or, more commonly, an Android Virtual Device (accessible from Android Studio)
-* Visit [this](https://developers.foxit.com/developer-hub/document/create-an-emulator-for-testing-in-android-studio/) website to download an Android Virtual Device (AVD) for when a physical android phone is not available to test. 
+* Visit [this](https://developers.foxit.com/developer-hub/document/create-an-emulator-for-testing-in-android-studio/) website to download an Android Virtual Device (AVD) for when a physical android phone is not available to test.
 
 ## Setup
 
@@ -49,5 +49,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ## Testing (To Be Added Later)
 
 This is a merge conflict.
+This is my solution to the merge conflict.
+This is a test to prove ability to resolve merge conflicts
 
 ## Repository and Code Authored by: Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
