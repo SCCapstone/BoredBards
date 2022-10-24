@@ -10,10 +10,10 @@ public class Player extends Character {
      * @param name - the character's name
      * @param charClass - the character's class (ranger, wizard, rogue, fighter, etc.)
      */
-    public Player(String type, String name, String charClass) {
-        super(type, name, charClass);
+    public Player(String type, String name, String charClass, String race) {
+        super(type, name, charClass, race);
     }
-
+    
     protected void setAttributes() {
 
     }
