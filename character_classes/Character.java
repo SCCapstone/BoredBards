@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 public abstract class Character {
     private String type, name, charClass, race;
-    protected ArrayList<Integer> attributes, ArrayList<Integer> modifiers,
-                ArrayList<Equipment> equipment, ArrayList<Abilities> abilities;
+    protected ArrayList<Integer> attributes, modifiers;
+    protected ArrayList<Equipment> equipment; 
+    protected ArrayList<Abilities> abilities;
 
     /**
      * Constructor for Character
@@ -39,30 +40,48 @@ public abstract class Character {
     /**
      * Sets the character's attributes (dex, str, wis, etc.)
      */
-    protected void setAttributes(Integer dex, Integer str, Integer wis,
-                                 Integer intel, Integer charis, Integer con) {
-        // nothing should be here yet
+    protected void setAttributes(Integer strength, Integer dexterity, Integer constitution,
+                                 Integer intelligence, Integer wisdom, Integer charisma) {
+        this.attributes.add(strength);
+        this.attributes.add(dexterity);
+        this.attributes.add(constitution);
+        this.attributes.add(intelligence);
+        this.attributes.add(wisdom);
+        this.attributes.add(charisma);
     }
 
     /**
      * Sets the character's attribute modifiers (dex, str, wis, etc.)
      */
-    protected void setModifiers() {
-        // new merge conflict here
+    protected void setModifiers(Integer strengthMod, Integer dexterityMod, Integer constitutionMod,
+                                Integer intelligenceMod, Integer wisdomMod, Integer charismaMod) {
+        this.modifiers.add(strengthMod);
+        this.modifiers.add(dexterityMod);
+        this.modifiers.add(constitutionMod);
+        this.modifiers.add(intelligenceMod);
+        this.modifiers.add(wisdomMod);
+        this.modifiers.add(charismaMod);
     }
 
     /**
      * Sets the character's name
      */
-    protected void setName() {
-
+    protected void setName(String name) {
+        this.name = name;
     }
 
     /**
      * Sets the character's class
      */
-    protected void setClass() {
+    protected void setClass(String charClass) {
+        this.charClass = charClass;
+    }
 
+    /**
+     * Sets the race of the charcter
+     */
+    protected void setRace(String race){
+        this.race = race;
     }
 
     /**
@@ -70,11 +89,5 @@ public abstract class Character {
      */
     protected void displayInfo() {
         // Make a way to display all of a character's info
-    }
-    /**
-     * Sets the race of the charcter
-     */
-    protected void setRace(){
-    
     }
 }
