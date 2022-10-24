@@ -4,7 +4,7 @@ import java.util.*;
  */
 
 public abstract class Character {
-    private String type, name, charClass;
+    private String type, name, charClass, race;
     protected ArrayList<Integer> attributes;
     protected ArrayList<Integer> modifiers;
     // Add ArrayLists for equipment and skills
@@ -15,10 +15,11 @@ public abstract class Character {
      * @param name - the character's name
      * @param charClass - the character's class (ranger, wizard, rogue, fighter, etc.)
      */
-    public Character(String type, String name, String charClass) {
+    public Character(String type, String name, String charClass, String race) {
         this.type = type;
         this.name = name;
         this.charClass = charClass;
+        this.race = race;
         this.attributes = new ArrayList<Integer>();
         this.modifiers = new ArrayList<Integer>();
     }
@@ -66,5 +67,11 @@ public abstract class Character {
      */
     protected void displayInfo() {
         // Make a way to display all of a character's info
+    }
+    /*
+     * Sets the race of the charcter
+     */
+    protected void setRace(){
+    
     }
 }
