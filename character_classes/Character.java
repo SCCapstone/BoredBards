@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import ability_classes.Ability;
+import equipment_classes.Equipment;
 /**
  * @author Charles Simons - csimons637
  */
