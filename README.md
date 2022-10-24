@@ -49,4 +49,4 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ## Testing (To Be Added Later)
 
 ## Repository and Code Authored by: 
-## Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
+Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
