@@ -7,7 +7,7 @@ public abstract class Character {
     private String type, name, charClass, race;
     protected ArrayList<Integer> attributes, modifiers;
     protected ArrayList<Equipment> equipment; 
-    protected ArrayList<Abilities> abilities;
+    protected ArrayList<Ability> abilities;
 
     /**
      * Constructor for Character
@@ -24,7 +24,7 @@ public abstract class Character {
         this.attributes = new ArrayList<Integer>();
         this.modifiers = new ArrayList<Integer>();
         this.equipment = new ArrayList<Equipment>();
-        this.abilities = new ArrayList<Abilities>();
+        this.abilities = new ArrayList<Ability>();
     }
 
     /**
