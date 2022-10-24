@@ -48,4 +48,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 ## Testing (To Be Added Later)
 
+This is a merge conflict.
+
 ## Repository and Code Authored by: Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
