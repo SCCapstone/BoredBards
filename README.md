@@ -48,8 +48,5 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 ## Testing (To Be Added Later)
 
-This is a merge conflict.
-This is my solution to the merge conflict.
-This is a test to prove ability to resolve merge conflicts
-
-## Repository and Code Authored by: Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
+## Repository and Code Authored by: 
+## Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
