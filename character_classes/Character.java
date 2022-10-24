@@ -1,13 +1,12 @@
-import java.util.*;
+import java.util.ArrayList;
 /**
  * @author Charles Simons - csimons637
  */
 
 public abstract class Character {
     private String type, name, charClass, race;
-    protected ArrayList<Integer> attributes;
-    protected ArrayList<Integer> modifiers;
-    // Add ArrayLists for equipment and skills
+    protected ArrayList<Integer> attributes, ArrayList<Integer> modifiers,
+                ArrayList<Equipment> equipment, ArrayList<Abilities> abilities;
 
     /**
      * Constructor for Character
@@ -23,6 +22,8 @@ public abstract class Character {
         this.race = race;
         this.attributes = new ArrayList<Integer>();
         this.modifiers = new ArrayList<Integer>();
+        this.equipment = new ArrayList<Equipment>();
+        this.abilities = new ArrayList<Abilities>();
     }
 
     /**
@@ -38,7 +39,8 @@ public abstract class Character {
     /**
      * Sets the character's attributes (dex, str, wis, etc.)
      */
-    protected void setAttributes() {
+    protected void setAttributes(Integer dex, Integer str, Integer wis,
+                                 Integer intel, Integer charis, Integer con) {
         // nothing should be here yet
     }
 
@@ -69,7 +71,7 @@ public abstract class Character {
     protected void displayInfo() {
         // Make a way to display all of a character's info
     }
-    /*
+    /**
      * Sets the race of the charcter
      */
     protected void setRace(){
