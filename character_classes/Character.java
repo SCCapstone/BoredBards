@@ -37,59 +37,37 @@ public abstract class Character {
     /**
      * Adds the character's skills
      */
-    protected abstract void addSkills();
+    protected abstract void addAbilities();
 
     /**
      * Sets the character's attributes (dex, str, wis, etc.)
      */
-    protected void setAttributes(Integer strength, Integer dexterity, Integer constitution,
-                                 Integer intelligence, Integer wisdom, Integer charisma) {
-        this.attributes.add(strength);
-        this.attributes.add(dexterity);
-        this.attributes.add(constitution);
-        this.attributes.add(intelligence);
-        this.attributes.add(wisdom);
-        this.attributes.add(charisma);
-    }
+    protected abstract void setAttributes(Integer strength, Integer dexterity, Integer constitution,
+                                        Integer intelligence, Integer wisdom, Integer charisma);
 
     /**
      * Sets the character's attribute modifiers (dex, str, wis, etc.)
      */
-    protected void setModifiers(Integer strengthMod, Integer dexterityMod, Integer constitutionMod,
-                                Integer intelligenceMod, Integer wisdomMod, Integer charismaMod) {
-        this.modifiers.add(strengthMod);
-        this.modifiers.add(dexterityMod);
-        this.modifiers.add(constitutionMod);
-        this.modifiers.add(intelligenceMod);
-        this.modifiers.add(wisdomMod);
-        this.modifiers.add(charismaMod);
-    }
+    protected abstract void setModifiers(Integer strengthMod, Integer dexterityMod, Integer constitutionMod,
+                                        Integer intelligenceMod, Integer wisdomMod, Integer charismaMod);
 
     /**
      * Sets the character's name
      */
-    protected void setName(String name) {
-        this.name = name;
-    }
+    protected abstract void setName(String name);
 
     /**
      * Sets the character's class
      */
-    protected void setClass(String charClass) {
-        this.charClass = charClass;
-    }
+    protected abstract void setClass(String charClass);
 
     /**
      * Sets the race of the charcter
      */
-    protected void setRace(String race){
-        this.race = race;
-    }
+    protected abstract void setRace(String race);
 
     /**
      * Displays the character's information
      */
-    protected void displayInfo() {
-        // Make a way to display all of a character's info
-    }
+    protected abstract void displayInfo();
 }
