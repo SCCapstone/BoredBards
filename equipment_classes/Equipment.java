@@ -55,4 +55,14 @@ public class Equipment {
     public ArrayList<String> getCharacteristics() {
         return this.characteristics;
     }
+
+    /**
+     * Converts the item's details into a String
+     * @return - String representation of the item's basic details (name, type and damage)
+     */
+    public String toString() {
+        String equipment;
+        equipment = this.name + ": " + this.type + ": " + this.damage;
+        return equipment;
+    }
 }

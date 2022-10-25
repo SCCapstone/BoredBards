@@ -89,6 +89,18 @@ public class Player extends Character {
      * Displays the character's information
      */
     protected void displayInfo() {
-        // Make a way to display all of a character's info
+        ArrayList<String>charDetails = new ArrayList<String>(); // ArrayList of character details
+        charDetails.add(this.name);
+        charDetails.add(this.type);
+        charDetails.add(this.charClass);
+        charDetails.add(this.race);
+
+        /*
+         * Creates a list of Strings from each equipment item in the Player's inventory
+         */
+        ArrayList<String>charEquipment = new ArrayList<String>(); // ArrayList of character items
+        for (Equipment e : this.equipment) {
+            charEquipment.add(e.toString());
+        }
     }
 }
