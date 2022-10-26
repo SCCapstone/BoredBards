@@ -19,10 +19,10 @@ public class NPC extends Character {
 
     /**
      * Constructs an NPC
-     * @param type - type of character (i.e. player, NPC, enemy, etc.)
-     * @param name - the character's name
-     * @param charClass - the character's class (ranger, wizard, rogue, fighter, etc.)
-     * @param race - define what race the charcter will be (orc, human, elf, dragonic)
+     * @param type type of character (i.e. player, NPC, enemy, etc.)
+     * @param name the character's name
+     * @param charClass the character's class (ranger, wizard, rogue, fighter, etc.)
+     * @param race define what race the charcter will be (orc, human, elf, dragonic)
      */
     public NPC(String type, String name, String charClass, String race) {
         super(type, name, charClass, race);
