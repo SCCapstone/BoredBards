@@ -65,4 +65,7 @@ public class Equipment {
         equipment = this.name + ": " + this.type + ": " + this.damage;
         return equipment;
     }
+
+    // TODO
+    // Create setters for characteristics and such
 }
