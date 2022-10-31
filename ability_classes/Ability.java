@@ -65,7 +65,20 @@ public class Ability {
         return ability;
     }
 
-    // TODO
-    // Create setters for characteristics and such
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setEffect(String effect) {
+        this.effect = effect;
+    }
+
+    public void setCharacteristics(ArrayList<String> characteristics) {
+        this.characteristics = characteristics;
+    }
 
 }

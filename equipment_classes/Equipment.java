@@ -66,6 +66,19 @@ public class Equipment {
         return equipment;
     }
 
-    // TODO
-    // Create setters for characteristics and such
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setEffect(String damage) {
+        this.damage = damage;
+    }
+
+    public void setCharacteristics(ArrayList<String> characteristics) {
+        this.characteristics = characteristics;
+    }
 }
