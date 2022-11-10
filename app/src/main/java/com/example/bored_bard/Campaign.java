@@ -49,7 +49,7 @@ import androidx.annotation.Nullable;
         // player attributes will need to be set by the UI, when added
         // users will enter the values manually, since we don't have a pdf scanner option (yet)
         Player p = new Player(type, name, charClass, race); // this only creates the base character; no attributes, modifiers, etc.
-        p.setAttributes(strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod);
+        p.setAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
         p.setModifiers(strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod);
         this.playerList.add(p);
     }
