@@ -78,6 +78,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
+                                                <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="/tmp/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
@@ -90,7 +91,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$PROJECT_DIR$/app/icon_images/dragon_eye_monchrome/1261.jpg" />
+                                                <entry key="imagePath" value="$PROJECT_DIR$/app/icon_images/vecteezy_traditional-tattoo-of-a-d20-dice_12553127_36/vecteezy_traditional-tattoo-of-a-d20-dice_12553127.jpg" />
+                                                <entry key="scalingPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -122,8 +124,11 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="launcher_icon_01" />
-                                      <entry key="previewDensity" value="MEDIUM" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="outputName" value="launcher_icon_02" />
+                                      <entry key="previewDensity" value="XXXHIGH" />
+                                      <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -291,7 +296,8 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="previewDensity" value="MEDIUM" />
+                                      <entry key="previewDensity" value="XXXHIGH" />
+                                      <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
                                 </PersistentState>
