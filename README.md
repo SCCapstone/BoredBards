@@ -18,6 +18,7 @@ sudo apt install -y openjdk-18-jre
 * Visit [this](https://developer.android.com/studio/index.html#downloads) website
 * Then download and unpack the android-studio-<version.number>-linux.tar.gz
 * Once unpacked, run the contained studio.sh file and follow all subsequent instructions
+* To import the project, choose "From VCS" in the project creation menu and select the SCCapstone/BoredBards repository
 
 ##### Environmental Variables (For React Native)
 > Add the following to your **$HOME/.bash_profile** or **$HOME/.bashrc**
