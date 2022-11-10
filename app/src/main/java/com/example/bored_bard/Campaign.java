@@ -1,6 +1,7 @@
 package com.example.bored_bard;
 
 import com.example.bored_bard.character_classes.*;
+// import com.example.bored_bard.<note classes>;
 
 import java.util.ArrayList;
 import android.content.ContentValues;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
     String setting;
     ArrayList<NPC> npcList;
     ArrayList<Player> playerList;
+//    ArrayList<Note> notebook;
 
     /**
      * Constructor for Campaign
