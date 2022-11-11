@@ -8,14 +8,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-
     <color name="SageGreenBase">#6D8B74</color>
     <color name="OceanGreen">#56776C</color>
     <color name="DarkerSageBase">#5F7161</color>
     <color name="DarkOceanGreen">#464F41</color>
     <color name="LightSageGreen">#BFCBA8</color>
+    <color name="GrulloGreen">#A8A676</color>
+
     <color name="CreamWhite">#EFEAD8</color>
     <color name="GreyWhite">#D0C9C0</color>
+    <color name="latteWhite">#FFFEE9</color>
+    
+    <color name="Chestnut">#963A2F</color>
+    <color name="blushOrange">#D58258</color>
+    <color name="creamOrange">#ECB984</color>
 
 
 
