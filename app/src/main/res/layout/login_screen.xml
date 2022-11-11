@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GreyWhite"
+    >
+
+
+    <!--This will be the left margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!--This will be the right margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="0dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!-- DON'T MESS WITH CONSTRAINT BOTTOM TO TOP OF, adjust footer instead -->
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/LightestWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave3"
+        android:contentDescription="blushPinkWave" />
+
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/DarkBlushWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="2.5dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave2"
+        android:contentDescription="DarkBlushWave" />
+
+    <!-- Background: RustRedWave-->
+    <ImageView
+        android:id="@+id/RustRedWave"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave"
+        android:contentDescription="RustRedWave" />
+
+    <!-- Email Address -->
+    <EditText
+        android:id="@+id/EmailAddress"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:autofillHints="@string/email_address"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_footer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Password -->
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:autofillHints="@string/password"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress"
+        />
+
+    <!-- "BoredBard Present" -->
+    <TextView
+        android:id="@+id/Credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif-monospace"
+        android:padding="16dp"
+        android:text="@string/credits"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+
+    <!-- Name of App -->
+    <TextView
+        android:id="@+id/AppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:padding="16dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/Credits" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
