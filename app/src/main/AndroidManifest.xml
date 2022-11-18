@@ -14,6 +14,9 @@
         android:roundIcon="@mipmap/launcher_icon_03_var1_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bored_Bard"
-        tools:targetApi="31" />
+        tools:targetApi="31">
+
+        <activity android:name="com.example.bored_bard.dice_roller.DieRoller"></activity>
+    </application>
 
 </manifest>
