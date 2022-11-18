@@ -20,26 +20,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/GreyWhite"
     tools:context=".dice_roller.DieRoller">
 
+    <!--Roll Button-->
     <Button
         android:id="@+id/button"
-        android:layout_width="117dp"
-        android:layout_height="65dp"
-        android:text="@string/roll"
-        android:textSize="25sp"
+        android:layout_width="115sp"
+        android:layout_height="75sp"
         android:backgroundTint="@color/blushOrange"
+        android:text="@string/roll"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.786" />
 
+    <!--Roll Result Display-->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="176dp"
-        android:layout_height="175dp"
+        android:layout_width="175sp"
+        android:layout_height="175sp"
         android:gravity="center"
         android:textColor="@color/RustPink"
         android:textSize="150sp"
@@ -49,5 +52,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.406" />
+
+    <!--Button Will Change to Roll d20-->
+    <ImageButton
+        android:id="@+id/d20"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d20"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/dice_d20" />
+
+    <!--Button Will Change to Roll d8-->
+    <ImageButton
+        android:id="@+id/d8"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d8"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/dice_d8" />
+
+    <!--Button Will Change to Roll d12-->
+    <ImageButton
+        android:id="@+id/d12"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d12"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/dice_d12" />
+
+    <!--Button Will Change to Roll d10-->
+    <ImageButton
+        android:id="@+id/d10"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d10"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/dice_d10" />
+
+    <!--Button Will Change to Roll d6-->
+    <ImageButton
+        android:id="@+id/d6"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d6"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/dice_d6" />
+
+    <!--Button Will Change to Roll d4-->
+    <ImageButton
+        android:id="@+id/d4"
+        android:layout_width="75sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d4"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/dice_d4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
