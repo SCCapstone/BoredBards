@@ -32,7 +32,7 @@
         android:id="@+id/button"
         android:layout_width="115sp"
         android:layout_height="75sp"
-        android:backgroundTint="@color/blushOrange"
+        android:backgroundTint="@color/darkblushPink"
         android:text="@string/roll"
         android:textColor="@color/black"
         android:textSize="28sp"
