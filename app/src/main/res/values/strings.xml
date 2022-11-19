@@ -10,4 +10,9 @@
     <string name="d10">d10</string>
     <string name="d12">d12</string>
     <string name="d20">d20</string>
+    <string name="campaigns">Campaigns</string>
+    <string name="roller">Roller</string>
+    <string name="name_gen">Name Generator</string>
+    <string name="notes">Notes</string>
+    <string name="settings">Settings</string>
 </resources>
