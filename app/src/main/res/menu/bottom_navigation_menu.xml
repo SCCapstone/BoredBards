@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/campaigns_page"
+        android:enabled="true"
+        android:icon="@drawable/campaign"
+        android:title="@string/campaigns"/>
+    <item
+        android:id="@+id/dice_page"
+        android:enabled="true"
+        android:icon="@drawable/roller"
+        android:title="@string/roller"/>
+    <item
+        android:id="@+id/name_generator"
+        android:enabled="true"
+        android:icon="@drawable/abc"
+        android:title="@string/name_gen"/>
+    <item
+        android:id="@+id/notes_page"
+        android:enabled="true"
+        android:icon="@drawable/notes"
+        android:title="@string/notes"/>
+    <item
+        android:id="@+id/settings_page"
+        android:enabled="true"
+        android:icon="@drawable/settings"
+        android:title="@string/settings"/>
+
+</menu>
