@@ -17,6 +17,7 @@ package com.example.bored_bard.dice_roller;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,23 +27,76 @@ import com.example.bored_bard.R;
 // plan to add other dice values later
 public class DieRoller extends AppCompatActivity {
 
+    // number of sides for each die type
+    public static final int D4 = 4;
+    public static final int D6 = 6;
+    public static final int D8 = 8;
+    public static final int D10 = 10;
+    public static final int D12 = 12;
+    public static final int D20 = 20;
+
+    // sets number of side for the Die
+    int numSides = D20;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.die_roller);
 
         Button rollerButton = findViewById(R.id.button);
+        // buttons to change the type of die (i.e. numSides)
+        ImageButton d4 = findViewById(R.id.d4);
+        ImageButton d6 = findViewById(R.id.d6);
+        ImageButton d8 = findViewById(R.id.d8);
+        ImageButton d10 = findViewById(R.id.d10);
+        ImageButton d12 = findViewById(R.id.d12);
+        ImageButton d20 = findViewById(R.id.d20);
 
-        rollerButton.setOnClickListener(v -> rollDie());
+        d4.setOnClickListener(v -> setNumSides(D4));
+        d6.setOnClickListener(v -> setNumSides(D6));
+        d8.setOnClickListener(v -> setNumSides(D8));
+        d10.setOnClickListener(v -> setNumSides(D10));
+        d12.setOnClickListener(v -> setNumSides(D12));
+        d20.setOnClickListener(v -> setNumSides(D20));
 
-        rollDie();
+        rollerButton.setOnClickListener(v -> rollDie(numSides));
+
+        rollDie(numSides);
     }
 
-    private void rollDie() {
-        Die die = new Die(20);
+    private void setNumSides(int num) {
+        // displays a message about the type of die being rolled
+        TextView dieType = findViewById(R.id.type_window);
+        switch (num) {
+            case D4:
+                numSides = D4;
+                break;
+            case D6:
+                numSides = D6;
+                break;
+            case D8:
+                numSides = D8;
+                break;
+            case D10:
+                numSides = D10;
+                break;
+            case D12:
+                numSides = D12;
+                break;
+            default:
+                numSides = D20;
+                break;
+        }
+        String dieMsg = "Rolling a D" + numSides;
+        dieType.setText(dieMsg);
+        dieType.setContentDescription(String.valueOf(numSides));
+    }
+
+    private void rollDie(int numSides) {
+        Die die = new Die(numSides);
         int dieRoll = die.roll();
 
-        TextView dieResult = findViewById(R.id.textView);
+        TextView dieResult = findViewById(R.id.result_window);
         String result;
         switch (dieRoll) {
             case 2:
