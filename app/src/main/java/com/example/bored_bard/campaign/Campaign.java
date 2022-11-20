@@ -1,4 +1,4 @@
-package com.example.bored_bard;
+package com.example.bored_bard.campaign;
 
 import com.example.bored_bard.character_classes.*;
 // import com.example.bored_bard.<note classes>;
