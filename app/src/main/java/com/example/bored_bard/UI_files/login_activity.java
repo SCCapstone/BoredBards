@@ -8,17 +8,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class login_activity extends AppCompatActivity {
+   // UI refrences
     private Button loginButton;
-    private EditText usernameET;
     private EditText emailET;
     private EditText passwordET;
     private EditText repasswordET;
 
-    protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-
-    }
-
+    // values for login attempt
+    private String Aemail;
+    private String Apassword;
 
 
 }
