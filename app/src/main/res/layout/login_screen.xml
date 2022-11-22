@@ -9,7 +9,6 @@
     android:background="@color/GreyWhite"
     >
 
-
     <!--This will be the left margin guide-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
@@ -148,6 +147,17 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+    <!-- Don't have account? Button -->
+    <Button
+        android:id="@+id/toRegButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/need_account"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
