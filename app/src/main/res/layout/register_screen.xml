@@ -52,7 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave3"
-        android:contentDescription="blushPinkWave" />
+        android:contentDescription="@string/blushpinkwave" />
 
     <!-- Background: BlushPinkWave-->
     <ImageView
@@ -65,7 +65,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave2"
-        android:contentDescription="DarkBlushWave" />
+        android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
     <ImageView
@@ -76,7 +76,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave"
-        android:contentDescription="RustRedWave" />
+        android:contentDescription="@string/rustredwave" />
 
     <!-- Email Address -->
     <EditText
@@ -150,6 +150,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/Credits" />
 
+    <!-- Register Button -->
     <Button
         android:id="@+id/RegButton"
         android:layout_width="wrap_content"
@@ -161,5 +162,16 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         />
 
+    <!-- Already have account? Button -->
+    <Button
+        android:id="@+id/toLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/have_account"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/RegButton"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

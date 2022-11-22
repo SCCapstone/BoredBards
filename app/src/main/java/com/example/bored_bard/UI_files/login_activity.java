@@ -6,9 +6,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.view.View;
 
 public class login_activity extends AppCompatActivity {
-   // UI refrences
+   // UI references
     private Button loginButton;
     private EditText emailET;
     private EditText passwordET;
@@ -17,6 +19,9 @@ public class login_activity extends AppCompatActivity {
     // values for login attempt
     private String Aemail;
     private String Apassword;
+    private String Arepassword;
+
+
 
 
 }

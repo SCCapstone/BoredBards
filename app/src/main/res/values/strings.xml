@@ -10,5 +10,7 @@
     <string name="blushpinkwave">blushPinkWave</string>
     <string name="register">Register</string>
     <string name="login">login</string>
+    <string name="have_account">Already Have an Account?</string>
+    <string name="need_account">Don\'t Have an Account?</string>
     />
 </resources>
