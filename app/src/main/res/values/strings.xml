@@ -3,14 +3,16 @@
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="credits">BoredBards Presents</string>
-    <string name="username">Username</string>
-    <string name="re_enter_password">Re-enter Password</string>
-    <string name="rustredwave">RustRedWave</string>
-    <string name="darkblushwave">DarkBlushWave</string>
-    <string name="blushpinkwave">blushPinkWave</string>
-    <string name="register">Register</string>
-    <string name="login">login</string>
-    <string name="have_account">Already Have an Account?</string>
-    <string name="need_account">Don\'t Have an Account?</string>
-    />
+    <string name="roll">Roll</string>
+    <string name="d4">d4</string>
+    <string name="d6">d6</string>
+    <string name="d8">d8</string>
+    <string name="d10">d10</string>
+    <string name="d12">d12</string>
+    <string name="d20">d20</string>
+    <string name="campaigns">Campaigns</string>
+    <string name="roller">Roller</string>
+    <string name="name_gen">Name Generator</string>
+    <string name="notes">Notes</string>
+    <string name="settings">Settings</string>
 </resources>

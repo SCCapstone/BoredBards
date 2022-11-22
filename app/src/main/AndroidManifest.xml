@@ -9,13 +9,14 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/launcher_icon_01"
+        android:icon="@mipmap/launcher_icon_03_var1"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/launcher_icon_01_round"
+        android:roundIcon="@mipmap/launcher_icon_03_var1_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bored_Bard"
-        tools:targetApi="31" >
-        <activity android:name=".UI_files.login_activity" />
+        tools:targetApi="31">
+
+        <activity android:name="com.example.bored_bard.dice_roller.DieRoller"/>
     </application>
 
 </manifest>

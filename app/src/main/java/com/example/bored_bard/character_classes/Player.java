@@ -7,8 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
-import equipment_classes.Equipment;
-import ability_classes.Ability;
+import com.example.bored_bard.equipment_classes.Equipment;
+import com.example.bored_bard.ability_classes.Ability;
 /**
  * @author Charles Simons - csimons637
  */
