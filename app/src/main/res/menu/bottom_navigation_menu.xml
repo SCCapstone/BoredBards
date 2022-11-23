@@ -10,11 +10,11 @@
         android:enabled="true"
         android:icon="@drawable/roller"
         android:title="@string/roller"/>
-    <item
-        android:id="@+id/name_generator"
-        android:enabled="true"
-        android:icon="@drawable/abc"
-        android:title="@string/name_gen"/>
+<!--    <item-->
+<!--        android:id="@+id/name_generator"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/abc"-->
+<!--        android:title="@string/name_gen"/>-->
     <item
         android:id="@+id/notes_page"
         android:enabled="true"
