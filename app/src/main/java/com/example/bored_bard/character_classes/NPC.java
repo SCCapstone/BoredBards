@@ -7,8 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
-import equipment_classes.Equipment;
-import ability_classes.Ability;
+import com.example.bored_bard.equipment_classes.*;
+import com.example.bored_bard.ability_classes.*;
 /**
  * @author Charles Simons - csimons637
  */
@@ -16,7 +16,7 @@ import ability_classes.Ability;
 public class NPC extends Character {
     private String type, name, charClass, race;
     protected ArrayList<Integer> attributes, modifiers;
-    protected ArrayList<Equipment> equipment; 
+    protected ArrayList<Equipment> equipment;
     protected ArrayList<Ability> abilities;
 
     /**
@@ -24,7 +24,7 @@ public class NPC extends Character {
      * @param type type of character (i.e. player, NPC, enemy, etc.)
      * @param name the character's name
      * @param charClass the character's class (ranger, wizard, rogue, fighter, etc.)
-     * @param race define what race the charcter will be (orc, human, elf, dragonic)
+     * @param race define what race the character will be (orc, human, elf, dragonic)
      */
     public NPC(String type, String name, String charClass, String race) {
         super(type, name, charClass, race);
