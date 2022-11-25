@@ -15,13 +15,22 @@
  */
 package com.example.bored_bard.dice_roller;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
+import com.example.bored_bard.campaign.CampaignsActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 // allows a user to roll a d20 for initiative
 // plan to add other dice values later
@@ -37,11 +46,37 @@ public class DieRoller extends AppCompatActivity {
 
     // sets number of side for the Die
     int numSides = D20;
+    // number of dice to roll
+    int numDice = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.die_roller);
+
+        // gets user's number of dice
+        EditText text = (EditText)findViewById(R.id.dice_count);
+        numSides = Integer.parseInt(text.getText().toString());
+
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
+        bottomNavView.setSelectedItemId(R.id.dice_page);
+        // bottom navigation bar to move between activities
+        bottomNavView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.campaigns_page:
+                    startActivity(new Intent(getApplicationContext(), CampaignsActivity.class));
+                    return true;
+                case R.id.dice_page:
+                    return true;
+                case R.id.notes_page:
+                    // start the notes activity here
+                    return true;
+                case R.id.settings_page:
+                    // start the settings activity here
+                    return true;
+            }
+            return false;
+        });
 
         Button rollerButton = findViewById(R.id.button);
         // buttons to change the type of die (i.e. numSides)
@@ -52,6 +87,9 @@ public class DieRoller extends AppCompatActivity {
         ImageButton d12 = findViewById(R.id.d12);
         ImageButton d20 = findViewById(R.id.d20);
 
+        // need to add edit text element here
+        // takes input for the number of dice to roll
+
         d4.setOnClickListener(v -> setNumSides(D4));
         d6.setOnClickListener(v -> setNumSides(D6));
         d8.setOnClickListener(v -> setNumSides(D8));
@@ -61,9 +99,10 @@ public class DieRoller extends AppCompatActivity {
 
         rollerButton.setOnClickListener(v -> rollDie(numSides));
 
-        rollDie(numSides);
+        rollDice(numSides, numDice);
     }
 
+    // sets the number of sides to use shen rolling
     private void setNumSides(int num) {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
@@ -87,84 +126,31 @@ public class DieRoller extends AppCompatActivity {
                 numSides = D20;
                 break;
         }
-        String dieMsg = "Rolling a D" + numSides;
+        String dieMsg = "Rolling " + numDice + "x D" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
     }
 
-    private void rollDie(int numSides) {
+    // called by rollDice any number of times specified by the user
+    private int rollDie(int numSides) {
         Die die = new Die(numSides);
-        int dieRoll = die.roll();
+        return die.roll();
+    }
 
+    // rolls any number of dice specified by the user
+    private void rollDice(int numSides, int numDice) {
         TextView dieResult = findViewById(R.id.result_window);
-        String result;
-        switch (dieRoll) {
-            case 2:
-                result = "2";
-                break;
-            case 3:
-                result = "3";
-                break;
-            case 4:
-                result = "4";
-                break;
-            case 5:
-                result = "5";
-                break;
-            case 6:
-                result = "6";
-                break;
-            case 7:
-                result = "7";
-                break;
-            case 8:
-                result = "8";
-                break;
-            case 9:
-                result = "9";
-                break;
-            case 10:
-                result = "10";
-                break;
-            case 11:
-                result = "11";
-                break;
-            case 12:
-                result = "12";
-                break;
-            case 13:
-                result = "13";
-                break;
-            case 14:
-                result = "14";
-                break;
-            case 15:
-                result = "15";
-                break;
-            case 16:
-                result = "16";
-                break;
-            case 17:
-                result = "17";
-                break;
-            case 18:
-                result = "18";
-                break;
-            case 19:
-                result = "19";
-                break;
-            case 20:
-                result = "20";
-                break;
-            default:
-                result = "1";
-                break;
-        }
 
+        int count = numDice;
+        int total = 0;
+        while (count != 0) {
+            total += rollDie(numSides);
+            count--;
+        }
         // update TextView with result
-        dieResult.setText(result);
+        dieResult.setText(String.valueOf(total));
 
         // update description
-        dieResult.setContentDescription(String.valueOf(dieRoll));
+        dieResult.setContentDescription(String.valueOf(total));
     }
 }
