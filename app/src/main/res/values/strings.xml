@@ -16,4 +16,6 @@
     <string name="notes">Notes</string>
     <string name="settings">Settings</string>
     <string name="num_dice"># of Dice</string>
+    <string name="edit_stats">Edit Stats</string>
+    <string name="combat">Begin Combat</string>
 </resources>
