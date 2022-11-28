@@ -10,9 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
 import android.view.View;
-/**
- * @author Caroline Barrineau
- */
 
 
 public class login_activity extends Activity {
