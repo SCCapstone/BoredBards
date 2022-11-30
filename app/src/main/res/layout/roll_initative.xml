@@ -78,10 +78,12 @@
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_margin="10dp"
         android:gravity="top"
+        android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/topDivider">
@@ -90,15 +92,58 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/blushPink"
             android:fontFamily="monospace"
             android:padding="10dp"
-
             android:text="Player 1"
             android:textAlignment="inherit" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/blushPink"
+            android:fontFamily="monospace"
+            android:padding="10dp"
+            android:text="Player 2"
+            android:textAlignment="inherit" />
 
     </LinearLayout>
 
+    <!--Edit Stats Button-->
+    <Button
+        android:id="@+id/editStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkblushPink"
+        android:text="@string/edit_stats"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toStartOf="@id/beginCombat"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="TextContrastCheck" />
+
+    <!--Begin Button, constraint to edit stats button-->
+    <Button
+        android:id="@+id/beginCombat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkblushPink"
+        android:padding="10dp"
+        android:text="@string/edit_stats"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_footer"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+
+        app:layout_constraintStart_toEndOf="@+id/editStats"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
