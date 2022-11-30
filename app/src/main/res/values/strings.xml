@@ -18,4 +18,12 @@
     <string name="num_dice"># of Dice</string>
     <string name="edit_stats">Edit Stats</string>
     <string name="combat">Begin Combat</string>
+    <string name="blushpinkwave">Blush Pink Wave</string>
+    <string name="darkblushwave">Dark Blush Wave</string>
+    <string name="rustredwave">Rust Red Wave</string>
+    <string name="login">Login</string>
+    <string name="need_account">Need Account</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="register">Register</string>
+    <string name="have_account">Already Have Account?</string>
 </resources>
