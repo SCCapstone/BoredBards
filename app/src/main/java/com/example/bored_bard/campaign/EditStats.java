@@ -1,5 +1,7 @@
 package com.example.bored_bard.campaign;
 
-public class EditStats {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class EditStats extends AppCompatActivity {
 
 }
