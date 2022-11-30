@@ -7,14 +7,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
-import equipment_classes.Equipment;
-import ability_classes.Ability;
+import com.example.bored_bard.equipment_classes.Equipment;
+import com.example.bored_bard.ability_classes.Ability;
 /**
  * @author Charles Simons - csimons637
  */
 
 public abstract class Character {
-    private String type, name, charClass, race;
     protected ArrayList<Integer> attributes, modifiers;
     protected ArrayList<Equipment> equipment; 
     protected ArrayList<Ability> abilities;
@@ -27,14 +26,10 @@ public abstract class Character {
      * @param race define what race the charcter will be (orc, human, elf, dragonic)
      */
     public Character(String type, String name, String charClass, String race) {
-        this.type = type;
-        this.name = name;
-        this.charClass = charClass;
-        this.race = race;
-        this.attributes = new ArrayList<Integer>();
-        this.modifiers = new ArrayList<Integer>();
-        this.equipment = new ArrayList<Equipment>();
-        this.abilities = new ArrayList<Ability>();
+        this.attributes = new ArrayList<>();
+        this.modifiers = new ArrayList<>();
+        this.equipment = new ArrayList<>();
+        this.abilities = new ArrayList<>();
     }
 
     /**
