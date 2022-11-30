@@ -1,5 +1,7 @@
 package com.example.bored_bard.campaign;
 
-public class CombatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CombatActivity extends AppCompatActivity {
 
 }
