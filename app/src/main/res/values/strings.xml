@@ -40,4 +40,5 @@
     <string name="default_pyr1_stats">Player 1 Stats</string>
     <string name="default_plyr2_name">Player 2 Name</string>
     <string name="default_pyr2_stats">Player 2 Stats</string>
+    <string name="enter_combat_rolls">Enter Combat Rolls</string>
 </resources>

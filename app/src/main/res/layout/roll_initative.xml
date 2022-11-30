@@ -53,15 +53,52 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewer"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        app:layout_constraintTop_toBottomOf="@id/guideline_header"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintRight_toLeftOf="@id/guideline_right"
-        app:layout_constraintLeft_toRightOf="@id/guideline_left"
+    <!-- Title "Enter Combat Rolls" -->
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:text="@string/enter_combat_rolls"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
 
-        />
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider">
+
+        <!-- Players -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blushPink"
+            android:fontFamily="monospace"
+            android:padding="10dp"
+
+            android:text="Player 1"
+            android:textAlignment="inherit" />
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
