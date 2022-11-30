@@ -26,4 +26,9 @@
     <string name="re_enter_password">Re-enter Password</string>
     <string name="register">Register</string>
     <string name="have_account">Already Have Account?</string>
+    <string name="poc_default">Campaign 1</string>
+    <string name="default_plyr1_name">Player 1 Name</string>
+    <string name="default_pyr1_stats">Player 1 Stats</string>
+    <string name="default_plyr2_name">Player 2 Name</string>
+    <string name="default_pyr2_stats">Player 2 Stats</string>
 </resources>
