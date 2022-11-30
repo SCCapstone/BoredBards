@@ -1,3 +1,6 @@
+/**
+ * @author Charles Simons - csimons637
+ */
 package com.example.bored_bard.campaign;
 
 import android.content.Intent;

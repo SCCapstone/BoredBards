@@ -1,3 +1,6 @@
+/**
+ * @author Charles Simons - csimons637
+ */
 /*
  * Copyright (C) 2022 The Android Open Source Project
  *
@@ -17,7 +20,6 @@ package com.example.bored_bard.dice_roller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
