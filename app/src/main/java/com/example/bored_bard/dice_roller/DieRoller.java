@@ -55,7 +55,7 @@ public class DieRoller extends AppCompatActivity {
         setContentView(R.layout.die_roller);
 
         // gets user's number of dice
-        EditText text = (EditText)findViewById(R.id.dice_count);
+        EditText text = findViewById(R.id.dice_count);
         numSides = Integer.parseInt(text.getText().toString());
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
@@ -104,7 +104,8 @@ public class DieRoller extends AppCompatActivity {
 
         rollerButton.setOnClickListener(v -> rollDie(numSides));
 
-        rollDice(numSides, numDice);
+        rollDie(numSides);
+//        rollDice(numSides, numDice);
     }
 
     // sets the number of sides to use shen rolling
@@ -137,25 +138,25 @@ public class DieRoller extends AppCompatActivity {
     }
 
     // called by rollDice any number of times specified by the user
-    private int rollDie(int numSides) {
+    private void rollDie(int numSides) {
         Die die = new Die(numSides);
-        return die.roll();
+//        return die.roll();
     }
 
-    // rolls any number of dice specified by the user
-    private void rollDice(int numSides, int numDice) {
-        TextView dieResult = findViewById(R.id.result_window);
-
-        int count = numDice;
-        int total = 0;
-        while (count != 0) {
-            total += rollDie(numSides);
-            count--;
-        }
-        // update TextView with result
-        dieResult.setText(String.valueOf(total));
-
-        // update description
-        dieResult.setContentDescription(String.valueOf(total));
-    }
+//    // rolls any number of dice specified by the user
+//    private void rollDice(int numSides, int numDice) {
+//        TextView dieResult = findViewById(R.id.result_window);
+//
+//        int count = numDice;
+//        int total = 0;
+//        while (count != 0) {
+//            total += rollDie(numSides);
+//            count--;
+//        }
+//        // update TextView with result
+//        dieResult.setText(String.valueOf(total));
+//
+//        // update description
+//        dieResult.setContentDescription(String.valueOf(total));
+//    }
 }
