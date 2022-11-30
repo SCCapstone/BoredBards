@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/launcher_icon_03_var1"
+        android:icon="@mipmap/launcher_icon_03_var2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/launcher_icon_03_var1_round"
+        android:roundIcon="@mipmap/launcher_icon_03_var2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bored_Bard"
         tools:targetApi="31">
@@ -20,8 +20,9 @@
             android:name=".dice_roller.DieRoller"
             android:exported="true">
             <intent-filter>
+                <!--Currently Crashes App when accessed; suspect a Java issue-->
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
@@ -39,7 +40,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
