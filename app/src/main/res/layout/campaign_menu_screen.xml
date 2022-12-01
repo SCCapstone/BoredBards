@@ -90,5 +90,91 @@
         app:srcCompat="@drawable/wave"
         android:contentDescription="@string/rustredwave" />
 
+    <!-- Title "Curse of Strahd" -->
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:text="@string/curse_of_strahd"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
 
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/topDivider" >
+
+        <!-- go to Notes -->
+        <Button
+            android:id="@+id/Notes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:backgroundTint="@color/darkblushPink"
+            android:text="@string/notes"
+            android:textAlignment="center"/>
+
+        <!-- go to creatable NPCs -->
+        <Button
+            android:id="@+id/NPC"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:backgroundTint="@color/darkblushPink"
+            android:text="@string/npc"
+            android:textAlignment="center"/>
+
+        <!-- go to Enemies and monsters -->
+        <Button
+            android:id="@+id/EandM"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:backgroundTint="@color/darkblushPink"
+            android:text="@string/enemies_and_monsters"
+            android:textAlignment="center"/>
+
+        <!-- go to maps -->
+        <Button
+            android:id="@+id/maps"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:backgroundTint="@color/darkblushPink"
+            android:text="@string/maps"
+            android:textAlignment="center"/>
+
+        <!-- go to player stats -->
+        <Button
+            android:id="@+id/playerStats"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:backgroundTint="@color/darkblushPink"
+            android:text="@string/player_stats"
+            android:textAlignment="center"/>
+
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
