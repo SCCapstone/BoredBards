@@ -17,7 +17,7 @@ public class initiative_activity extends Activity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.roll_initative);
+        setContentView(R.layout.edit_combat_screen);
         beginCombat = (Button)findViewById(R.id.beginCombat);
         editStats = (Button)findViewById(R.id.editStats);
         // P1Roll = (EditText)findViewById(R.id.P1Roll);

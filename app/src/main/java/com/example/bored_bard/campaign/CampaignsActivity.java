@@ -1,16 +1,15 @@
 /**
  * @author Charles Simons - csimons637
  */
+/*
+
 package com.example.bored_bard.campaign;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
@@ -20,7 +19,7 @@ public class CampaignsActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.campaign_layout);
+        setContentView(R.layout.combat_screen.xml);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -54,3 +53,4 @@ public class CampaignsActivity extends AppCompatActivity {
         editStats.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EditStats.class)));
     }
 }
+*/

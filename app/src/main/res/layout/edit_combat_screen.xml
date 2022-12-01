@@ -137,7 +137,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/blushPink"
-            android:fontFamily="monospace"
             android:padding="10dp"
             android:text="@string/default_plyr1_name"
             android:textAlignment="inherit" />
@@ -148,7 +147,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/blushPink"
-            android:fontFamily="monospace"
             android:padding="10dp"
             android:text="@string/default_plyr2_name"
             android:textAlignment="inherit" />
@@ -159,7 +157,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/blushPink"
-            android:fontFamily="monospace"
             android:padding="10dp"
             android:text="Monster 1"
             android:textAlignment="inherit" />
