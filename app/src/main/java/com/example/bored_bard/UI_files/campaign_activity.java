@@ -49,8 +49,8 @@ public class campaign_activity extends Activity {
         Button campaign2 = (Button) findViewById(R.id.campaign2);
         Button campaign3 = (Button) findViewById(R.id.campaign3);
 
-        campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
-        campaign2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
-        campaign3.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
+        campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
+//        campaign2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
+//        campaign3.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
     }
 }

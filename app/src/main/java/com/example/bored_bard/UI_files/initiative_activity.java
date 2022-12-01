@@ -1,6 +1,7 @@
 package com.example.bored_bard.UI_files;
 import com.example.bored_bard.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
@@ -23,19 +24,19 @@ public class initiative_activity extends Activity{
         // P2Roll = (EditText)findViewById(R.id.P2Roll);
         // Monster1 = (EditText)findViewById(R.id.P3Roll);
 
-        beginCombat.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                // verify that all information needed is inputted
-                // save inputted info
-                // proceed to combat screen
-            }
-        });
-        editStats.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                // send message that changes will not be saved
-                // proceed to edit Player Stats page
-            }
-        });
+        beginCombat.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
+//            public void onClick(View view) {
+//                // verify that all information needed is inputted
+//                // save inputted info
+//                // proceed to combat screen
+//            }
+//        });
+        editStats.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), edit_stats_activity.class)));
+//            public void onClick(View view) {
+//                // send message that changes will not be saved
+//                // proceed to edit Player Stats page
+//            }
+//        });
     }
 
 
