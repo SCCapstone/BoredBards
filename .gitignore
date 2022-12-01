@@ -6,4 +6,4 @@ cache.properties.lock
 *.iws
 .gradle/
 **/.gradle/
-.properties
+local.properties
