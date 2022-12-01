@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- @author Caroline Barrineau -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UI_files.campaign_menu_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -50,7 +52,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <!-- DON'T MESS WITH CONSTRAINT BOTTOM TO TOP OF, adjust footer instead -->
+    <!-- DON'T MESS WITH CONSTRAINT BOTTOM_TO_TOP_OF, adjust footer instead -->
     <!-- Background: BlushPinkWave-->
     <ImageView
         android:id="@+id/LightestWave"
