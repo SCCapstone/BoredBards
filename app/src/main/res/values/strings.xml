@@ -43,4 +43,8 @@
     <string name="enemies_and_monsters">Enemies and Monsters</string>
     <string name="npc">NPC</string>
     <string name="curse_of_strahd">Curse of Strahd</string>
+    <string name="report_an_issue">Report an Issue</string>
+    <string name="offline_data">Offline Data</string>
+    <string name="logout">Logout</string>
+    <string name="about_us">About Us</string>
 </resources>

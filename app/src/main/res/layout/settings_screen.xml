@@ -131,8 +131,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:padding="15dp"
-            android:text="Report an Issue"
-            android:textSize="15dp" />
+            android:text="@string/report_an_issue"
+            android:textSize="15sp" />
         <View
             android:id="@+id/div1"
             android:layout_width="200dp"
@@ -145,8 +145,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:padding="15dp"
-            android:text="Offline Data"
-            android:textSize="15dp" />
+            android:text="@string/offline_data"
+            android:textSize="15sp" />
         <View
             android:id="@+id/div3"
             android:layout_width="200dp"
@@ -159,8 +159,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:padding="15dp"
-            android:text="Logout"
-            android:textSize="15dp" />
+            android:text="@string/logout"
+            android:textSize="15sp" />
         <View
             android:id="@+id/div2"
             android:layout_width="200dp"
@@ -172,8 +172,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:padding="15dp"
-            android:text="About Us"
-            android:textSize="15dp" />
+            android:text="@string/about_us"
+            android:textSize="15sp" />
         <View
             android:id="@+id/div4"
             android:layout_width="200dp"

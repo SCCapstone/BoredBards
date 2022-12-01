@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".UI_files.campaign_menu_activity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/GreyWhite">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
