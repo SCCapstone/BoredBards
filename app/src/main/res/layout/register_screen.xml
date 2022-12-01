@@ -54,7 +54,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave3"
-        android:contentDescription="*@string/blushpinkwave" />
+        android:contentDescription="@string/blushpinkwave" />
 
     <!-- Background: BlushPinkWave-->
     <ImageView
@@ -67,7 +67,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave2"
-        android:contentDescription="*@string/darkblushwave" />
+        android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
     <ImageView
@@ -78,7 +78,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/wave"
-        android:contentDescription="*@string/rustredwave" />
+        android:contentDescription="@string/rustredwave" />
 
     <!-- Email Address -->
     <EditText
@@ -115,7 +115,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="4dp"
         android:autofillHints="@string/password"
-        android:hint="*@string/re_enter_password"
+        android:hint="@string/re_enter_password"
         android:inputType="textPassword"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
