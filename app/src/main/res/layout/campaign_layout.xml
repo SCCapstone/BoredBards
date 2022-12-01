@@ -8,115 +8,108 @@
     android:background="@color/GreyWhite"
     tools:context=".campaign.CampaignsActivity">
 
-    <Button
-        android:id="@+id/editStats"
-        android:layout_width="129dp"
-        android:layout_height="62dp"
-        android:backgroundTint="@color/darkblushPink"
-        android:text="@string/edit_stats"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/combat"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89"
-        tools:ignore="TextContrastCheck" />
-
+    <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation_menu" />
 
+    <!--This will be the center margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <!--This will be the left margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!--This will be the right margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="50dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
+
+    <!-- Title "Combat" -->
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:text="@string/combat"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+
+    <!--Edit Stats Button-->
     <Button
-        android:id="@+id/combat"
-        android:layout_width="129dp"
-        android:layout_height="62dp"
+        android:id="@+id/editStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/darkblushPink"
-        android:text="@string/roll_initiative"
-        android:textColor="@color/black"
+        android:text="@string/edit_stats"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toEndOf="@+id/editStats"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89"
+        android:padding="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toStartOf="@id/beginCombat"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+
         tools:ignore="TextContrastCheck" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="369dp"
-        android:layout_height="47dp"
-        android:text="@string/poc_default"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+    <!--Begin Button, constraint to edit stats button-->
+    <Button
+        android:id="@+id/beginCombat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkblushPink"
+        android:padding="10dp"
+        android:text="@string/combat"
+        android:textSize="16sp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toEndOf="@+id/editStats"
+        tools:ignore="TextContrastCheck" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341">
-
-        <TextView
-            android:id="@+id/plyr_"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:text="@string/default_plyr1_name"
-            android:textAlignment="gravity"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:gravity="center_vertical"
-            android:text="@string/default_pyr1_stats"
-            android:textAlignment="gravity"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/plyr_1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/default_plyr2_name"
-            android:gravity="center_vertical"
-            android:textAlignment="gravity"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:text="@string/default_pyr2_stats"
-            android:gravity="center_vertical"
-            android:textAlignment="gravity"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
