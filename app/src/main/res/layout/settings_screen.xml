@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--@author Caroline Barrineau -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GreyWhite">
+
+    <!-- Nav Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <!--This will be the left margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!--This will be the right margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="40dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!-- DON'T MESS WITH CONSTRAINT BOTTOM TO TOP OF, adjust footer instead -->
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/LightestWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave3"
+        android:contentDescription="@string/blushpinkwave" />
+
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/DarkBlushWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="2.5dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave2"
+        android:contentDescription="@string/darkblushwave" />
+
+    <!-- Background: RustRedWave-->
+    <ImageView
+        android:id="@+id/RustRedWave"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave"
+        android:contentDescription="@string/rustredwave" />
+
+    <!-- Title "Settings" -->
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:text="@string/settings"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
+
+    <!-- list of settings -->
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <TextView
+            android:id="@+id/reportIssue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:text="Report an Issue"
+            android:textSize="15dp" />
+        <View
+            android:id="@+id/div1"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/darkblushPink"/>
+
+        <TextView
+            android:id="@+id/offlineData"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:text="Offline Data"
+            android:textSize="15dp" />
+        <View
+            android:id="@+id/div3"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/darkblushPink"/>
+
+        <TextView
+            android:id="@+id/toLogout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:text="Logout"
+            android:textSize="15dp" />
+        <View
+            android:id="@+id/div2"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/darkblushPink"/>
+        <TextView
+            android:id="@+id/aboutUs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:text="About Us"
+            android:textSize="15dp" />
+        <View
+            android:id="@+id/div4"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/darkblushPink"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
