@@ -3,10 +3,6 @@ import com.example.bored_bard.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.content.Intent;
 import android.view.View;
 /**
  * @author Caroline Barrineau
