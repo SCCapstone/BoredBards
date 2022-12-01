@@ -20,14 +20,13 @@
             android:name=".dice_roller.DieRoller"
             android:exported="true">
             <intent-filter>
-                <!--Currently Crashes App when accessed; suspect a Java issue-->
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
-            android:name="com.example.bored_bard.UI_files.campaign_activity"
+            android:name=".UI_files.campaign_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -37,6 +36,15 @@
 
         <activity
             android:name=".UI_files.combat_activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".UI_files.campaign_menu_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -79,7 +87,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
