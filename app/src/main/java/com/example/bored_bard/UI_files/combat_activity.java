@@ -7,5 +7,10 @@ import android.view.View;
 /**
  * @author Caroline Barrineau
  */
-public class combat_activity extends Activity{
+public class combat_activity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.combat_screen);
+    }
 }

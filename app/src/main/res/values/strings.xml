@@ -34,4 +34,8 @@
     <string name="default_pyr2_stats">Player 2 Stats</string>
     <string name="enter_combat_rolls">Enter Combat Rolls</string>
     <string name="roll_initiative">Roll Initiative</string>
+    <string name="strahd">Curse of Strahd</string>
+    <string name="abyss">Out of the Abyss</string>
+    <string name="tomb">Tomb of Annihilation</string>
+    <string name="your_campaigns">Your Campaigns:</string>
 </resources>

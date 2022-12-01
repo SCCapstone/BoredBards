@@ -8,8 +8,6 @@ import android.view.View;
  * @author Caroline Barrineau
  */
 public class initiative_activity extends Activity{
-    //UI references
-    private Button beginCombat, editStats;
     // private EditText P1Roll, P2Roll, Monster1;
 
     //values for user inputs
@@ -18,8 +16,9 @@ public class initiative_activity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_combat_screen);
-        beginCombat = (Button)findViewById(R.id.beginCombat);
-        editStats = (Button)findViewById(R.id.editStats);
+        //UI references
+        Button beginCombat = (Button) findViewById(R.id.beginCombat);
+        Button editStats = (Button) findViewById(R.id.editStats);
         // P1Roll = (EditText)findViewById(R.id.P1Roll);
         // P2Roll = (EditText)findViewById(R.id.P2Roll);
         // Monster1 = (EditText)findViewById(R.id.P3Roll);

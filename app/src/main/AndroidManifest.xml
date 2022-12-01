@@ -27,7 +27,7 @@
         </activity>
 
         <activity
-            android:name=".campaign.CampaignsActivity"
+            android:name="com.example.bored_bard.UI_files.campaign_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -35,9 +35,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".UI_files.combat_activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+            android:resource="@array/com_google_android_gms_fonts_certs_prod" />
     </application>
 
 </manifest>

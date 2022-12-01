@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
+    tools:context=".UI_files.campaign_activity"
     >
 
     <!-- Nav Bar -->
@@ -150,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Your Campaigns:"
+            android:text="@string/your_campaigns"
             android:padding="5dp"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -158,33 +159,33 @@
 
         <!-- Do not add the names of the campaigns to strings -->
         <Button
-            android:id="@+id/campagin1"
+            android:id="@+id/campaign1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="Curse of Strahd"
+            android:text="@string/strahd"
             android:textAlignment="center" />
         <!-- Do not add the names of the campaigns to strings -->
         <Button
-            android:id="@+id/campagin2"
+            android:id="@+id/campaign2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="Out of the Abyss"
+            android:text="@string/abyss"
             android:textAlignment="center" />
         <!-- Do not add the names of the campaigns to strings -->
         <Button
-            android:id="@+id/campagin3"
+            android:id="@+id/campaign3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="Tomb of Annihilation"
+            android:text="@string/tomb"
             android:textAlignment="center" />
 
 

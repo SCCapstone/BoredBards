@@ -29,7 +29,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
-import com.example.bored_bard.campaign.CampaignsActivity;
+import com.example.bored_bard.UI_files.campaign_activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -57,8 +57,8 @@ public class DieRoller extends AppCompatActivity {
         setContentView(R.layout.die_roller);
 
         // gets user's number of dice
-        EditText text = findViewById(R.id.dice_count);
-        numSides = Integer.parseInt(text.getText().toString());
+//        EditText text = findViewById(R.id.dice_count);
+//        numSides = Integer.parseInt(text.getText().toString());
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.dice_page);
@@ -66,7 +66,7 @@ public class DieRoller extends AppCompatActivity {
         bottomNavView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
-                    startActivity(new Intent(getApplicationContext(), CampaignsActivity.class));
+                    startActivity(new Intent(getApplicationContext(), campaign_activity.class));
                     bottomNavView.setSelectedItemId(R.id.campaigns_page);
                     return true;
                 case R.id.dice_page:
@@ -134,15 +134,20 @@ public class DieRoller extends AppCompatActivity {
                 numSides = D20;
                 break;
         }
-        String dieMsg = "Rolling " + numDice + "x D" + numSides;
+//        String dieMsg = "Rolling " + numDice + "x D" + numSides;
+        String dieMsg = "Rolling a D" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
     }
 
     // called by rollDice any number of times specified by the user
     private void rollDie(int numSides) {
+        TextView dieResult = findViewById(R.id.result_window);
+
         Die die = new Die(numSides);
-//        return die.roll();
+        int result = die.roll();
+        dieResult.setText(String.valueOf(result));
+        dieResult.setContentDescription(String.valueOf(result));
     }
 
 //    // rolls any number of dice specified by the user
