@@ -191,8 +191,8 @@
             android:textSize="20sp"
             android:text="@string/tomb"
             android:textAlignment="center" />
-
-
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
