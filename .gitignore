@@ -1,0 +1,9 @@
+# Android Studio
+.idea
+build/
+cache.properties.lock
+.idea/workspace.xml
+*.iws
+.gradle/
+**/.gradle/
+.properties
