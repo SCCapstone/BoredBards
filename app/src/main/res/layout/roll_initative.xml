@@ -5,6 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="UI_files.initiative_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite">
@@ -116,6 +117,8 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
+    <!-- User Input areas -->
+
     <LinearLayout
         android:id="@+id/namesLL"
         android:layout_width="350dp"
@@ -127,9 +130,9 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/topDivider">
 
-        <!-- Players -->
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/Player1"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -204,7 +207,6 @@
             />
     </LinearLayout>
 
-
     <!--Edit Stats Button-->
     <Button
         android:id="@+id/editStats"
@@ -239,3 +241,4 @@
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!-- citing GeeksforGeeks, StackOverflow, https://guides.codepath.com/android/Working-with-the-EditText -->
