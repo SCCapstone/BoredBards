@@ -3,6 +3,15 @@
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="credits">BoredBards Presents</string>
+    <string name="username">Username</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="rustredwave">RustRedWave</string>
+    <string name="darkblushwave">DarkBlushWave</string>
+    <string name="blushpinkwave">blushPinkWave</string>
+    <string name="register">Register</string>
+    <string name="login">login</string>
+    <string name="have_account">Already Have an Account?</string>
+    <string name="need_account">Don\'t Have an Account?</string>
     <string name="roll">Roll</string>
     <string name="d4">d4</string>
     <string name="d6">d6</string>
@@ -16,4 +25,17 @@
     <string name="notes">Notes</string>
     <string name="settings">Settings</string>
     <string name="num_dice"># of Dice</string>
+    <string name="edit_stats">Edit Stats</string>
+    <string name="combat">Begin Combat</string>
+    <string name="poc_default">Campaign 1</string>
+    <string name="default_plyr1_name">Player 1 Name</string>
+    <string name="default_pyr1_stats">Player 1 Stats</string>
+    <string name="default_plyr2_name">Player 2 Name</string>
+    <string name="default_pyr2_stats">Player 2 Stats</string>
+    <string name="enter_combat_rolls">Enter Combat Rolls</string>
+    <string name="roll_initiative">Roll Initiative</string>
+    <string name="strahd">Curse of Strahd</string>
+    <string name="abyss">Out of the Abyss</string>
+    <string name="tomb">Tomb of Annihilation</string>
+    <string name="your_campaigns">Your Campaigns:</string>
 </resources>
