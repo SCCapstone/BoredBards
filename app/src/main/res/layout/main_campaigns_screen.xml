@@ -101,6 +101,7 @@
         android:fontFamily="serif-monospace"
         android:padding="16dp"
         android:text="@string/credits"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -114,6 +115,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/app_name"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -127,6 +129,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/username"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -155,6 +158,7 @@
             android:padding="5dp"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:textAlignment="inherit"/>
 
         <!-- Do not add the names of the campaigns to strings -->
