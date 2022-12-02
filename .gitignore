@@ -7,3 +7,4 @@ cache.properties.lock
 .gradle/
 **/.gradle/
 local.properties
+gradle/
