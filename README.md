@@ -1,6 +1,6 @@
 # BoredBards Capstone Project Repository
 
-This is the repository for our Android app, _The DM's Grimoire_, for DMs/GMs of the tabletop role-playing game _Dungeons and Dragons_. It features a section for the DM's campaign(s) and notes for each. The application also has databases of items, spells, monsters, etc. for the DM to use in constructing and running their games. For a more detailed description of the application and its capabilities, check the repository's wiki page [here](https://github.com/SCCapstone/BoredBards/wiki).
+This is the repository for our Android app for DMs/GMs of the tabletop role-playing game _Dungeons and Dragons_. It features a section for the DM's campaign(s) and notes for each. The application also has databases of items, spells, monsters, etc. for the DM to use in constructing and running their games. For a more detailed description of the application and its capabilities, check the repository's wiki page [here](https://github.com/SCCapstone/BoredBards/wiki).
 
 ## Style Guide
 This application follows [Google's Style Guide for Java](https://google.github.io/styleguide/javaguide.html)

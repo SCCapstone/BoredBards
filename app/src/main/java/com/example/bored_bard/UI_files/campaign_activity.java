@@ -26,17 +26,19 @@ public class campaign_activity extends Activity {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
                     startActivity(new Intent(getApplicationContext(), campaign_activity.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavView.setSelectedItemId(R.id.campaigns_page);
                     return true;
                 case R.id.dice_page:
                     startActivity(new Intent(getApplicationContext(), DieRoller.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavView.setSelectedItemId(R.id.dice_page);
                     return true;
                 case R.id.notes_page:
                     // start the notes activity here
+                    bottomNavView.setSelectedItemId(R.id.notes_page);
                     return true;
                 case R.id.settings_page:
                     // start the settings activity here
+                    bottomNavView.setSelectedItemId(R.id.settings_page);
                     return true;
             }
             return false;

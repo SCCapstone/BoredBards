@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "785284946720",
-    "project_id": "bored-bards-backend",
-    "storage_bucket": "bored-bards-backend.appspot.com"
+    "project_number": "178386191392",
+    "project_id": "capstoneapplogin",
+    "storage_bucket": "capstoneapplogin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:785284946720:android:04cd473bcf9d37cc19d545",
+        "mobilesdk_app_id": "1:178386191392:android:a619907e9292d4f0826845",
         "android_client_info": {
           "package_name": "com.example.bored_bard"
         }
       },
       "oauth_client": [
         {
-          "client_id": "785284946720-mgf7hnv9mtr14fs9opmg0djktqs3u1al.apps.googleusercontent.com",
+          "client_id": "178386191392-um32gvfra9151ctd09u4b8oerklqie4b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJ5ZTcMqwC-9SLdNNNBckDMl1B2JEX08M"
+          "current_key": "AIzaSyBVbBZ3A85x3Df-UCRKzi6Zlr_nf5oydCo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "785284946720-mgf7hnv9mtr14fs9opmg0djktqs3u1al.apps.googleusercontent.com",
+              "client_id": "178386191392-um32gvfra9151ctd09u4b8oerklqie4b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
