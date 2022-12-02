@@ -1,6 +1,7 @@
 package com.example.bored_bard.UI_files;
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.app.Activity;
@@ -34,7 +35,8 @@ public class edit_stats_activity extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.notes_page:
-                    // start the notes activity here
+                    startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.settings_page:
                     // start the settings activity here

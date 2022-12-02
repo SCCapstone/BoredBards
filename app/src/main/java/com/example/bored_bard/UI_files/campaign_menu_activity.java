@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class campaign_menu_activity extends AppCompatActivity {
@@ -31,7 +32,8 @@ public class campaign_menu_activity extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.notes_page:
-                    // start the notes activity here
+                    startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.settings_page:
                     // start the settings activity here

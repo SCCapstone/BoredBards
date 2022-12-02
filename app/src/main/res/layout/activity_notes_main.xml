@@ -8,6 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".notes.NotesMainActivity">
 
+    <!--Nav Bar-->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,10 +38,10 @@
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNoteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Note"
-        android:id="@+id/addNoteButton"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_above="@+id/bottom_nav"
+        android:layout_marginBottom="14dp"
+        android:text="Add Note" />
 </RelativeLayout>
