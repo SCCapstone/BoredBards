@@ -14,7 +14,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
-public class campaign_activity extends Activity {
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class campaign_activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
