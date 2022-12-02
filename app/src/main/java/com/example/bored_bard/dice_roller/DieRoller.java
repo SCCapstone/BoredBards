@@ -67,17 +67,19 @@ public class DieRoller extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
                     startActivity(new Intent(getApplicationContext(), campaign_activity.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavView.setSelectedItemId(R.id.campaigns_page);
                     return true;
                 case R.id.dice_page:
                     startActivity(new Intent(getApplicationContext(), DieRoller.class));
-                    overridePendingTransition(0, 0);
+                    bottomNavView.setSelectedItemId(R.id.dice_page);
                     return true;
                 case R.id.notes_page:
                     // start the notes activity here
+                    bottomNavView.setSelectedItemId(R.id.notes_page);
                     return true;
                 case R.id.settings_page:
                     // start the settings activity here
+                    bottomNavView.setSelectedItemId(R.id.settings_page);
                     return true;
             }
             return false;
@@ -112,9 +114,6 @@ public class DieRoller extends AppCompatActivity {
     private void setNumSides(int num) {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
-        String dieMsg = "Rolling a D" + numSides;
-        dieType.setText(dieMsg);
-        dieType.setContentDescription(String.valueOf(numSides));
         switch (num) {
             case D4:
                 numSides = D4;
@@ -136,7 +135,7 @@ public class DieRoller extends AppCompatActivity {
                 break;
         }
 //        String dieMsg = "Rolling " + numDice + "x D" + numSides;
-        dieMsg = "Rolling a D" + numSides;
+        String dieMsg = "Rolling a D" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
     }
@@ -144,6 +143,7 @@ public class DieRoller extends AppCompatActivity {
     // called by rollDice any number of times specified by the user
     private void rollDie(int numSides) {
         TextView dieResult = findViewById(R.id.result_window);
+
         Die die = new Die(numSides);
         int result = die.roll();
         dieResult.setText(String.valueOf(result));
