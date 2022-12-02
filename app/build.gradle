@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    //Compatability Dependencies 
+    //Compatability Dependencies
     implementation 'androidx.appcompat:appcompat:1.5.1' //Appcompat library, used for APIs (Material Components)
 
     //UI Design Dependencies
