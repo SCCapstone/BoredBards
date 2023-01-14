@@ -45,7 +45,11 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 ## Deploying the Application
 > To deploy the application, follow the relevant instructions listed at [this](https://developer.android.com/studio/publish) website. In short, you need to remove any calls to **_Log_** and the **_android:debuggable_** attribute from the manifest file. With Gradle, you can use the **_release_** build type to set build settings for the published version of the application
 
-## Testing (To Be Added Later)
+## Testing
+### Test Location
+
+### Running Tests
+
 
 ## Repository and Code Authored by: 
 Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
