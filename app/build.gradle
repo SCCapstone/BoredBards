@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.bored_bard'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.bored_bard"
         minSdk 25
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -31,19 +31,22 @@ android {
 }
 
 dependencies {
-    //Compatability Dependencies
-    implementation 'androidx.appcompat:appcompat:1.5.1' //Appcompat library, used for APIs (Material Components)
+    //Compatibility Dependencies
+    implementation 'androidx.appcompat:appcompat:1.6.0' //Appcompat library, used for APIs (Material Components)
 
     //UI Design Dependencies
-    implementation 'com.google.android.material:material:1.7.0' //Material Component's library
+    implementation 'com.google.android.material:material:1.8.0' //Material Component's library
 
     //Firebase Dependencies
     implementation platform('com.google.firebase:firebase-bom:31.1.0') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
     implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
 
+    // UI Testing Dependencies
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+
     //Unit Test Dependencies
     testImplementation 'junit:junit:4.13.2' //JUnit test library
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4' //JUnit library
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0' //Espresso UI unit test library
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5' //JUnit library
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' //Espresso UI unit test library
 }
