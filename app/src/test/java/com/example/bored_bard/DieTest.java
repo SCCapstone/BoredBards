@@ -1,6 +1,8 @@
-package com.example.bored_bard.dice_roller;
+package com.example.bored_bard;
 
 import static org.junit.Assert.*;
+
+import com.example.bored_bard.dice_roller.Die;
 
 import org.junit.After;
 import org.junit.Before;

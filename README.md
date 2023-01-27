@@ -47,12 +47,14 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 ## Testing
 ### Test Location
-* Tests are located in the directory labeled: *_app/src/test/java/com/example/bored_bard_*
+* Unit tests are located in the directory labeled: *_app/src/test/java/com/example/bored_bard_*
+* Instrumentation tests are located in the directory labeled: *_app/src/androidTest/java/com/example/bored_bard_*
 
 ### Running Tests
 > These instructions assume that testing is being done within the Android Studio IDE (for other testing instructions, see the official Android Documentation [here](https://developer.android.com/training/testing/fundamentals))
 * To run any one of the test methods, right-click the method or class and select the "Run <test name>" option in the menu
-* To run all test methods, right-click the *_app/src/test/java/com/example/bored_bard_* directory and select the "Run tests in <directory name>" option in the menu
+* To run all test methods, right-click the *_app/src/androidTest/java/com/example/bored_bard_* directory and select the "Run tests in <directory name>" option in the menu
+* Alternatively, you can run a test by selecting it from the menu next to the "Build" button and then clicking "Run"
 
 ## Repository and Code Authored by: 
 Jake Powers, Caroline Barrineau, Charles Simons, Andrew MacMurray
