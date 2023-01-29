@@ -40,7 +40,8 @@ dependencies {
     //Firebase Dependencies
     implementation platform('com.google.firebase:firebase-bom:31.1.0') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
-    implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'junit:junit:4.13.2'//Firebase Firestore(database) library
 
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
