@@ -16,4 +16,8 @@ public class Die {
         // adding 1 expands the range to be inclusive of numSides
         return rand.nextInt(numSides) + 1;
     }
+
+    public int getNumSides() {
+        return this.numSides;
+    }
 }
