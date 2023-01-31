@@ -23,11 +23,37 @@ public class UIforCampaignAcitivityTesting {
             new ActivityScenarioRule<campaign_menu_activity>(campaign_menu_activity.class);
 
     @Test
-    public void selectButtons() {
-        //checks for a button (or anything that matches that ID) that says Begin Combat and clicks it
+    public void selectBeginCombatButton() {
+        //checks if beginscombat button exist and can be clicked
 
-        onView(withId(R.id.NPC)).perform(click());
         onView(withId(R.id.beginCombat)).perform(click());
+    }
+    @Test
+    public void selectNPCButton(){
+        //checks if NPC button exist and can be clicked
+        onView(withId(R.id.NPC)).perform(click());
+    }
+    @Test
+    public void selectEandMButton(){
+        //checks if EandM button exist and can be clicked
+        onView(withId(R.id.EandM)).perform(click());
+    }
 
+    @Test
+    public void selectMapsButton(){
+        //checks if Maps button exist and can be clicked
+        onView(withId(R.id.maps)).perform(click());
+    }
+
+    @Test
+    public void selectNotesButton(){
+        //checks if Notes button exist and can be clicked
+        onView(withId(R.id.Notes)).perform(click());
+    }
+
+    @Test
+    public void selectPlayerStatsButton(){
+        //checks if PlayerStats button exist and can be clicked
+        onView(withId(R.id.playerStats)).perform(click());
     }
 }
