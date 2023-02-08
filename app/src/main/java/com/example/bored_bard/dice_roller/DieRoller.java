@@ -25,18 +25,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
-// allows a user to roll a d20 for initiative
-// plan to add other dice values later
+// allows a user to roll different dice
 public class DieRoller extends AppCompatActivity {
 
     // number of sides for each die type
@@ -50,7 +46,7 @@ public class DieRoller extends AppCompatActivity {
     // sets number of side for the Die
     int numSides = D20;
     // number of dice to roll
-    int numDice = 1;
+    int numDice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +54,6 @@ public class DieRoller extends AppCompatActivity {
         setContentView(R.layout.die_roller);
 
         // gets user's number of dice
-//        EditText text = findViewById(R.id.dice_count);
-//        numSides = Integer.parseInt(text.getText().toString());
-
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.dice_page);
         // bottom navigation bar to move between activities
@@ -85,7 +78,8 @@ public class DieRoller extends AppCompatActivity {
             return false;
         });
 
-        Button rollerButton = findViewById(R.id.button);
+        Button rollerButton = findViewById(R.id.roll_button);
+        Button numSidesButton = findViewById(R.id.count_button);
         // buttons to change the type of die (i.e. numSides)
         ImageButton d4 = findViewById(R.id.d4);
         ImageButton d6 = findViewById(R.id.d6);
@@ -104,10 +98,21 @@ public class DieRoller extends AppCompatActivity {
         d12.setOnClickListener(v -> setNumSides(D12));
         d20.setOnClickListener(v -> setNumSides(D20));
 
+        numSidesButton.setOnClickListener(v -> setNumDice());
         rollerButton.setOnClickListener(v -> rollDie(numSides));
 
         rollDie(numSides);
-//        rollDice(numSides, numDice);
+    }
+
+    private void setNumDice() {
+        EditText input = findViewById(R.id.dice_count);
+
+        if (input.getText() == null) {
+            numDice = 1;
+        }
+        else if (Integer.parseInt(input.getText().toString()) > 1) {
+            numDice = Integer.parseInt(input.getText().toString());
+        }
     }
 
     // sets the number of sides to use shen rolling
@@ -145,27 +150,28 @@ public class DieRoller extends AppCompatActivity {
 
     // called by rollDice any number of times specified by the user
     private void rollDie(int numSides) {
+        setNumDice();
         TextView dieResult = findViewById(R.id.result_window);
         Die die = new Die(numSides);
-        int result = die.roll();
+        int result;
+
+        if (numDice == 1) {
+            result = die.roll();
+        }
+        else {
+            result = rollMultiple(die, numDice);
+        }
         dieResult.setText(String.valueOf(result));
         dieResult.setContentDescription(String.valueOf(result));
     }
 
-//    // rolls any number of dice specified by the user
-//    private void rollDice(int numSides, int numDice) {
-//        TextView dieResult = findViewById(R.id.result_window);
-//
-//        int count = numDice;
-//        int total = 0;
-//        while (count != 0) {
-//            total += rollDie(numSides);
-//            count--;
-//        }
-//        // update TextView with result
-//        dieResult.setText(String.valueOf(total));
-//
-//        // update description
-//        dieResult.setContentDescription(String.valueOf(total));
-//    }
+    // rolls multiple dice, based on user input on the related  EditText object
+    private int rollMultiple(Die die, int numDice) {
+        int result = 0;
+
+        for (int i = 0; i < numDice; i++) {
+            result += die.roll();
+        }
+        return result;
+    }
 }

@@ -16,8 +16,7 @@
   limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,6 +25,7 @@
     tools:context=".dice_roller.DieRoller">
 
     <!--Nav Bar-->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
@@ -37,9 +37,8 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation_menu" />
 
-    <!--Button Will Change to Roll d20-->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/roll_button"
         android:layout_width="115sp"
         android:layout_height="75sp"
         android:backgroundTint="@color/darkblushPink"
@@ -48,17 +47,33 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintVertical_bias="0.852" />
+
+    <Button
+        android:id="@+id/count_button"
+        android:layout_width="115sp"
+        android:layout_height="75sp"
+        android:backgroundTint="@color/darkblushPink"
+        android:text="@string/setNumDice"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
 
     <EditText
         android:id="@+id/dice_count"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:inputType="text"
         android:autofillHints="Number of Dice"
         android:hint="@string/num_dice"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
@@ -97,8 +112,8 @@
         android:id="@+id/d20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d20"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
@@ -112,8 +127,8 @@
         android:id="@+id/d4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d4"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.126"
@@ -127,8 +142,8 @@
         android:id="@+id/d6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d6"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -142,8 +157,8 @@
         android:id="@+id/d8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d8"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.857"
@@ -157,8 +172,8 @@
         android:id="@+id/d10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d10"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.126"
@@ -172,8 +187,8 @@
         android:id="@+id/d12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/d12"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/d12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
