@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AndroidxPreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="auto_update_db"
+        app:title="Enable automatic Database Updates"/>
+    <Preference
+        app:key="feedback"
+        app:title="Send feedback"
+        app:summary="Report technical issues or suggest features"/>
+</AndroidxPreferenceScreen>
