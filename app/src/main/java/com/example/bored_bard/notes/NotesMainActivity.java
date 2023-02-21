@@ -27,7 +27,7 @@ public class NotesMainActivity extends AppCompatActivity {
         MaterialButton addNoteBtn = findViewById(R.id.addNoteButton);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
-        bottomNavView.setSelectedItemId(R.id.campaigns_page);
+        bottomNavView.setSelectedItemId(R.id.notes_page);
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
+import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -70,7 +71,8 @@ public class DieRoller extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.settings_page:
-                    // start the settings activity here
+                    startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                    overridePendingTransition(0, 0);
                     return true;
             }
             return false;
@@ -85,8 +87,6 @@ public class DieRoller extends AppCompatActivity {
         ImageButton d10 = findViewById(R.id.d10);
         ImageButton d12 = findViewById(R.id.d12);
         ImageButton d20 = findViewById(R.id.d20);
-
-        setNumDice();
 
         d4.setOnClickListener(v -> setNumSides(D4));
         d6.setOnClickListener(v -> setNumSides(D6));
@@ -116,6 +116,7 @@ public class DieRoller extends AppCompatActivity {
     private void setNumSides(int num) {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
+        numSides = D20;
         String dieMsg = "Rolling a D" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));

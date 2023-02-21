@@ -74,6 +74,8 @@
         android:autofillHints="Number of Dice"
         android:hint="@string/num_dice"
         android:inputType="text"
+        android:text="@string/default_num_dice"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
