@@ -29,7 +29,7 @@ public class NotesMainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
         // bottom navigation bar to move between activities
-        bottomNavView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
                     startActivity(new Intent(getApplicationContext(), campaign_activity.class));
@@ -50,12 +50,7 @@ public class NotesMainActivity extends AppCompatActivity {
             return false;
         });
 
-        addNoteBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(NotesMainActivity.this, AddNotes.class));
-            }
-        });
+        addNoteBtn.setOnClickListener(view -> startActivity(new Intent(NotesMainActivity.this, AddNotes.class)));
 
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
@@ -68,11 +63,6 @@ public class NotesMainActivity extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(getApplicationContext(),notesList);
         recyclerView.setAdapter(myAdapter);
 
-        notesList.addChangeListener(new RealmChangeListener<RealmResults<Notes>>() {
-            @Override
-            public void onChange(RealmResults<Notes> notes) {
-                myAdapter.notifyDataSetChanged();
-            }
-        });
+        notesList.addChangeListener(notes -> myAdapter.notifyDataSetChanged());
     }
 }

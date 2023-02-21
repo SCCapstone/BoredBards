@@ -43,7 +43,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'junit:junit:4.13.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 //Firebase Firestore(database) library
 
     // UI Testing Dependencies

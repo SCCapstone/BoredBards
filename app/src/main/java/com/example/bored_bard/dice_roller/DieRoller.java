@@ -52,12 +52,10 @@ public class DieRoller extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.die_roller);
-
-        // gets user's number of dice
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.dice_page);
         // bottom navigation bar to move between activities
-        bottomNavView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
                     startActivity(new Intent(getApplicationContext(), campaign_activity.class));
@@ -79,7 +77,7 @@ public class DieRoller extends AppCompatActivity {
         });
 
         Button rollerButton = findViewById(R.id.roll_button);
-        Button numSidesButton = findViewById(R.id.count_button);
+        Button numDiceButton = findViewById(R.id.count_button);
         // buttons to change the type of die (i.e. numSides)
         ImageButton d4 = findViewById(R.id.d4);
         ImageButton d6 = findViewById(R.id.d6);
@@ -88,8 +86,7 @@ public class DieRoller extends AppCompatActivity {
         ImageButton d12 = findViewById(R.id.d12);
         ImageButton d20 = findViewById(R.id.d20);
 
-        // need to add edit text element here
-        // takes input for the number of dice to roll
+        setNumDice();
 
         d4.setOnClickListener(v -> setNumSides(D4));
         d6.setOnClickListener(v -> setNumSides(D6));
@@ -98,7 +95,7 @@ public class DieRoller extends AppCompatActivity {
         d12.setOnClickListener(v -> setNumSides(D12));
         d20.setOnClickListener(v -> setNumSides(D20));
 
-        numSidesButton.setOnClickListener(v -> setNumDice());
+        numDiceButton.setOnClickListener(v -> setNumDice());
         rollerButton.setOnClickListener(v -> rollDie(numSides));
 
         rollDie(numSides);

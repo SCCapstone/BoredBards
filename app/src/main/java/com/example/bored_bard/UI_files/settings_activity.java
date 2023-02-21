@@ -22,7 +22,7 @@ public class settings_activity extends AppCompatActivity {
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
         // bottom navigation bar to move between activities
-        bottomNavView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.campaigns_page:
                     startActivity(new Intent(getApplicationContext(), campaign_activity.class));
