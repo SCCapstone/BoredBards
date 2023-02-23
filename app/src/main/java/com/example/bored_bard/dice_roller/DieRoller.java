@@ -178,7 +178,8 @@ public class DieRoller extends AppCompatActivity {
         }
 
         // displays a breakdown of the rolls
-        String breakdown = ("Breakdown of results:\n\n" + multiResult);
+        String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
+        String breakdown = ("Breakdown of results:\n\n" + temp);
 
         TextView res_breakdown = findViewById(R.id.roll_breakdown);
         res_breakdown.setText(breakdown);
