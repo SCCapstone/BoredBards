@@ -20,7 +20,7 @@ public class settings_activity extends AppCompatActivity {
                 .commit();
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
-        bottomNavView.setSelectedItemId(R.id.campaigns_page);
+        bottomNavView.setSelectedItemId(R.id.settings_page);
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

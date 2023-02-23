@@ -33,6 +33,8 @@ import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 // allows a user to roll different dice
 public class DieRoller extends AppCompatActivity {
 
@@ -166,10 +168,22 @@ public class DieRoller extends AppCompatActivity {
     // rolls multiple dice, based on user input on the related  EditText object
     private int rollMultiple(Die die, int numDice) {
         int result = 0;
+        int res;
+        ArrayList<Integer> multiResult = new ArrayList<>();
 
         for (int i = 0; i < numDice; i++) {
-            result += die.roll();
+            res = die.roll();
+            result += res;
+            multiResult.add(res);
         }
+
+        // displays a breakdown of the rolls
+        String breakdown = ("Breakdown of results:\n\n" + multiResult);
+
+        TextView res_breakdown = findViewById(R.id.roll_breakdown);
+        res_breakdown.setText(breakdown);
+        res_breakdown.setContentDescription(breakdown);
+
         return result;
     }
 }
