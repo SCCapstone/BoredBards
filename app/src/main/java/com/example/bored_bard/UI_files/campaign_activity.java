@@ -27,30 +27,31 @@ public class campaign_activity extends AppCompatActivity {
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.campaigns_page:
-                    startActivity(new Intent(getApplicationContext(), campaign_activity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.dice_page:
-                    startActivity(new Intent(getApplicationContext(), DieRoller.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.notes_page:
-                    startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.settings_page:
-                    // start the settings activity here
-                    return true;
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
             }
-            return false;
         });
 
         //UI references
-        Button campaign1 = (Button) findViewById(R.id.campaign1);
-        Button campaign2 = (Button) findViewById(R.id.campaign2);
-        Button campaign3 = (Button) findViewById(R.id.campaign3);
+        Button campaign1 = findViewById(R.id.campaign1);
+        Button campaign2 = findViewById(R.id.campaign2);
+        Button campaign3 = findViewById(R.id.campaign3);
 
         campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
 //        campaign2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
