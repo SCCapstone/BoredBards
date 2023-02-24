@@ -21,25 +21,25 @@ public class settings_activity extends AppCompatActivity {
         bottomNavView.setSelectedItemId(R.id.settings_page);
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.campaigns_page:
-                    startActivity(new Intent(getApplicationContext(), campaign_activity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.dice_page:
-                    startActivity(new Intent(getApplicationContext(), DieRoller.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.notes_page:
-                    startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.settings_page:
-                    startActivity(new Intent(getApplicationContext(), settings_activity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
             }
-            return false;
         });
 
 //        Button report = findViewById(R.id.report_button);
