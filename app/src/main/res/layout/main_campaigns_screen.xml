@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- @author Caroline Barrineau -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -72,12 +73,12 @@
         android:layout_width="match_parent"
         android:layout_height="156dp"
         android:layout_marginBottom="2.5dp"
-        android:contentDescription="@string/darkblushwave"
         app:layout_constraintBottom_toTopOf="@id/guideline_footer"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave2" />
+        app:srcCompat="@drawable/wave2"
+        android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
 
@@ -87,13 +88,13 @@
         android:id="@+id/RustRedWave"
         android:layout_width="match_parent"
         android:layout_height="116dp"
-        android:contentDescription="@string/rustredwave"
         app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave" />
+        app:srcCompat="@drawable/wave"
+        android:contentDescription="@string/rustredwave" />
 
+    <!-- "BoredBard Present" -->
     <TextView
         android:id="@+id/Credits"
         android:layout_width="wrap_content"
@@ -116,8 +117,8 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/app_name"
-        android:textAlignment="center"
         android:textColor="@color/black"
+        android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -127,13 +128,12 @@
     <!-- Username of whoever is logged in -->
     <TextView
         android:id="@+id/username"
-        android:layout_width="312dp"
-        android:layout_height="38dp"
-        android:autoSizeTextType="uniform"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:text="@string/username"
-        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/AppName" />
@@ -156,12 +156,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:padding="5dp"
             android:text="@string/your_campaigns"
-            android:textAlignment="inherit"
-            android:textColor="@color/black"
+            android:padding="5dp"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="inherit"/>
 
         <!-- Do not add the names of the campaigns to strings -->
         <Button
@@ -170,9 +170,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
+            android:textSize="20sp"
             android:text="@string/strahd"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textAlignment="center" />
         <!-- Do not add the names of the campaigns to strings -->
         <Button
             android:id="@+id/campaign2"
@@ -180,9 +180,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
+            android:textSize="20sp"
             android:text="@string/abyss"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textAlignment="center" />
         <!-- Do not add the names of the campaigns to strings -->
         <Button
             android:id="@+id/campaign3"
@@ -190,10 +190,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
+            android:textSize="20sp"
             android:text="@string/tomb"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
+            android:textAlignment="center" />
     </LinearLayout>
 
     <Button
