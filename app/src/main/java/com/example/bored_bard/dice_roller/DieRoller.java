@@ -157,7 +157,11 @@ public class DieRoller extends AppCompatActivity {
 
         if (numDice == 1) {
             result = die.roll();
+            String msg = "Breakdown of results:\n\n" + result;
             TextView dieResult = findViewById(R.id.result_window);
+            TextView res_breakdown = findViewById(R.id.roll_breakdown);
+            res_breakdown.setText(msg);
+            res_breakdown.setContentDescription(msg);
             dieResult.setText(String.valueOf(result));
             dieResult.setContentDescription(String.valueOf(result));
         }
