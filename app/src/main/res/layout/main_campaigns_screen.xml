@@ -161,16 +161,17 @@
             android:textAlignment="inherit"/>
 
         <!-- Do not add the names of the campaigns to strings -->
+        <!-- Do not add the names of the campaigns to strings -->
         <Button
             android:id="@+id/campaign1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
-            android:textSize="20sp"
             android:text="@string/strahd"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/campaign2"
             android:layout_width="fill_parent"

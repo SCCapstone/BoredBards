@@ -98,6 +98,7 @@
         android:layout_height="100dp"
         android:paddingTop="20dp"
         android:text="@string/curse_of_strahd"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -125,16 +126,6 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <!-- go to Notes -->
-        <Button
-            android:id="@+id/Notes"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
-            android:text="@string/notes"
-            android:textAlignment="center"/>
 
         <!-- go to creatable NPCs -->
         <Button
@@ -142,8 +133,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/npc"
             android:textAlignment="center"/>
 
@@ -153,8 +143,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/enemies_and_monsters"
             android:textAlignment="center"/>
 
@@ -164,8 +153,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/maps"
             android:textAlignment="center"/>
 
@@ -175,8 +163,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/player_stats"
             android:textAlignment="center"/>
 
@@ -185,10 +172,9 @@
             android:id="@+id/beginCombat"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
             android:padding="15dp"
+            android:textSize="15sp"
             android:text="@string/combat"
-            android:textSize="13sp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
