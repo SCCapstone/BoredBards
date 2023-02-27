@@ -108,8 +108,9 @@ public class DieRoller extends AppCompatActivity {
 
         if (input.getText() == null) {
             numDice = 1;
-        }
-        else if (Integer.parseInt(input.getText().toString()) > 1) {
+        } else if (Integer.parseInt(input.getText().toString()) == 1) {
+            numDice = Integer.parseInt(input.getText().toString());
+        } else if (Integer.parseInt(input.getText().toString()) > 1) {
             numDice = Integer.parseInt(input.getText().toString());
         }
     }
@@ -151,22 +152,22 @@ public class DieRoller extends AppCompatActivity {
     // called by rollDice any number of times specified by the user
     private void rollDie(int numSides) {
         setNumDice();
-        TextView dieResult = findViewById(R.id.result_window);
         Die die = new Die(numSides);
         int result;
 
         if (numDice == 1) {
             result = die.roll();
+            TextView dieResult = findViewById(R.id.result_window);
+            dieResult.setText(String.valueOf(result));
+            dieResult.setContentDescription(String.valueOf(result));
         }
         else {
-            result = rollMultiple(die, numDice);
+            rollMultiple(die, numDice);
         }
-        dieResult.setText(String.valueOf(result));
-        dieResult.setContentDescription(String.valueOf(result));
     }
 
     // rolls multiple dice, based on user input on the related  EditText object
-    private int rollMultiple(Die die, int numDice) {
+    private void rollMultiple(Die die, int numDice) {
         int result = 0;
         int res;
         ArrayList<Integer> multiResult = new ArrayList<>();
@@ -184,7 +185,5 @@ public class DieRoller extends AppCompatActivity {
         TextView res_breakdown = findViewById(R.id.roll_breakdown);
         res_breakdown.setText(breakdown);
         res_breakdown.setContentDescription(breakdown);
-
-        return result;
     }
 }
