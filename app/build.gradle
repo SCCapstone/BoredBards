@@ -39,7 +39,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0' //Material Component's library
 
     //Firebase Dependencies
-    implementation platform('com.google.firebase:firebase-bom:31.1.0') //Firebase Android BoM library
+    implementation platform('com.google.firebase:firebase-bom:31.2.2') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'junit:junit:4.13.2'
