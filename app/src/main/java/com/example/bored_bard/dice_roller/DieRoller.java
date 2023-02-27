@@ -168,13 +168,11 @@ public class DieRoller extends AppCompatActivity {
 
     // rolls multiple dice, based on user input on the related  EditText object
     private void rollMultiple(Die die, int numDice) {
-        int result = 0;
         int res;
         ArrayList<Integer> multiResult = new ArrayList<>();
 
         for (int i = 0; i < numDice; i++) {
             res = die.roll();
-            result += res;
             multiResult.add(res);
         }
 
