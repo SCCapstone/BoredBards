@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
@@ -82,6 +83,8 @@ public class DieRoller extends AppCompatActivity {
 
         Button rollerButton = findViewById(R.id.roll_button);
         Button numDiceButton = findViewById(R.id.count_button);
+        Button adv = findViewById(R.id.advantage_button);
+        Button disadv = findViewById(R.id.disadvantage_button);
         // buttons to change the type of die (i.e. numSides)
         ImageButton d4 = findViewById(R.id.d4);
         ImageButton d6 = findViewById(R.id.d6);
@@ -96,6 +99,9 @@ public class DieRoller extends AppCompatActivity {
         d10.setOnClickListener(v -> setNumSides(D10));
         d12.setOnClickListener(v -> setNumSides(D12));
         d20.setOnClickListener(v -> setNumSides(D20));
+
+        adv.setOnClickListener(v -> advantagedRoll());
+        disadv.setOnClickListener(v -> disadvantagedRoll());
 
         numDiceButton.setOnClickListener(v -> setNumDice());
         rollerButton.setOnClickListener(v -> rollDie(numSides));
@@ -120,7 +126,7 @@ public class DieRoller extends AppCompatActivity {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
         numSides = D20;
-        String dieMsg = "Rolling a D" + numSides;
+        String dieMsg = "Rolling " + numDice + "d" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
         switch (num) {
@@ -143,8 +149,7 @@ public class DieRoller extends AppCompatActivity {
                 numSides = D20;
                 break;
         }
-//        String dieMsg = "Rolling " + numDice + "x D" + numSides;
-        dieMsg = "Rolling a D" + numSides;
+        dieMsg = "Rolling " + numDice + "d" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
     }
@@ -171,7 +176,7 @@ public class DieRoller extends AppCompatActivity {
     }
 
     // rolls multiple dice, based on user input on the related  EditText object
-    private void rollMultiple(Die die, int numDice) {
+    private void rollMultiple(@NonNull Die die, int numDice) {
         int res;
         ArrayList<Integer> multiResult = new ArrayList<>();
 
@@ -187,5 +192,57 @@ public class DieRoller extends AppCompatActivity {
         TextView res_breakdown = findViewById(R.id.roll_breakdown);
         res_breakdown.setText(breakdown);
         res_breakdown.setContentDescription(breakdown);
+    }
+
+    private void advantagedRoll() {
+        Die die = new Die(D20);
+        ArrayList<Integer> multiResult = new ArrayList<>();
+
+        int roll1 = die.roll();
+        int roll2 = die.roll();
+
+        multiResult.add(roll1);
+        multiResult.add(roll2);
+        String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
+        String breakdown = ("Breakdown of results:\n\n" + temp);
+        TextView dieResult = findViewById(R.id.result_window);
+        TextView res_breakdown = findViewById(R.id.roll_breakdown);
+        res_breakdown.setText(breakdown);
+        res_breakdown.setContentDescription(breakdown);
+
+        TextView dieType = findViewById(R.id.type_window);
+        String dieMsg = "Rolling 2d" + numSides;
+        dieType.setText(dieMsg);
+        dieType.setContentDescription(String.valueOf(numSides));
+
+        String max = String.valueOf(Math.max(roll1, roll2));
+        dieResult.setText(max);
+        dieResult.setContentDescription(max);
+    }
+
+    private void disadvantagedRoll() {
+        Die die = new Die(D20);
+        ArrayList<Integer> multiResult = new ArrayList<>();
+
+        int roll1 = die.roll();
+        int roll2 = die.roll();
+
+        multiResult.add(roll1);
+        multiResult.add(roll2);
+        String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
+        String breakdown = ("Breakdown of results:\n\n" + temp);
+        TextView dieResult = findViewById(R.id.result_window);
+        TextView res_breakdown = findViewById(R.id.roll_breakdown);
+        res_breakdown.setText(breakdown);
+        res_breakdown.setContentDescription(breakdown);
+
+        TextView dieType = findViewById(R.id.type_window);
+        String dieMsg = "Rolling 2d" + numSides;
+        dieType.setText(dieMsg);
+        dieType.setContentDescription(String.valueOf(numSides));
+
+        String min = String.valueOf(Math.min(roll1, roll2));
+        dieResult.setText(min);
+        dieResult.setContentDescription(min);
     }
 }
