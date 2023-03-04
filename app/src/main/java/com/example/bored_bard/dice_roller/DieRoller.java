@@ -18,15 +18,18 @@
  */
 package com.example.bored_bard.dice_roller;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
@@ -109,6 +112,18 @@ public class DieRoller extends AppCompatActivity {
         rollDie(numSides);
     }
 
+    /**
+     * Checks that the number of dice to be rolled
+     * isn't too large
+     * @return - if number of dice exceeds 25, returns true
+     */
+    private boolean excessDice() {
+        return numDice > 25;
+    }
+
+    /**
+     * Sets the number of dice to be rolled
+     */
     private void setNumDice() {
         EditText input = findViewById(R.id.dice_count);
 
@@ -119,9 +134,16 @@ public class DieRoller extends AppCompatActivity {
         } else if (Integer.parseInt(input.getText().toString()) > 1) {
             numDice = Integer.parseInt(input.getText().toString());
         }
+
+        if (excessDice()) {
+            Toast.makeText(getApplicationContext(), "25 dice seems a bit high. Consider a smaller number", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    // sets the number of sides to use shen rolling
+    /**
+     * Sets the number of sides to use shen rolling
+     * @param num - the number of sides
+     */
     private void setNumSides(int num) {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
@@ -154,7 +176,9 @@ public class DieRoller extends AppCompatActivity {
         dieType.setContentDescription(String.valueOf(numSides));
     }
 
-    // called by rollDice any number of times specified by the user
+    /**
+     * called by rollDice any number of times specified by the user
+      */
     private void rollDie(int numSides) {
         setNumDice();
         Die die = new Die(numSides);
@@ -175,7 +199,13 @@ public class DieRoller extends AppCompatActivity {
         }
     }
 
-    // rolls multiple dice, based on user input on the related  EditText object
+    /**
+     * rolls multiple dice, based on user input
+     * on the related EditText object
+     * (checks that the Die object is not null
+     * @param die - the die to be rolled
+     * @param numDice - the number of times to roll
+     */
     private void rollMultiple(@NonNull Die die, int numDice) {
         int res;
         ArrayList<Integer> multiResult = new ArrayList<>();
@@ -194,6 +224,10 @@ public class DieRoller extends AppCompatActivity {
         res_breakdown.setContentDescription(breakdown);
     }
 
+    /**
+     * Allows a user to roll a d20 with "advantage";
+     * (i.e. roll 2d20 and use the highest number)
+     */
     private void advantagedRoll() {
         Die die = new Die(D20);
         ArrayList<Integer> multiResult = new ArrayList<>();
@@ -220,6 +254,10 @@ public class DieRoller extends AppCompatActivity {
         dieResult.setContentDescription(max);
     }
 
+    /**
+     * Allows a user to roll a d20 with "disadvantage";
+     * (i.e. roll 2d20 and use the lowest number)
+     */
     private void disadvantagedRoll() {
         Die die = new Die(D20);
         ArrayList<Integer> multiResult = new ArrayList<>();
