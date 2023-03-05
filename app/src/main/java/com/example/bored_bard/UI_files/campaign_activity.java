@@ -15,6 +15,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButtonToggleGroup;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -26,34 +29,39 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class campaign_activity extends AppCompatActivity {
+    FirebaseAuth auth;
+    FirebaseUser user;
+    TextView textView;
+    Button button;
 
-    TextView email;
-    Button logout;
-    private GoogleSignInClient gsc;
-    private GoogleSignInOptions gso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_campaigns_screen);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        textView = findViewById(R.id.username);
+        button = findViewById(R.id.btn_logout);
 
-        email=findViewById(R.id.email_info);
-        logout=findViewById(R.id.GoogleLogout);
-
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this,gso);
-
-
-        GoogleSignInAccount account=GoogleSignIn.getLastSignedInAccount(this);
-        if (account != null){
-            String Email=account.getEmail();
-            email.setText(Email);
+        if (user == null){
+            Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+            startActivity(intent);
+            finish();
         }
-        logout.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View view) {
-                                          Signout();
-                                      }
-                                  });
+        else{
+            textView.setText(user.getEmail());
+        }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
 
                 BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
@@ -89,15 +97,6 @@ public class campaign_activity extends AppCompatActivity {
         campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
 //        campaign2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
 //        campaign3.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
-    }
 
-    private void Signout() {
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                finish();
-                startActivity(new Intent(getApplicationContext(),google_signin_activity.class));
-            }
-        });
     }
 }
