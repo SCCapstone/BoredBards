@@ -1,26 +1,22 @@
-/**
- * @author Charles Simons and Caroline Barrineau
- */
 package com.example.bored_bard.UI_files;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Button;
-import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-public class addCampaign_activity extends AppCompatActivity{
+public class list_of_characters_activity extends AppCompatActivity {
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.addcampaign_screen);
+        setContentView(R.layout.list_of_players_screen);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -45,7 +41,11 @@ public class addCampaign_activity extends AppCompatActivity{
             }
             return false;
         });
+        // @todo read and write to firebase for the collection of campaigns
+        Button newCharacter = findViewById(R.id.addNewCharacter);
 
-
+        // @todo reroute this to add new character screen
+        newCharacter.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), edit_stats_activity.class)));
     }
+
 }

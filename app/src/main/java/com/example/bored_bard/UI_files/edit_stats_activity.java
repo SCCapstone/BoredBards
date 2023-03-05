@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * @author Caroline Barrineau
+ * @author Caroline Barrineau and Charles Simons
  */
 public class edit_stats_activity extends AppCompatActivity {
     @Override

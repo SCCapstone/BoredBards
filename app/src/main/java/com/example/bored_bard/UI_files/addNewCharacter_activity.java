@@ -1,26 +1,19 @@
-/**
- * @author Charles Simons and Caroline Barrineau
- */
 package com.example.bored_bard.UI_files;
-
+// @author Caroline Barrineau and Charles Simons
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Button;
-import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class addCampaign_activity extends AppCompatActivity{
+public class addNewCharacter_activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.addcampaign_screen);
+        setContentView(R.layout.add_characters_screen);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -45,6 +38,7 @@ public class addCampaign_activity extends AppCompatActivity{
             }
             return false;
         });
+    // @todo make it so submitting new character button animates into a saved symbol
 
 
     }

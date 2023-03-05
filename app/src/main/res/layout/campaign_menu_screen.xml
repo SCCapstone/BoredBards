@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:textSize="15sp"
-            android:text="@string/player_stats"
+            android:text="@string/players"
             android:textAlignment="center"/>
 
         <!--Begin Button, constraint to edit stats button-->
