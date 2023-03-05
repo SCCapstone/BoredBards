@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- @author Caroline Barrineau -->
+<!--@author Caroline Barrineau -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI_files.addCampaign_activity"
-    android:background="@color/GreyWhite">
-
+    android:background="@color/GreyWhite"
+    tools:context=".UI_files.list_of_characters_activity" >
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -16,10 +15,15 @@
         android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation_menu" />
+
+    <!--This will be the center margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 
     <!--This will be the left margin guide-->
     <androidx.constraintlayout.widget.Guideline
@@ -43,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="40dp" />
+        app:layout_constraintGuide_end="50dp" />
 
     <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
     <androidx.constraintlayout.widget.Guideline
@@ -58,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/new_campaign"
+        android:text="@string/your_players"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -77,6 +81,8 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
+    <!-- Card view of players -->
+    <!-- @todo take players from the database and display them -->
     <!-- Inputting text -->
     <LinearLayout
         android:layout_width="350dp"
@@ -88,19 +94,25 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-    <EditText
-            android:layout_width= "350dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/title_of_campaign"
-            android:padding="15dp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@id/topDivider"
-            />
+        <!-- Name -->
 
+        <!-- Type (NPC or player) -->
+
+        <!-- Class (wizard, fighter, etc -->
+
+        <!-- Race (Orc, Human, etc) -->
+
+        <!-- Modifiers to certain stats (make a chart?) -->
+
+        <!-- @todo (later) Equipment, Abilities, Attributes -->
+
+
+        <!-- Add a new character to edit -->
+        <Button
+            android:id="@+id/addNewCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_character"/>
 
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

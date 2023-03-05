@@ -11,12 +11,12 @@ import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class campaign_menu_activity extends AppCompatActivity {
 
+public class list_of_characters_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.campaign_menu_screen);
+        setContentView(R.layout.list_of_players_screen);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -41,19 +41,11 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
             return false;
         });
+        // @todo read and write to firebase for the collection of campaigns
+        Button newCharacter = findViewById(R.id.addNewCharacter);
 
-        // Button notes = findViewById(R.id.notes_page);
-        Button NPCs = findViewById(R.id.NPC);
-        Button EandM = findViewById(R.id.EandM);
-        Button maps = findViewById(R.id.maps);
-        Button players = findViewById(R.id.playerStats);
-        Button bgnCmbt = findViewById(R.id.beginCombat);
-
-//        notes.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), notes_activity.class)));
-//        NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MPC_activity.class)));
-//        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
-//        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
-        bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
+        // @todo reroute this to add new character screen
+        newCharacter.setOnClickListener(v-> startActivity(new Intent(getApplicationContext(), edit_stats_activity.class)));
     }
+
 }

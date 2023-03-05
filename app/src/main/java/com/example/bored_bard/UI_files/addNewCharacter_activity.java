@@ -1,8 +1,7 @@
 package com.example.bored_bard.UI_files;
-
+// @author Caroline Barrineau and Charles Simons
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +10,10 @@ import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class campaign_menu_activity extends AppCompatActivity {
-
-    @Override
+public class addNewCharacter_activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.campaign_menu_screen);
+        setContentView(R.layout.add_characters_screen);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -41,19 +38,8 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
             return false;
         });
+    // @todo make it so submitting new character button animates into a saved symbol
 
-        // Button notes = findViewById(R.id.notes_page);
-        Button NPCs = findViewById(R.id.NPC);
-        Button EandM = findViewById(R.id.EandM);
-        Button maps = findViewById(R.id.maps);
-        Button players = findViewById(R.id.playerStats);
-        Button bgnCmbt = findViewById(R.id.beginCombat);
 
-//        notes.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), notes_activity.class)));
-//        NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MPC_activity.class)));
-//        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
-//        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
-        bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
     }
 }

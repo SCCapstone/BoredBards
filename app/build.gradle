@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'junit:junit:4.13.2'//Firebase Firestore(database) library
-
+    implementation 'com.google.android.material:material:<version>'
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 

@@ -62,7 +62,6 @@ public class campaign_activity extends AppCompatActivity {
 //        campaign2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
 //        campaign3.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), .class)));
 
-        // @todo change to add campaign screen when ready
-        FABaddCampaign.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
+        FABaddCampaign.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), addCampaign_activity.class)));
     }
 }
