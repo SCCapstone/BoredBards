@@ -60,12 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="156dp"
         android:layout_marginBottom="22dp"
-        android:contentDescription="@string/blushpinkwave"
         app:layout_constraintBottom_toTopOf="@id/guideline_footer"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave3" />
+        app:srcCompat="@drawable/wave3"
+        android:contentDescription="@string/blushpinkwave" />
 
     <!-- Background: BlushPinkWave-->
     <ImageView
@@ -81,9 +81,6 @@
         android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
-
-    <!-- "BoredBard Present" -->
-
     <ImageView
         android:id="@+id/RustRedWave"
         android:layout_width="match_parent"
@@ -145,6 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="top"
+
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
@@ -193,8 +191,19 @@
             android:textSize="20sp"
             android:text="@string/tomb"
             android:textAlignment="center" />
+
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddCampaign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/campaigns"
+        app:srcCompat="@android:drawable/ic_input_add" />
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"

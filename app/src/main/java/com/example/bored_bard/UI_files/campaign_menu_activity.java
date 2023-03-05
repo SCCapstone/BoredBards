@@ -48,7 +48,7 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
         });
 
-        Button notes = findViewById(R.id.Notes);
+        // Button notes = findViewById(R.id.notes_page);
         Button NPCs = findViewById(R.id.NPC);
         Button EandM = findViewById(R.id.EandM);
         Button maps = findViewById(R.id.maps);
