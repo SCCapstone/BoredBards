@@ -1,5 +1,5 @@
 /**
- * @author Caroline Barrineau
+ * @author Charles Simons and Caroline Barrineau
  */
 package com.example.bored_bard.UI_files;
 
