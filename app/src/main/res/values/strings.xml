@@ -48,4 +48,6 @@
     <string name="logout">Logout</string>
     <string name="about_us">About Us</string>
     <string name="add_note">Add Note</string>
+    <string name="new_campaign">New Campaign</string>
+    <string name="override_me">Override Me</string>
 </resources>

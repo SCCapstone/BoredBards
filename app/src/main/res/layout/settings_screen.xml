@@ -5,8 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/GreyWhite">
+    android:layout_height="match_parent">
+
+    <include layout = "@layout/reusable_layout_background" />
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,43 +53,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <!-- DON'T MESS WITH CONSTRAINT BOTTOM TO TOP OF, adjust footer instead -->
-    <!-- Background: BlushPinkWave-->
-    <ImageView
-        android:id="@+id/LightestWave"
-        android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave3"
-        android:contentDescription="@string/blushpinkwave" />
 
-    <!-- Background: BlushPinkWave-->
-    <ImageView
-        android:id="@+id/DarkBlushWave"
-        android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:layout_marginBottom="2.5dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave2"
-        android:contentDescription="@string/darkblushwave" />
-
-    <!-- Background: RustRedWave-->
-    <ImageView
-        android:id="@+id/RustRedWave"
-        android:layout_width="match_parent"
-        android:layout_height="116dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave"
-        android:contentDescription="@string/rustredwave" />
 
     <!-- Title "Settings" -->
     <TextView
