@@ -3,10 +3,13 @@ package com.example.bored_bard;
 import static org.junit.Assert.*;
 
 import com.example.bored_bard.dice_roller.Die;
+import com.example.bored_bard.dice_roller.DieRoller;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import kotlin.Triple;
 
 public class DieTest {
     Die d4_test = new Die(4);
@@ -15,6 +18,8 @@ public class DieTest {
     Die d10_test = new Die(10);
     Die d12_test = new Die(12);
     Die d20_test = new Die(20);
+
+    DieRoller roller = new DieRoller();
 
     @Test
     public void roll() {
@@ -34,4 +39,19 @@ public class DieTest {
             assertTrue(d20_test.roll() <= d20_test.getNumSides());
         }
     }
+
+    @Test
+    public void checkAdv() {
+        Triple<String, Integer, Integer> testRes = roller.advantagedRoll();
+        assertTrue(Integer.parseInt(testRes.getFirst()) != 0);
+        assertEquals(Integer.parseInt(testRes.getFirst()), Math.max(testRes.getSecond(), testRes.getThird()));
+    }
+
+    @Test
+    public void checkDisadv() {
+        Triple<String, Integer, Integer> testRes = roller.disadvantagedRoll();
+        assertTrue(Integer.parseInt(testRes.getFirst()) != 0);
+        assertEquals(Integer.parseInt(testRes.getFirst()), Math.min(testRes.getSecond(), testRes.getThird()));
+    }
+
 }
