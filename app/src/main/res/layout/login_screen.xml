@@ -162,5 +162,13 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
+    <ImageView
+        android:id="@+id/googleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_google_signin_dark_normal_web"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="584dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

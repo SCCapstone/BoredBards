@@ -81,17 +81,20 @@
         android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
+
+    <!-- "BoredBard Present" -->
+
     <ImageView
         android:id="@+id/RustRedWave"
         android:layout_width="match_parent"
         android:layout_height="116dp"
+        android:contentDescription="@string/rustredwave"
         app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave"
-        android:contentDescription="@string/rustredwave" />
+        app:srcCompat="@drawable/wave" />
 
-    <!-- "BoredBard Present" -->
     <TextView
         android:id="@+id/Credits"
         android:layout_width="wrap_content"
@@ -190,8 +193,19 @@
             android:textSize="20sp"
             android:text="@string/tomb"
             android:textAlignment="center" />
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="444dp"
+        android:text="Logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
