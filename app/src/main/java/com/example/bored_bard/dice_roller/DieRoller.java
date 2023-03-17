@@ -24,7 +24,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
@@ -34,6 +36,8 @@ import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+
+import kotlin.Triple;
 
 // allows a user to roll different dice
 public class DieRoller extends AppCompatActivity {
@@ -82,6 +86,8 @@ public class DieRoller extends AppCompatActivity {
 
         Button rollerButton = findViewById(R.id.roll_button);
         Button numDiceButton = findViewById(R.id.count_button);
+        Button adv = findViewById(R.id.advantage_button);
+        Button disadv = findViewById(R.id.disadvantage_button);
         // buttons to change the type of die (i.e. numSides)
         ImageButton d4 = findViewById(R.id.d4);
         ImageButton d6 = findViewById(R.id.d6);
@@ -97,29 +103,52 @@ public class DieRoller extends AppCompatActivity {
         d12.setOnClickListener(v -> setNumSides(D12));
         d20.setOnClickListener(v -> setNumSides(D20));
 
+        adv.setOnClickListener(v -> advantagedRoll());
+        disadv.setOnClickListener(v -> disadvantagedRoll());
+
         numDiceButton.setOnClickListener(v -> setNumDice());
         rollerButton.setOnClickListener(v -> rollDie(numSides));
 
         rollDie(numSides);
     }
 
+    /**
+     * Checks that the number of dice to be rolled
+     * isn't too large
+     * @return - if number of dice exceeds 25, returns true
+     */
+    private boolean excessDice() {
+        return numDice > 25;
+    }
+
+    /**
+     * Sets the number of dice to be rolled
+     */
     private void setNumDice() {
         EditText input = findViewById(R.id.dice_count);
 
         if (input.getText() == null) {
             numDice = 1;
-        }
-        else if (Integer.parseInt(input.getText().toString()) > 1) {
+        } else if (Integer.parseInt(input.getText().toString()) == 1) {
             numDice = Integer.parseInt(input.getText().toString());
+        } else if (Integer.parseInt(input.getText().toString()) > 1) {
+            numDice = Integer.parseInt(input.getText().toString());
+        }
+
+        if (excessDice()) {
+            Toast.makeText(getApplicationContext(), "25 dice seems a bit high. Consider a smaller number", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // sets the number of sides to use shen rolling
+    /**
+     * Sets the number of sides to use shen rolling
+     * @param num - the number of sides
+     */
     private void setNumSides(int num) {
         // displays a message about the type of die being rolled
         TextView dieType = findViewById(R.id.type_window);
         numSides = D20;
-        String dieMsg = "Rolling a D" + numSides;
+        String dieMsg = "Rolling " + numDice + "d" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
         switch (num) {
@@ -142,38 +171,47 @@ public class DieRoller extends AppCompatActivity {
                 numSides = D20;
                 break;
         }
-//        String dieMsg = "Rolling " + numDice + "x D" + numSides;
-        dieMsg = "Rolling a D" + numSides;
+        dieMsg = "Rolling " + numDice + "d" + numSides;
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
     }
 
-    // called by rollDice any number of times specified by the user
+    /**
+     * called by rollDice any number of times specified by the user
+      */
     private void rollDie(int numSides) {
         setNumDice();
-        TextView dieResult = findViewById(R.id.result_window);
         Die die = new Die(numSides);
         int result;
 
         if (numDice == 1) {
             result = die.roll();
+            String msg = "Breakdown of results:\n\n" + result;
+            TextView dieResult = findViewById(R.id.result_window);
+            TextView res_breakdown = findViewById(R.id.roll_breakdown);
+            res_breakdown.setText(msg);
+            res_breakdown.setContentDescription(msg);
+            dieResult.setText(String.valueOf(result));
+            dieResult.setContentDescription(String.valueOf(result));
         }
         else {
-            result = rollMultiple(die, numDice);
+            rollMultiple(die, numDice);
         }
-        dieResult.setText(String.valueOf(result));
-        dieResult.setContentDescription(String.valueOf(result));
     }
 
-    // rolls multiple dice, based on user input on the related  EditText object
-    private int rollMultiple(Die die, int numDice) {
-        int result = 0;
+    /**
+     * rolls multiple dice, based on user input
+     * on the related EditText object
+     * (checks that the Die object is not null
+     * @param die - the die to be rolled
+     * @param numDice - the number of times to roll
+     */
+    private void rollMultiple(@NonNull Die die, int numDice) {
         int res;
         ArrayList<Integer> multiResult = new ArrayList<>();
 
         for (int i = 0; i < numDice; i++) {
             res = die.roll();
-            result += res;
             multiResult.add(res);
         }
 
@@ -184,7 +222,69 @@ public class DieRoller extends AppCompatActivity {
         TextView res_breakdown = findViewById(R.id.roll_breakdown);
         res_breakdown.setText(breakdown);
         res_breakdown.setContentDescription(breakdown);
+    }
 
-        return result;
+    /**
+     * Allows a user to roll a d20 with "advantage";
+     * (i.e. roll 2d20 and use the highest number)
+     */
+    public Triple<String, Integer, Integer> advantagedRoll() {
+        Die die = new Die(D20);
+        ArrayList<Integer> multiResult = new ArrayList<>();
+
+        int roll1 = die.roll();
+        int roll2 = die.roll();
+
+        multiResult.add(roll1);
+        multiResult.add(roll2);
+        String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
+        String breakdown = ("Breakdown of results:\n\n" + temp);
+        TextView dieResult = findViewById(R.id.result_window);
+        TextView res_breakdown = findViewById(R.id.roll_breakdown);
+        res_breakdown.setText(breakdown);
+        res_breakdown.setContentDescription(breakdown);
+
+        TextView dieType = findViewById(R.id.type_window);
+        String dieMsg = "Rolling 2d" + numSides;
+        dieType.setText(dieMsg);
+        dieType.setContentDescription(String.valueOf(numSides));
+
+        String max = String.valueOf(Math.max(roll1, roll2));
+        dieResult.setText(max);
+        dieResult.setContentDescription(max);
+
+        return new Triple<>(max, roll1, roll2);
+    }
+
+    /**
+     * Allows a user to roll a d20 with "disadvantage";
+     * (i.e. roll 2d20 and use the lowest number)
+     */
+    public Triple<String, Integer, Integer> disadvantagedRoll() {
+        Die die = new Die(D20);
+        ArrayList<Integer> multiResult = new ArrayList<>();
+
+        int roll1 = die.roll();
+        int roll2 = die.roll();
+
+        multiResult.add(roll1);
+        multiResult.add(roll2);
+        String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
+        String breakdown = ("Breakdown of results:\n\n" + temp);
+        TextView dieResult = findViewById(R.id.result_window);
+        TextView res_breakdown = findViewById(R.id.roll_breakdown);
+        res_breakdown.setText(breakdown);
+        res_breakdown.setContentDescription(breakdown);
+
+        TextView dieType = findViewById(R.id.type_window);
+        String dieMsg = "Rolling 2d" + numSides;
+        dieType.setText(dieMsg);
+        dieType.setContentDescription(String.valueOf(numSides));
+
+        String min = String.valueOf(Math.min(roll1, roll2));
+        dieResult.setText(min);
+        dieResult.setContentDescription(min);
+
+        return new Triple<>(min, roll1, roll2);
     }
 }

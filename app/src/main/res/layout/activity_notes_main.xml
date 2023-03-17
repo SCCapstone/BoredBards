@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="0dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_navigation_menu" />
 
@@ -23,19 +23,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/notesTitle"
-        android:text="Notes"
-        android:textSize="20dp"
+        android:text="@string/notes"
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
         android:layout_above="@+id/addNoteButton"
-        android:layout_below="@+id/notesTitle"
-        />
+        android:layout_below="@+id/notesTitle" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addNoteButton"
@@ -43,5 +41,5 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_nav"
         android:layout_marginBottom="14dp"
-        android:text="Add Note" />
+        android:text="@string/add_note" />
 </RelativeLayout>

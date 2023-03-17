@@ -1,8 +1,10 @@
 package com.example.bored_bard.UI_files;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Button;
+import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,42 +44,57 @@ public class settings_activity extends AppCompatActivity {
             }
         });
 
-//        Button report = findViewById(R.id.report_button);
-//        Button offline_data = findViewById(R.id.offline_data);
-//        Button logout = findViewById(R.id.logout_button);
-//        Button about = findViewById(R.id.about_button);
-//
-//        report.setOnClickListener(v -> reportNavigator());
-//        offline_data.setOnClickListener(v -> offlineDataManagement());
-//        logout.setOnClickListener(v -> logout());
-//        about.setOnClickListener(v -> aboutNavigator());
+        TextView report = findViewById(R.id.reportIssue);
+        TextView offline_data = findViewById(R.id.offlineData);
+        TextView logout = findViewById(R.id.toLogout);
+        TextView about = findViewById(R.id.aboutUs);
+
+        report.setOnClickListener(v -> reportNavigator());
+        offline_data.setOnClickListener(v -> offlineDataManagement());
+        logout.setOnClickListener(v -> logout());
+        about.setOnClickListener(v -> aboutNavigator());
     }
 
     /**
      * when called, takes user to the repository page
      */
     private void aboutNavigator() {
-
+        try {
+            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards"));
+            about_link.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(about_link);
+        } catch (Exception e) {
+            Log.e("Exception caught", e.toString());
+        }
     }
 
     /**
      * when called, take user to repository page to leave a comment
      */
     private void reportNavigator() {
-
+        try {
+            Intent report_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards"));
+            report_link.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(report_link);
+        } catch (Exception e) {
+            Log.e("Exception caught", e.toString());
+        }
     }
 
     /**
      * when called, logs the user out
      */
     private void logout() {
-
+//        startActivity(new Intent(getApplicationContext(), logout.class));
+//        overridePendingTransition(0, 0);
     }
 
     /**
      * when called, allows the user to change data management policies
      */
     private void offlineDataManagement() {
+//        startActivity(new Intent(getApplicationContext(), logout.class));
+//        overridePendingTransition(0, 0);
 
     }
 }
