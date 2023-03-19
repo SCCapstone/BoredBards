@@ -150,20 +150,7 @@
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
-
-        <TextView
-            android:id="@+id/toLogout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/logout"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div2"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
+        
         <TextView
             android:id="@+id/aboutUs"
             android:layout_width="fill_parent"
