@@ -35,16 +35,20 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1' //Appcompat library, used for APIs (Material Components)
     implementation 'androidx.preference:preference:1.2.0'
 
+    //Startup Dependencies
+    implementation("androidx.startup:startup-runtime:1.1.1")
+
     //UI Design Dependencies
     implementation 'com.google.android.material:material:1.8.0' //Material Component's library
 
     //Firebase Dependencies
     implementation platform('com.google.firebase:firebase-bom:31.2.2') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
-    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
+
+    
     implementation 'junit:junit:4.13.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-//Firebase Firestore(database) library
 
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'

@@ -1,10 +1,11 @@
-package com.example.bored_bard;
+package com.example.bored_bard.encyclopedia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.dice_roller.DieRoller;
