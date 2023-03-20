@@ -42,7 +42,7 @@ public class Encylcopedia extends AppCompatActivity {
                 return false;
             }
         });
-        
+
     }
 
 
