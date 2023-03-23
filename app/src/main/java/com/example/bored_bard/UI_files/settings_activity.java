@@ -12,6 +12,7 @@ import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class settings_activity extends AppCompatActivity {
     @Override
@@ -47,10 +48,22 @@ public class settings_activity extends AppCompatActivity {
         TextView report = findViewById(R.id.reportIssue);
         TextView offline_data = findViewById(R.id.offlineData);
         TextView about = findViewById(R.id.aboutUs);
+        TextView logout = findViewById(R.id.logout);
 
         report.setOnClickListener(v -> reportNavigator());
         offline_data.setOnClickListener(v -> offlineDataManagement());
         about.setOnClickListener(v -> aboutNavigator());
+        logout.setOnClickListener(v -> logout());
+    }
+
+    /**
+     * when called, logs the user out
+     */
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+        startActivity(intent);
+        finish();
     }
 
     /**
