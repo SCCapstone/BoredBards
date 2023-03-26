@@ -5,6 +5,7 @@
 
 html {
     width: auto;
+    background-color: #EFEAD8;
 }
 
 body {
@@ -41,8 +42,8 @@ footer h5 {
 }
 
 a {
-    text-decoration: none;
-    color: #84342D;
+    text-decoration: underline;
+    color: #BA7B6B;
 }
 
 a:hover {
