@@ -41,6 +41,10 @@ footer h5 {
     color: #84342D;
 }
 
+footer p {
+    font-size: larger;
+}
+
 a {
     text-decoration: underline;
     color: #BA7B6B;
@@ -96,9 +100,18 @@ li a:hover {
 }
 
 /*Home Page*/
-.overviewHeading h1 {
-    color: #004D00;
+.appOverview h1 {
+    color: #84342D;
 }
+
+.howTo h1, h3 {
+    color: #84342D;
+}
+
+.howTo img {
+    
+}
+
 
 div.secContainer {
     width: 97%; /*Adjust for horizontal content centering*/
