@@ -46,12 +46,10 @@ public class settings_activity extends AppCompatActivity {
         });
 
         TextView report = findViewById(R.id.reportIssue);
-        TextView offline_data = findViewById(R.id.offlineData);
         TextView about = findViewById(R.id.aboutUs);
         TextView logout = findViewById(R.id.logout);
 
         report.setOnClickListener(v -> reportNavigator());
-        offline_data.setOnClickListener(v -> offlineDataManagement());
         about.setOnClickListener(v -> aboutNavigator());
         logout.setOnClickListener(v -> logout());
     }
@@ -90,14 +88,5 @@ public class settings_activity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("Exception caught", e.toString());
         }
-    }
-
-    /**
-     * when called, allows the user to change data management policies
-     */
-    private void offlineDataManagement() {
-//        startActivity(new Intent(getApplicationContext(), logout.class));
-//        overridePendingTransition(0, 0);
-
     }
 }

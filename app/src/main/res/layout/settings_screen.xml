@@ -136,21 +136,7 @@
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
-
-        <TextView
-            android:id="@+id/offlineData"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/offline_data"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div3"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
-
+        
         <TextView
             android:id="@+id/logout"
             android:layout_width="fill_parent"
