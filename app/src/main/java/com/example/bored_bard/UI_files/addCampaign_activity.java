@@ -46,6 +46,6 @@ public class addCampaign_activity extends AppCompatActivity{
             return false;
         });
 
-
+        // @TODO buttons and textinputs
     }
 }

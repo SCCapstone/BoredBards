@@ -94,9 +94,10 @@
         <!-- Name -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Name"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name">
+            android:hint="@string/name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -106,11 +107,50 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Type (NPC or player) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Type"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Race (Orc, Human, etc) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Race"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/race">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Class (wizard, fighter, etc -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Class"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/class_">
 
-        <!-- Race (Orc, Human, etc) -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <!-- Modifiers to certain stats (make a chart?) -->
 

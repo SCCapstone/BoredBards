@@ -15,10 +15,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class campaign_activity extends AppCompatActivity {
+
+    // ArrayList<Campaigns> camp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +55,12 @@ public class campaign_activity extends AppCompatActivity {
 
         // @todo make it so the campaign names are taken from the firebase list of campaigns
 
+        // RecyclerView rvCampaigns = (RecyclerView) findViewById(R.id.campaigns);
+
 
         //UI references
         Button campaign1 = (Button) findViewById(R.id.campaign1);
-        Button campaign2 = (Button) findViewById(R.id.campaign2);
-        Button campaign3 = (Button) findViewById(R.id.campaign3);
+
         FloatingActionButton FABaddCampaign = (FloatingActionButton) findViewById(R.id.FABaddCampaign);
 
         campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));

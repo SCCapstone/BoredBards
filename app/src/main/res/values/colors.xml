@@ -18,6 +18,7 @@
     <color name="CreamWhite">#EFEAD8</color>
     <color name="GreyWhite">#D0C9C0</color>
     <color name="latteWhite">#FFFEE9</color>
+    <color name="CavernPink">#ddbdb5</color>
 
     <color name="RustPink">#84342D</color>
     <color name="Chestnut">#963A2F</color>
@@ -26,10 +27,5 @@
     <color name="blushPink">#DBACA2</color>
     <color name="skintonePink">#CB968B</color>
     <color name="darkblushPink">#BA7B6B</color>
-
-
-
-
-
 
 </resources>
