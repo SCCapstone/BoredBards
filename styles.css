@@ -42,7 +42,7 @@ footer h5 {
 }
 
 footer p {
-    font-size: larger;
+    font-size: medium;
 }
 
 a {
@@ -115,6 +115,13 @@ li a:hover {
     width: 350px;
 }
 
+.aboutUs h1 {
+    color: #84342D;
+}
+
+.aboutUs img {
+    display: block;
+}
 
 div.secContainer {
     width: 97%; /*Adjust for horizontal content centering*/
