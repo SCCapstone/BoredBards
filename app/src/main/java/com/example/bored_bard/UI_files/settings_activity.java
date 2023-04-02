@@ -69,7 +69,7 @@ public class settings_activity extends AppCompatActivity {
      */
     private void aboutNavigator() {
         try {
-            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards"));
+            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards#readme"));
             about_link.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(about_link);
         } catch (Exception e) {
