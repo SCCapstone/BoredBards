@@ -71,4 +71,13 @@
     <string name="your_players">Your Players</string>
     <string name="add_new_character">Add new character</string>
     <string name="submit_new_character">submit New character</string>
+    <string name="name">Name</string>
+    <string name="race">Race (Orc, Human, Halfing…)</string>
+    <string name="class_">Class (Fighter, Cleric, Barbarian…)</string>
+    <string name="update_character">Update Character</string>
+    <string name="add_new_campaign">Add new campaign</string>
+    <string name="number_of_players">Number of Players:</string>
+    <string name="save_campaign">Save campaign</string>
+    <string name="short_campaign_bio">Short Campaign Bio</string>
+    <string name="type">Type (NPC or PC)</string>
 </resources>

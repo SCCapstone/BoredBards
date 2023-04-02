@@ -125,36 +125,23 @@
             android:textColor="@color/black"
             android:textAlignment="inherit"/>
 
-        <!-- Do not add the names of the campaigns to strings -->
+        <!-- @TODO grab context from json file -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVCampaigns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="2"
+            tools:listitem="@layout/rv_campaigns" />
+
         <Button
             android:id="@+id/campaign1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
-            android:textSize="20sp"
             android:text="@string/strahd"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/abyss"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/tomb"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -163,7 +150,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:layout_gravity="center"
+        android:contentDescription="@string/add_new_campaign"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/campaigns"

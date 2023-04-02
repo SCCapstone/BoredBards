@@ -80,22 +80,63 @@
         android:background="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/header_title" />
+        app:layout_constraintTop_toBottomOf="@id/header_title"
+        />
 
-    <!-- Inputting text -->
+    <!-- CARD VIEW -->
+   <LinearLayout
+       android:id="@+id/CardViewCharacters"
+       android:layout_width="350dp"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:gravity="top"
+       android:layout_marginTop="30dp"
+       app:layout_constraintEnd_toStartOf="@id/guideline_right"
+       app:layout_constraintStart_toStartOf="@+id/guideline_left"
+       app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+       <!-- @TODO grab context from json file -->
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           tools:itemCount="2"
+           tools:listitem="@layout/rv_characters" />
+   </LinearLayout>
+
+            <!-- @ Fill in with database info, may need to remake like recycler-->
+
+
+
+    <!-- Update Character -->
+    <!-- Buttons -->
     <LinearLayout
+        android:id="@+id/ButtonlinearLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/topDivider" >
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/CardViewCharacters">
 
-        <!-- @todo add an option to edit characters from database -->
+        <Button
+            android:id="@+id/UpdateCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/update_character" />
         <!-- Add a new character to edit -->
-
+        <Button
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/add_new_character"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            />
 
     </LinearLayout>
 
