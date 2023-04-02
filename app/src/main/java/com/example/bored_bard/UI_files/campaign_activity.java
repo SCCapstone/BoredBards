@@ -52,19 +52,16 @@ public class campaign_activity extends AppCompatActivity {
             textView.setText(user.getEmail());
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-                startActivity(intent);
-                finish();
-            }
+        button.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+            startActivity(intent);
+            finish();
         });
 
 
 
-                BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
@@ -84,6 +81,10 @@ public class campaign_activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
+//            } else if (item.getItemId() == R.id.encyclopedia) {
+//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
+//                overridePendingTransition(0, 0);
+//                return true;
             } else {
                 return false;
             }
