@@ -39,28 +39,23 @@ public class campaign_menu_activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
-
             } else {
                 return false;
             }
         });
 
-        // Button notes = findViewById(R.id.notes_page);
+        Button notes = findViewById(R.id.Notes);
         Button NPCs = findViewById(R.id.NPC);
         Button EandM = findViewById(R.id.EandM);
         Button maps = findViewById(R.id.maps);
-        Button players = findViewById(R.id.playerStats);
+        Button plyrStats = findViewById(R.id.playerStats);
         Button bgnCmbt = findViewById(R.id.beginCombat);
 
 //        notes.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), notes_activity.class)));
 //        NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MPC_activity.class)));
 //        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
 //        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
+        plyrStats.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), edit_stats_activity.class)));
         bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
     }
 }
