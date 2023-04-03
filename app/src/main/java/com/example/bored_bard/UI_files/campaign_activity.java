@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.MyAdapter;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -89,7 +90,7 @@ public class campaign_activity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.settings_page) {
-                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
                 overridePendingTransition(0, 0);
                 return true;
 //            } else if (item.getItemId() == R.id.encyclopedia) {

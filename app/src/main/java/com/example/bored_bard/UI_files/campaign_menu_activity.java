@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -35,7 +36,7 @@ public class campaign_menu_activity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.settings_page) {
-                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
                 overridePendingTransition(0, 0);
                 return true;
 //            } else if (item.getItemId() == R.id.encyclopedia) {
