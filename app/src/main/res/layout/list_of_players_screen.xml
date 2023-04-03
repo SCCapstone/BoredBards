@@ -85,6 +85,7 @@
     <!-- @todo take players from the database and display them -->
     <!-- Inputting text -->
     <LinearLayout
+        android:id="@+id/listofplayerslayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -94,25 +95,44 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <!-- Name -->
-
-        <!-- Type (NPC or player) -->
-
-        <!-- Class (wizard, fighter, etc -->
-
-        <!-- Race (Orc, Human, etc) -->
-
-        <!-- Modifiers to certain stats (make a chart?) -->
-
-        <!-- @todo (later) Equipment, Abilities, Attributes -->
-
-
         <!-- Add a new character to edit -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/rv_characters" />
+
+    </LinearLayout>
+    <!-- Buttons -->
+    <LinearLayout
+        android:id="@+id/ButtonlinearLayout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/listofplayerslayout">
+
         <Button
-            android:id="@+id/addNewCharacter"
+            android:id="@+id/UpdateCharacter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_new_character"/>
+            android:layout_marginTop="10dp"
+            android:text="@string/update_character" />
+        <!-- Add a new character to edit -->
+        <Button
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/add_new_character"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

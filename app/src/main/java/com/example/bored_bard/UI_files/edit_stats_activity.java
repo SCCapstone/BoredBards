@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author Caroline Barrineau and Charles Simons
  */
 public class edit_stats_activity extends AppCompatActivity {
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_stats_screen);
@@ -49,7 +51,11 @@ public class edit_stats_activity extends AppCompatActivity {
                 return false;
             }
         });
+        // @TODO update character button updates the database
+        // Button update = (Button) findViewById(R.id.ReturntoList);
+        Button goToListofPlayers = (Button) findViewById(R.id.ReturntoList);
 
+        goToListofPlayers.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
 
     }
 

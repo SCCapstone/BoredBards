@@ -80,4 +80,8 @@
     <string name="save_campaign">Save campaign</string>
     <string name="short_campaign_bio">Short Campaign Bio</string>
     <string name="type">Type (NPC or PC)</string>
+    <string name="return_to_list_of_players">Return to List of Players</string>
+    <string name="race_">Race</string>
+    <string name="class__">Class</string>
+    <string name="type_">Type</string>
 </resources>
