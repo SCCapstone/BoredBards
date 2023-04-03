@@ -1,6 +1,7 @@
 package com.example.bored_bard.encyclopedia;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,16 +14,21 @@ import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.w3c.dom.Document;
+
 public class Encyclopedia extends AppCompatActivity {
 
     @Override
@@ -34,11 +40,12 @@ public class Encyclopedia extends AppCompatActivity {
 
 
         //CollectionReference ref = db.collection("Encyclopedia");
-        db.collection("Encyclopedia")
+        DocumentReference docRef = db.collection("Encyclopedia").document("Default");
+        /*db.collection("Encyclopedia").document("Default")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d("TAG", "Data " + " => " + document.getData());
@@ -47,7 +54,7 @@ public class Encyclopedia extends AppCompatActivity {
                             Log.d("TAG", "Error getting documents: " + task.getException());
                         }
                     }
-                });
+                });*/
 
 
 
