@@ -88,7 +88,51 @@
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
     <!--  -->
+    <TableLayout
+        android:id="@+id/combatOrderTable"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
 
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <TableRow>
+            <!-- Entering in the player's dice rolls -->
+            <!-- @TODO default all the inputted characters names into the TextViews  -->
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:paddingEnd="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/roll"
+                android:inputType="number"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/Name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:paddingEnd="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/roll"
+                android:inputType="number"/>
+        </TableRow>
+    </TableLayout>
 
     <!--Edit Stats Button-->
     <Button

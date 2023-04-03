@@ -115,4 +115,20 @@
         app:layout_constraintStart_toEndOf="@+id/editStats"
         tools:ignore="TextContrastCheck" />
 
+    <TableLayout
+        android:id="@+id/combatOrderTable"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <TableRow>
+  <!-- Maybe card view if we can figure out how to have the database fill in car -->
+        </TableRow>
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/header_title"
         />
 
-    <!-- Recycler View of Players -->
+    <!-- Table Layout of a specific character and their stats-->
    <TableLayout
        android:id="@+id/edit_stats_layout"
        android:layout_width="350dp"
