@@ -49,6 +49,7 @@ dependencies {
     
     implementation 'junit:junit:4.13.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'de.gerdi-project:GSON:6.0.6'
 
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
