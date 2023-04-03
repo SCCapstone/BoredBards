@@ -18,6 +18,7 @@
  */
 package com.example.bored_bard.dice_roller;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
@@ -36,8 +38,6 @@ import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
-
-import kotlin.Triple;
 
 // allows a user to roll different dice
 public class DieRoller extends AppCompatActivity {
@@ -79,10 +79,6 @@ public class DieRoller extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
             } else {
                 return false;
             }
@@ -232,7 +228,7 @@ public class DieRoller extends AppCompatActivity {
      * Allows a user to roll a d20 with "advantage";
      * (i.e. roll 2d20 and use the highest number)
      */
-    public Triple<String, Integer, Integer> advantagedRoll() {
+    private void advantagedRoll() {
         Die die = new Die(D20);
         ArrayList<Integer> multiResult = new ArrayList<>();
 
@@ -256,15 +252,13 @@ public class DieRoller extends AppCompatActivity {
         String max = String.valueOf(Math.max(roll1, roll2));
         dieResult.setText(max);
         dieResult.setContentDescription(max);
-
-        return new Triple<>(max, roll1, roll2);
     }
 
     /**
      * Allows a user to roll a d20 with "disadvantage";
      * (i.e. roll 2d20 and use the lowest number)
      */
-    public Triple<String, Integer, Integer> disadvantagedRoll() {
+    private void disadvantagedRoll() {
         Die die = new Die(D20);
         ArrayList<Integer> multiResult = new ArrayList<>();
 
@@ -288,7 +282,5 @@ public class DieRoller extends AppCompatActivity {
         String min = String.valueOf(Math.min(roll1, roll2));
         dieResult.setText(min);
         dieResult.setContentDescription(min);
-
-        return new Triple<>(min, roll1, roll2);
     }
 }

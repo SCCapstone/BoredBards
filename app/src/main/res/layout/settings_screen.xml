@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--@author Caroline Barrineau -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <include layout = "@layout/reusable_layout_background" />
+    android:layout_height="match_parent"
+    android:background="@color/GreyWhite">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +50,43 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
+    <!-- DON'T MESS WITH CONSTRAINT BOTTOM TO TOP OF, adjust footer instead -->
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/LightestWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave3"
+        android:contentDescription="@string/blushpinkwave" />
 
+    <!-- Background: BlushPinkWave-->
+    <ImageView
+        android:id="@+id/DarkBlushWave"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_marginBottom="2.5dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave2"
+        android:contentDescription="@string/darkblushwave" />
+
+    <!-- Background: RustRedWave-->
+    <ImageView
+        android:id="@+id/RustRedWave"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/wave"
+        android:contentDescription="@string/rustredwave" />
 
     <!-- Title "Settings" -->
     <TextView
@@ -90,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider">
 
-        <Button
+        <TextView
             android:id="@+id/reportIssue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -104,7 +137,7 @@
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
 
-        <Button
+        <TextView
             android:id="@+id/offlineData"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -118,7 +151,7 @@
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
 
-        <Button
+        <TextView
             android:id="@+id/toLogout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -131,7 +164,7 @@
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
-        <Button
+        <TextView
             android:id="@+id/aboutUs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

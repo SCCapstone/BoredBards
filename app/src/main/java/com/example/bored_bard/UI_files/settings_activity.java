@@ -12,7 +12,6 @@ import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class settings_activity extends AppCompatActivity {
     @Override
@@ -40,32 +39,20 @@ public class settings_activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
             } else {
                 return false;
             }
         });
 
         TextView report = findViewById(R.id.reportIssue);
+        TextView offline_data = findViewById(R.id.offlineData);
+        TextView logout = findViewById(R.id.toLogout);
         TextView about = findViewById(R.id.aboutUs);
-        TextView logout = findViewById(R.id.logout);
 
         report.setOnClickListener(v -> reportNavigator());
-        about.setOnClickListener(v -> aboutNavigator());
+        offline_data.setOnClickListener(v -> offlineDataManagement());
         logout.setOnClickListener(v -> logout());
-    }
-
-    /**
-     * when called, logs the user out
-     */
-    private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-        startActivity(intent);
-        finish();
+        about.setOnClickListener(v -> aboutNavigator());
     }
 
     /**
@@ -73,7 +60,7 @@ public class settings_activity extends AppCompatActivity {
      */
     private void aboutNavigator() {
         try {
-            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards#readme"));
+            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards"));
             about_link.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(about_link);
         } catch (Exception e) {
@@ -92,5 +79,22 @@ public class settings_activity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("Exception caught", e.toString());
         }
+    }
+
+    /**
+     * when called, logs the user out
+     */
+    private void logout() {
+//        startActivity(new Intent(getApplicationContext(), logout.class));
+//        overridePendingTransition(0, 0);
+    }
+
+    /**
+     * when called, allows the user to change data management policies
+     */
+    private void offlineDataManagement() {
+//        startActivity(new Intent(getApplicationContext(), logout.class));
+//        overridePendingTransition(0, 0);
+
     }
 }

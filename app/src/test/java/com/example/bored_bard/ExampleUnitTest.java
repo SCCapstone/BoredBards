@@ -1,4 +1,4 @@
-package UITestingforCampaignMenu.com.example.bored_bard;
+package com.example.bored_bard;
 
 import org.junit.Test;
 

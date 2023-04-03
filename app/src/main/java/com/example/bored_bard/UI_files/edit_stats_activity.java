@@ -11,14 +11,12 @@ import android.widget.Button;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * @author Caroline Barrineau and Charles Simons
+ * @author Caroline Barrineau
  */
 public class edit_stats_activity extends AppCompatActivity {
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_stats_screen);
@@ -43,19 +41,10 @@ public class edit_stats_activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
             } else {
                 return false;
             }
         });
-        // @TODO update character button updates the database
-        // Button update = (Button) findViewById(R.id.ReturntoList);
-        Button goToListofPlayers = (Button) findViewById(R.id.ReturntoList);
-
-        goToListofPlayers.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
 
     }
 
