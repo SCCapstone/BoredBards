@@ -20,6 +20,7 @@ import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -34,6 +35,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class campaign_activity extends AppCompatActivity {
+    private RecyclerView RV;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
     private RecyclerView RV;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--@author Caroline Barrineau -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,7 +13,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="50dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider">
 
-        <TextView
+        <Button
             android:id="@+id/reportIssue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -101,9 +103,23 @@
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
-        
-        <TextView
-            android:id="@+id/logout"
+
+        <Button
+            android:id="@+id/offlineData"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:text="@string/offline_data"
+            android:textSize="15sp" />
+        <View
+            android:id="@+id/div3"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/darkblushPink"/>
+
+        <Button
+            android:id="@+id/toLogout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -111,12 +127,11 @@
             android:text="@string/logout"
             android:textSize="15sp" />
         <View
-            android:id="@+id/div4"
+            android:id="@+id/div2"
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
-        
-        <TextView
+        <Button
             android:id="@+id/aboutUs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -125,7 +140,7 @@
             android:text="@string/about_us"
             android:textSize="15sp" />
         <View
-            android:id="@+id/div5"
+            android:id="@+id/div4"
             android:layout_width="200dp"
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
