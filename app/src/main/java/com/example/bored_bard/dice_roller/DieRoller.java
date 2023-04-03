@@ -79,6 +79,10 @@ public class DieRoller extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
+//            } else if (item.getItemId() == R.id.encyclopedia) {
+//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
+//                overridePendingTransition(0, 0);
+//                return true;
             } else {
                 return false;
             }

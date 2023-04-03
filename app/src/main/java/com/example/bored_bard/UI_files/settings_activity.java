@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,36 +13,12 @@ import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class settings_activity extends AppCompatActivity {
-
-    FirebaseAuth auth;
-    FirebaseUser user;
-    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_screen);
-
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();
-        textView = findViewById(R.id.toLogout);
-
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
-
-
-
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.settings_page);
@@ -65,20 +40,32 @@ public class settings_activity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
+//            } else if (item.getItemId() == R.id.encyclopedia) {
+//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
+//                overridePendingTransition(0, 0);
+//                return true;
             } else {
                 return false;
             }
         });
 
         TextView report = findViewById(R.id.reportIssue);
-        TextView offline_data = findViewById(R.id.offlineData);
-
         TextView about = findViewById(R.id.aboutUs);
+        TextView logout = findViewById(R.id.logout);
 
         report.setOnClickListener(v -> reportNavigator());
-        offline_data.setOnClickListener(v -> offlineDataManagement());
-
         about.setOnClickListener(v -> aboutNavigator());
+        logout.setOnClickListener(v -> logout());
+    }
+
+    /**
+     * when called, logs the user out
+     */
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+        startActivity(intent);
+        finish();
     }
 
     /**
@@ -86,7 +73,7 @@ public class settings_activity extends AppCompatActivity {
      */
     private void aboutNavigator() {
         try {
-            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards"));
+            Intent about_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SCCapstone/BoredBards#readme"));
             about_link.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(about_link);
         } catch (Exception e) {
@@ -105,19 +92,5 @@ public class settings_activity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("Exception caught", e.toString());
         }
-    }
-
-    /**
-     * when called, logs the user out
-     */
-
-
-    /**
-     * when called, allows the user to change data management policies
-     */
-    private void offlineDataManagement() {
-//        startActivity(new Intent(getApplicationContext(), logout.class));
-//        overridePendingTransition(0, 0);
-
     }
 }

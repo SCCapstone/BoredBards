@@ -6,8 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/GreyWhite"
     tools:context=".UI_files.campaign_activity">
+
+    <include layout = "@layout/reusable_layout_background" />
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -81,20 +82,17 @@
         android:contentDescription="@string/darkblushwave" />
 
     <!-- Background: RustRedWave-->
-
-    <!-- "BoredBard Present" -->
-
     <ImageView
         android:id="@+id/RustRedWave"
         android:layout_width="match_parent"
         android:layout_height="116dp"
-        android:contentDescription="@string/rustredwave"
         app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave" />
+        app:srcCompat="@drawable/wave"
+        android:contentDescription="@string/rustredwave" />
 
+    <!-- "BoredBard Present" -->
     <TextView
         android:id="@+id/Credits"
         android:layout_width="wrap_content"
@@ -163,40 +161,50 @@
             android:textColor="@color/black"
             android:textAlignment="inherit"/>
 
-        <!-- Do not add the names of the campaigns to strings -->
-<!--        <Button-->
-<!--            android:id="@+id/campaign1"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/darkblushPink"-->
-<!--            android:padding="5dp"-->
-<!--            android:textSize="20sp"-->
-<!--            android:text="@string/strahd"-->
-<!--            android:textAlignment="center" />-->
-<!--        &lt;!&ndash; Do not add the names of the campaigns to strings &ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/campaign2"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/darkblushPink"-->
-<!--            android:padding="5dp"-->
-<!--            android:textSize="20sp"-->
-<!--            android:text="@string/abyss"-->
-<!--            android:textAlignment="center" />-->
-<!--        &lt;!&ndash; Do not add the names of the campaigns to strings &ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/campaign3"-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/darkblushPink"-->
-<!--            android:padding="5dp"-->
-<!--            android:textSize="20sp"-->
-<!--            android:text="@string/tomb"-->
-<!--            android:textAlignment="center" />-->
+        <!-- @TODO grab context from json file -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVCampaigns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:itemCount="2"
+            tools:listitem="@layout/rv_campaigns" />
+
+        <Button
+            android:id="@+id/campaign1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkblushPink"
+            android:padding="5dp"
+            android:text="@string/strahd"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddCampaign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/add_new_campaign"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/campaigns"
+        app:srcCompat="@android:drawable/ic_input_add" />
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="448dp"
+        android:text="@string/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
