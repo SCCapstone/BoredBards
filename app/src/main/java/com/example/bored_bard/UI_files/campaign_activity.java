@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.notes.MyAdapter;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,14 +16,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class campaign_activity extends AppCompatActivity {
-
-    // ArrayList<Campaigns> camp;
+    private RecyclerView RV;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +53,17 @@ public class campaign_activity extends AppCompatActivity {
             }
             return false;
         });
+        // recycler content viewing
+        RV = (RecyclerView) findViewById(R.id.RVCampaigns);
+        RV.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        RV.setLayoutManager(layoutManager);
+
         // @todo make it so the username comes from the database
+        // adapter = new MyAdapter(my data set)
+        RV.setAdapter(adapter);
 
         // @todo make it so the campaign names are taken from the firebase list of campaigns
-
-        // RecyclerView rvCampaigns = (RecyclerView) findViewById(R.id.campaigns);
 
 
         //UI references
