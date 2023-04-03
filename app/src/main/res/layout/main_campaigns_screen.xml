@@ -164,48 +164,39 @@
             android:textAlignment="inherit"/>
 
         <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/strahd"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/abyss"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/tomb"
-            android:textAlignment="center" />
+<!--        <Button-->
+<!--            android:id="@+id/campaign1"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/darkblushPink"-->
+<!--            android:padding="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="@string/strahd"-->
+<!--            android:textAlignment="center" />-->
+<!--        &lt;!&ndash; Do not add the names of the campaigns to strings &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/campaign2"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/darkblushPink"-->
+<!--            android:padding="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="@string/abyss"-->
+<!--            android:textAlignment="center" />-->
+<!--        &lt;!&ndash; Do not add the names of the campaigns to strings &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/campaign3"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/darkblushPink"-->
+<!--            android:padding="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="@string/tomb"-->
+<!--            android:textAlignment="center" />-->
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="444dp"
-        android:text="Logout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

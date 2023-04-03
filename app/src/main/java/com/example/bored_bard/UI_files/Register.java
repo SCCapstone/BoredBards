@@ -19,16 +19,18 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Register extends AppCompatActivity {
-    TextInputEditText editTextEmailAddress, editTextPassword;
+    TextInputEditText editTextEmailAddress, editTextPassword, editUsername;
     Button buttonRegister;
     ProgressBar progressBar;
     TextView textView;
     FirebaseAuth mAuth;
-
 
 
     @Override
@@ -49,10 +51,15 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         editTextEmailAddress = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
+        editUsername = findViewById(R.id.username);
         buttonRegister = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.LoginNow);
         mAuth = FirebaseAuth.getInstance();
+        DAOUser dao = new DAOUser();
+        final FirebaseDatabase[] rootNode = new FirebaseDatabase[1];
+        final DatabaseReference[] reference = new DatabaseReference[1];
+
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,10 +74,13 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password, username;
                 email = String.valueOf(editTextEmailAddress.getText());
                 password = String.valueOf(editTextPassword.getText());
-
+                username = String.valueOf(editUsername.getText());
+                rootNode[0] = FirebaseDatabase.getInstance();
+                reference[0] = rootNode[0].getReference("User");
+                
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
                     return;
@@ -79,7 +89,20 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(Register.this, "Enter Username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                User Fuser = new User(editTextEmailAddress.getText().toString(),editTextPassword.getText().toString(),editUsername.getText().toString());
+
+                reference[0].child(username).setValue(Fuser);
+
+                dao.add(Fuser).addOnSuccessListener(suc->{
+                    Toast.makeText(Register.this, "Record is inserted", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(er->{
+                    Toast.makeText(Register.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
@@ -88,9 +111,7 @@ public class Register extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     Toast.makeText(Register.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-                                    startActivity(intent);
-                                    finish();
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -101,7 +122,11 @@ public class Register extends AppCompatActivity {
                                 }
                             }
                         });
-            }
+
+                }
+
         });
+
+
     }
 }
