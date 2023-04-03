@@ -62,4 +62,36 @@
     <string name="Email" />
     <string name="disadv" />
     <string name="adv" />
+    <string name="encyclopedia">Encyclopedia</string>
+    <string name="new_campaign">New Campaign</string>
+    <string name="override_me">Override Me</string>
+    <string name="title_of_campaign">Title of Campaign</string>
+    <string name="edit_characters">Edit Characters</string>
+    <string name="players">Players</string>
+    <string name="your_players">Your Players</string>
+    <string name="add_new_character">Add new character</string>
+    <string name="submit_new_character">submit New character</string>
+    <string name="name">Name</string>
+    <string name="race">Race (Orc, Human, Halfing…)</string>
+    <string name="class_">Class (Fighter, Cleric, Barbarian…)</string>
+    <string name="update_character">Update Character</string>
+    <string name="add_new_campaign">Add new campaign</string>
+    <string name="number_of_players">Number of Players:</string>
+    <string name="save_campaign">Save campaign</string>
+    <string name="short_campaign_bio">Short Campaign Bio</string>
+    <string name="type">Type (NPC or PC)</string>
+    <string name="return_to_list_of_players">Return to List of Players</string>
+    <string name="race_">Race</string>
+    <string name="class__">Class</string>
+    <string name="type_">Type</string>
+
+
+
+
+
+
+
+
+
+    
 </resources>

@@ -119,7 +119,7 @@
             android:background="@color/darkblushPink"/>
 
         <Button
-            android:id="@+id/toLogout"
+            android:id="@+id/logout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"

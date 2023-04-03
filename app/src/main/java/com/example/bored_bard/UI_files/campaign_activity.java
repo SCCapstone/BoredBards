@@ -38,9 +38,8 @@ public class campaign_activity extends AppCompatActivity {
     private RecyclerView RV;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private RecyclerView RV;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+
+
     FirebaseAuth auth;
     FirebaseUser user;
     TextView textView;
@@ -52,7 +51,7 @@ public class campaign_activity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         textView = findViewById(R.id.username);
-        button = findViewById(R.id.btn_logout);
+
 
         if (user == null){
             Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
@@ -62,13 +61,6 @@ public class campaign_activity extends AppCompatActivity {
         else{
             textView.setText(user.getEmail());
         }
-
-        button.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-            startActivity(intent);
-            finish();
-        });
 
 
 
