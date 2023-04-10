@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
@@ -104,7 +104,7 @@ li a:hover {
     color: #84342D;
 }
 
-.howTo h1, h3 {
+.howTo h1, h2, h3 {
     color: #84342D;
 }
 
@@ -161,4 +161,8 @@ div.secDescr img.thumb {
 
 #blurb {
     width: 450px;
+}
+
+.aboutUs {
+    
 }
