@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class campaign_activity extends AppCompatActivity {
     private RecyclerView RV;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+//    FirebaseDatabase uesrinfo;
 
 
     FirebaseAuth auth;
@@ -51,6 +53,7 @@ public class campaign_activity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         textView = findViewById(R.id.username);
+//        userinfo = FirebaseDatabase.getInstance();
 
 
         if (user == null){
