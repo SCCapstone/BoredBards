@@ -208,7 +208,7 @@
         android:autofillHints="Number of Dice"
         android:gravity="center"
         android:hint="@string/num_dice"
-        android:inputType="text"
+        android:inputType="number"
         android:text="@string/default_num_dice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/count_button"
