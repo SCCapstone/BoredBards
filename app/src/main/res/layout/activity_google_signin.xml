@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/blushPink"
     android:layout_width="match_parent"
@@ -9,8 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context=".UI_files.google_signin_activity"
-    android:padding="15dp"
-    >
+    android:padding="15dp">
 
   <TextView
       android:text="@string/login"
@@ -27,6 +24,7 @@
           <com.google.android.material.textfield.TextInputEditText
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:lines="1"
               android:id="@+id/email"
               android:hint="@string/email_address"/>
 
@@ -37,6 +35,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:lines="1"
             android:id="@+id/password"
             android:hint="@string/password"/>
 
@@ -60,7 +59,7 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:id="@+id/RegisterNow"
-        android:text="Click to Register"
+        android:text="@string/click_to_register"
         android:textSize="20sp"
         />
 

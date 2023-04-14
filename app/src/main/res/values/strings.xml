@@ -84,14 +84,8 @@
     <string name="race_">Race</string>
     <string name="class__">Class</string>
     <string name="type_">Type</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="click_to_login">Click to Login</string>
 
 
-
-
-
-
-
-
-
-    
 </resources>
