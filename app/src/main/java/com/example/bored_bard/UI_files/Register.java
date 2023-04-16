@@ -31,7 +31,7 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
     TextView textView;
     FirebaseAuth mAuth;
-
+    FirebaseUser user;
 
     @Override
     public void onStart() {
@@ -57,6 +57,7 @@ public class Register extends AppCompatActivity {
         textView = findViewById(R.id.LoginNow);
         mAuth = FirebaseAuth.getInstance();
         DAOUser dao = new DAOUser();
+        user = mAuth.getCurrentUser();
         final FirebaseDatabase[] rootNode = new FirebaseDatabase[1];
         final DatabaseReference[] reference = new DatabaseReference[1];
 
@@ -98,17 +99,29 @@ public class Register extends AppCompatActivity {
 
                 reference[0].child(username).setValue(Fuser);
 
-                dao.add(Fuser).addOnSuccessListener(suc->{
-                    Toast.makeText(Register.this, "Record is inserted", Toast.LENGTH_SHORT).show();
-                }).addOnFailureListener(er->{
-                    Toast.makeText(Register.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+
+
+                // creates the user account with email and password
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     progressBar.setVisibility(View.GONE);
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(Fuser.getUsername()).build();
+                                    user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                           if(task.isSuccessful()) {
+                                               Toast.makeText(Register.this, "Username updated.",
+                                                       Toast.LENGTH_SHORT).show();
+                                           }
+                                        }
+                                    });
+
                                     Toast.makeText(Register.this, "Account Created.",
                                             Toast.LENGTH_SHORT).show();
 
@@ -123,6 +136,11 @@ public class Register extends AppCompatActivity {
                             }
                         });
 
+
+               //Sends user back to login in page after the user creates account
+                Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+                startActivity(intent);
+                finish();
                 }
 
         });

@@ -21,14 +21,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,12 +45,13 @@ public class campaign_activity extends AppCompatActivity {
     private RecyclerView RV;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-//    FirebaseDatabase uesrinfo;
+
 
 
     FirebaseAuth auth;
     FirebaseUser user;
     TextView textView;
+    EditText editText;
     Button button;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +59,11 @@ public class campaign_activity extends AppCompatActivity {
         setContentView(R.layout.main_campaigns_screen);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        textView = findViewById(R.id.username);
-//        userinfo = FirebaseDatabase.getInstance();
+        textView =findViewById(R.id.username);
+
+
+
+
 
 
         if (user == null){
@@ -62,7 +72,7 @@ public class campaign_activity extends AppCompatActivity {
             finish();
         }
         else{
-            textView.setText(user.getEmail());
+            textView.setText(user.getDisplayName());
         }
 
 
