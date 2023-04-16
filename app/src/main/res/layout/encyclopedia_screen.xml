@@ -15,8 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
-        tools:listitem="@layout/recycler_view_item_1" />
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav" />
 
     <!--Nav Bar-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
