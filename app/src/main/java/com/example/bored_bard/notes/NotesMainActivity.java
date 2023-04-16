@@ -69,6 +69,11 @@ public class NotesMainActivity extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(getApplicationContext(),notesList);
         recyclerView.setAdapter(myAdapter);
 
-        notesList.addChangeListener(notes -> myAdapter.notifyDataSetChanged());
+        notesList.addChangeListener(new RealmChangeListener<RealmResults<Notes>>() {
+            @Override
+            public void onChange(RealmResults<Notes> notes) {
+                myAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }

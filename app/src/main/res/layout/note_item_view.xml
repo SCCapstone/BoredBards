@@ -5,6 +5,7 @@
     android:padding="10dp"
     android:layout_marginBottom="10dp"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
     tools:context=".notes.MyAdapter">
 
 

@@ -3,9 +3,12 @@ package com.example.bored_bard.notes;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +16,7 @@ import com.example.bored_bard.R;
 
 import java.text.DateFormat;
 
+import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
@@ -40,6 +44,32 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
         String formatedTime = DateFormat.getDateTimeInstance().format(note.createdTime);
         holder.timeOutput.setText(formatedTime);
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                PopupMenu menu = new PopupMenu(context, view);
+                menu.getMenu().add("DELETE");
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.getTitle().equals("DELETE")){
+
+                            Realm realm = Realm.getDefaultInstance();
+                            realm.beginTransaction();
+                            note.deleteFromRealm();
+                            realm.commitTransaction();
+                            Toast.makeText(context, "Deleted",Toast.LENGTH_SHORT).show();
+                        }
+                            return true;
+                    }
+                });
+                menu.show();
+
+                return true;
+            }
+        });
     }
 
     @Override
