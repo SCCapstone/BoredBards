@@ -31,6 +31,7 @@ import org.w3c.dom.Document;
 
 public class Encyclopedia extends AppCompatActivity {
 
+    private static final String TAG = "MyActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,21 +41,38 @@ public class Encyclopedia extends AppCompatActivity {
 
 
         //CollectionReference ref = db.collection("Encyclopedia");
-        DocumentReference docRef = db.collection("Encyclopedia").document("Default");
+        DocumentReference docRef = db.collection("Encyclopedia").document("Default/AbilityScores/cha");
         /*db.collection("Encyclopedia").document("Default")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("TAG", "Data " + " => " + document.getData());
+                            DocumentSnapshot document = task.getResult();
+                            if( document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot Data: " + document.getData());
+                            } else {
+                                Log.d(TAG, "No Such Document");
                             }
                         } else {
-                            Log.d("TAG", "Error getting documents: " + task.getException());
+                            Log.d(TAG, "Error getting documents: " + task.getException());
                         }
                     }
                 });*/
+        db.collection("Encyclopedia").document("Default").collection("AbilityScores")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
 
 
 
