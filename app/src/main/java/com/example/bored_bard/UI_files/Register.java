@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
 
                 User Fuser = new User(editTextEmailAddress.getText().toString(),editTextPassword.getText().toString(),editUsername.getText().toString());
 
-                reference[0].child(username).setValue(Fuser);
+                reference[0].child(username).child("UserInfo").setValue(Fuser);
 
 
 

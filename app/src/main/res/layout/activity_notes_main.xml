@@ -42,4 +42,12 @@
         android:layout_above="@+id/bottom_nav"
         android:layout_marginBottom="14dp"
         android:text="@string/add_note" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewNoteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_marginBottom="60dp"
+        android:text="view notes" />
 </RelativeLayout>

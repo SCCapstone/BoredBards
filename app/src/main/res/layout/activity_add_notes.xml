@@ -61,5 +61,14 @@
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
         />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exitButton"
+        android:text="Cancel"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        />
 
 </LinearLayout>

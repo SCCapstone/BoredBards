@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
+import com.example.bored_bard.UI_files.google_signin_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,6 +27,7 @@ public class NotesMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_main);
         MaterialButton addNoteBtn = findViewById(R.id.addNoteButton);
+        MaterialButton viewNoteBtn = findViewById(R.id.viewNoteButton);
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.notes_page);
@@ -58,22 +60,31 @@ public class NotesMainActivity extends AppCompatActivity {
 
         addNoteBtn.setOnClickListener(view -> startActivity(new Intent(NotesMainActivity.this, AddNotes.class)));
 
-        Realm.init(getApplicationContext());
-        Realm realm = Realm.getDefaultInstance();
+//        Realm.init(getApplicationContext());
+//        Realm realm = Realm.getDefaultInstance();
+
+        viewNoteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), noteList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
-        RealmResults<Notes> notesList = realm.where(Notes.class).findAll();
+//        RealmResults<Notes> notesList = realm.where(Notes.class).findAll();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),notesList);
-        recyclerView.setAdapter(myAdapter);
+//        MyAdapter myAdapter = new MyAdapter(getApplicationContext());
+//        recyclerView.setAdapter(myAdapter);
 
-        notesList.addChangeListener(new RealmChangeListener<RealmResults<Notes>>() {
-            @Override
-            public void onChange(RealmResults<Notes> notes) {
-                myAdapter.notifyDataSetChanged();
-            }
-        });
+//        notesList.addChangeListener(new RealmChangeListener<RealmResults<Notes>>() {
+//            @Override
+//            public void onChange(RealmResults<Notes> notes) {
+//                myAdapter.notifyDataSetChanged();
+//            }
+//        });
     }
 }

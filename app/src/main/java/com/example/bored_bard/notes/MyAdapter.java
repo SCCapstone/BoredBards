@@ -11,10 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.bored_bard.R;
 
+import java.text.BreakIterator;
 import java.text.DateFormat;
+import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -22,10 +25,10 @@ import io.realm.RealmResults;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     Context context;
-    RealmResults<Notes> notesList;
-    public MyAdapter(Context context, RealmResults<Notes> notesList) {
+    ArrayList<Notes> list;
+    public MyAdapter(Context context, ArrayList<Notes> list) {
         this.context = context;
-        this.notesList = notesList;
+        this.list = list;
     }
 
 
@@ -33,17 +36,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
     @NonNull
     @Override
     public MyViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHodler(LayoutInflater.from(context).inflate(R.layout.note_item_view,parent,false));
+
+
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_note_list,parent, false);
+        return new MyViewHodler(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHodler holder, int position) {
-        Notes note = notesList.get(position);
+        Notes note = list.get(position);
         holder.titleOutput.setText(note.getTitle());
         holder.descriptionOutput.setText(note.getDescription());
 
-        String formatedTime = DateFormat.getDateTimeInstance().format(note.createdTime);
-        holder.timeOutput.setText(formatedTime);
+
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -56,10 +61,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
                     public boolean onMenuItemClick(MenuItem item) {
                         if(item.getTitle().equals("DELETE")){
 
-                            Realm realm = Realm.getDefaultInstance();
-                            realm.beginTransaction();
-                            note.deleteFromRealm();
-                            realm.commitTransaction();
                             Toast.makeText(context, "Deleted",Toast.LENGTH_SHORT).show();
                         }
                             return true;
@@ -74,19 +75,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     @Override
     public int getItemCount() {
-        return notesList.size();
+        return list.size();
     }
 
-    public class MyViewHodler extends RecyclerView.ViewHolder{
-            TextView titleOutput;
-            TextView descriptionOutput;
-            TextView timeOutput;
+    public static class MyViewHodler extends RecyclerView.ViewHolder{
+
+        TextView titleOutput;
+        TextView descriptionOutput;
+        public TextView CampaignTitle;
+        public CardView CampaignCard;
 
             public MyViewHodler(@NonNull View itemView){
                 super(itemView);
-                titleOutput = itemView.findViewById(R.id.titleoutput);
-                descriptionOutput = itemView.findViewById(R.id.descriptionoutput);
-                timeOutput = itemView.findViewById(R.id.timeoutput);
+                titleOutput = itemView.findViewById(R.id.notesTitle);
+                descriptionOutput = itemView.findViewById(R.id.descriptioninput);
+                CampaignTitle = itemView.findViewById(R.id.recCampaignTitle);
+                CampaignCard = itemView.findViewById(R.id.CampaignCard);
+
+//
+
+
             }
     }
 }

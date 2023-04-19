@@ -82,7 +82,7 @@ public class campaign_activity extends AppCompatActivity {
         // bottom navigation bar to move between activities
         bottomNavView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.campaigns_page) {
-                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                startActivity(new Intent(getApplicationContext(), CampaginList.class));
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.dice_page) {
