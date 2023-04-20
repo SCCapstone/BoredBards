@@ -5,14 +5,14 @@ import io.realm.RealmObject;
 public class Notes {
     String title;
     String description;
-    long createdTime;
+
 
     public Notes(){
 
     }
 
     public Notes(String title, String description){
-//        this.createdTime = createTime;
+
         this.description = description;
         this.title = title;
     }
@@ -28,8 +28,6 @@ public class Notes {
         return description;
     }
 
-//    public long getCreatedTime(){
-//        return createdTime;
-//    }
+
 
 }

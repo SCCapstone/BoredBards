@@ -2,6 +2,7 @@ package com.example.bored_bard.notes;
 
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.bored_bard.R;
 import java.text.BreakIterator;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -25,7 +27,7 @@ import io.realm.RealmResults;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     Context context;
-    ArrayList<Notes> list;
+    List<Notes> list;
     public MyAdapter(Context context, ArrayList<Notes> list) {
         this.context = context;
         this.list = list;
@@ -38,19 +40,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
     public MyViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_note_list,parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.note_item,parent, false);
         return new MyViewHodler(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHodler holder, int position) {
-        Notes note = list.get(position);
-        holder.titleOutput.setText(note.getTitle());
-        holder.descriptionOutput.setText(note.getDescription());
+
+        holder.NoteTitle.setText(list.get(position).getTitle());
+
+        holder.NoteDescription.setText(list.get(position).getDescription());
 
 
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.NoteCard.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
 
@@ -80,15 +83,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     public static class MyViewHodler extends RecyclerView.ViewHolder{
 
-        TextView titleOutput;
-        TextView descriptionOutput;
+        TextView NoteTitle, NoteDescription;
         public TextView CampaignTitle;
         public CardView CampaignCard;
+        CardView NoteCard;
 
             public MyViewHodler(@NonNull View itemView){
                 super(itemView);
-                titleOutput = itemView.findViewById(R.id.notesTitle);
-                descriptionOutput = itemView.findViewById(R.id.descriptioninput);
+
+                NoteTitle = itemView.findViewById(R.id.NoteTitle);
+                NoteDescription = itemView.findViewById(R.id.NoteDescription);
+                NoteCard = itemView.findViewById(R.id.NoteCard);
+
+
                 CampaignTitle = itemView.findViewById(R.id.recCampaignTitle);
                 CampaignCard = itemView.findViewById(R.id.CampaignCard);
 

@@ -7,12 +7,40 @@
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
     tools:context=".notes.noteList">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:id="@+id/CNoteTitle"
+        android:textSize="25dp"
+        android:textAlignment="center"
 
+        >
+
+    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
+        android:layout_below="@+id/CNoteTitle"
+        android:layout_above="@id/addNoteButton"
+
         />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNoteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_marginBottom="14dp"
+        android:text="@string/add_note" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>

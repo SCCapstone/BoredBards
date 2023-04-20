@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.google_signin_activity;
@@ -21,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import io.realm.Realm;
 
 public class AddNotes extends AppCompatActivity {
-
+    TextView CNTitle;
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference database;
@@ -43,16 +44,18 @@ public class AddNotes extends AppCompatActivity {
         saveBtn = findViewById(R.id.savebutton);
         exitBtn = findViewById(R.id.exitButton);
         database = FirebaseDatabase.getInstance().getReference();
+        CNTitle = findViewById(R.id.NCampaignTitle);
+        CNTitle = findViewById(R.id.NCampaignTitle);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            CNTitle.setText(bundle.getString("Title"));
+
+        }
 
 
 
 
-
-
-
-
-//        Realm.init(getApplicationContext());
-//        Realm realm = Realm.getDefaultInstance();
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,26 +63,8 @@ public class AddNotes extends AppCompatActivity {
 
                     InsertNote();
 
-//                String title = titleInput.getText().toString();
-//                String description = descriptionInput.getText().toString();
-//                long createdTime = System.currentTimeMillis();
-//
-//                realm.beginTransaction();
-//                Notes note = realm.createObject(Notes.class);
-//                note.setTitle(title);
-//                note.setDescription(description);
-//                note.setCreatedTime(createdTime);
-//                realm.commitTransaction();
-//
-//                Notes Cnote = new Notes(title.toString(),description.toString(), createdTime);
-
-
-
-
                 Toast.makeText(getApplicationContext(),"Note created",Toast.LENGTH_SHORT).show();
                 finish();
-
-
 
             }
         });
@@ -96,28 +81,21 @@ public class AddNotes extends AppCompatActivity {
 
     }
     private void InsertNote(){
-//        String noteTitle = titleInput.getText().toString();
-//        String noteDescritpion = descriptionInput.getText().toString();
-//        long createdTime = System.currentTimeMillis();
-//
-//        Notes Cnote = new Notes(noteTitle, noteDescritpion);
-//        String username = user.getDisplayName();
-//        database.child("User").child(username).child("Campaigns").child("Notes").setValue(Cnote)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if(task.isSuccessful()){
-//                    Toast.makeText(AddNotes.this, "Note has been created", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+
+
+
+
+        String Title = String.valueOf(CNTitle.getText());
+
         String title, description;
         String username = user.getDisplayName();
+
         title = String.valueOf(titleInput.getText());
+
         description = String.valueOf(descriptionInput.getText());
 
         Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString());
-        database.child("user").child(username).child("Campaigns").child("Notes").setValue(Cnote);
+        database.child("User").child(username).child("Campaigns").child(Title).child("Notes").child(title).setValue(Cnote);
 
 
     }

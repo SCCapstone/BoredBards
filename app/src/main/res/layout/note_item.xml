@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CampaignCard"
+    android:id="@+id/NoteCard"
     android:layout_marginStart="12dp"
     android:layout_marginEnd="12dp"
     android:layout_marginHorizontal="10dp"
@@ -18,7 +18,7 @@
         >
 
         <TextView
-            android:id="@+id/recCampaignTitle"
+            android:id="@+id/NoteTitle"
             android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -26,8 +26,22 @@
             android:text="Title"
             android:textColor="@color/black"
             android:textSize="20dp" />
+        <TextView
+            android:id="@+id/NoteDescription"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="20dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_below="@+id/NoteTitle"
+
+            />
+
 
 
     </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>

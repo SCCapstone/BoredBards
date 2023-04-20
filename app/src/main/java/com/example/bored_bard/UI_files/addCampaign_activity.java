@@ -59,15 +59,12 @@ FirebaseAuth mAuth;
                 String username = user.getDisplayName(), Title;
 
                 Title = String.valueOf(CampaignTitle.getText());
-//                rootNode[0] = FirebaseDatabase.getInstance();
 
                 Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
 
 
                 databaseReference.child("User").child(username).child("Campaigns").child(Title).setValue(Ccampign);
-//                databaseReference = rootNode[0].getReference("User").child(username).child("Campaigns");
-//
-//                databaseReference.child(Title).setValue(Ccampign);
+
 
             }
         });

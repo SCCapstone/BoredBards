@@ -47,8 +47,13 @@ public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler
           holder.CampaignCard.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent intent = new Intent(context, campaign_activity.class);
+                  Intent intent = new Intent(context, campaign_menu_activity.class);
                   intent.putExtra("Title", campaignList.get(holder.getAdapterPosition()).getTitle());
+
+
+
+
+
 
                   context.startActivity(intent);
               }
@@ -62,7 +67,7 @@ public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler
 }
 
 class MyViewHolder extends RecyclerView.ViewHolder{
-    TextView CampaignTitle;
+    TextView CampaignTitle, TitleC;
     CardView CampaignCard;
 
     public MyViewHolder(@NonNull View itemView) {
@@ -71,5 +76,6 @@ class MyViewHolder extends RecyclerView.ViewHolder{
 
         CampaignTitle = itemView.findViewById(R.id.recCampaignTitle);
         CampaignCard = itemView.findViewById(R.id.CampaignCard);
+        TitleC = itemView.findViewById(R.id.header_title);
     }
 }
