@@ -42,7 +42,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public class google_signin_activity extends AppCompatActivity {
 
     TextInputEditText editTextEmailAddress, editTextPassword;
-    Button buttonLogin;
+    Button buttonLogin, buttonCampaign;
     ProgressBar progressBar;
     TextView textView;
     FirebaseAuth mAuth;
@@ -57,6 +57,7 @@ public class google_signin_activity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
     }
 
     @Override
@@ -119,6 +120,8 @@ public class google_signin_activity extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }

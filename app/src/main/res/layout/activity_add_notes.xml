@@ -14,11 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleTextView"
-        android:text="Add new note"
+        android:text="Create a new note"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:gravity="center"
-        android:layout_margin="20dp"/>
+        />
+
+    <TextView
+        android:id="@+id/NCampaignTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Campaign Title"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,6 +66,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/savebutton"
         android:text="Create Note"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exitButton"
+        android:text="Cancel"
         android:layout_gravity="center"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"

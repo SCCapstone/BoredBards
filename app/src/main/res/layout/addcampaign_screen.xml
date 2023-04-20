@@ -104,6 +104,7 @@
            >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/campaignTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -129,6 +130,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/campaignInfo"
                 android:layout_width="match_parent"
                 android:layout_height="152dp" />
         </com.google.android.material.textfield.TextInputLayout>
