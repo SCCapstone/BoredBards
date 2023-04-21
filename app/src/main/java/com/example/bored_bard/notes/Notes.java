@@ -5,7 +5,15 @@ import io.realm.RealmObject;
 public class Notes {
     String title;
     String description;
+    String key;
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public Notes(){
 

@@ -80,7 +80,7 @@ public class Register extends AppCompatActivity {
                 password = String.valueOf(editTextPassword.getText());
                 username = String.valueOf(editUsername.getText());
                 rootNode[0] = FirebaseDatabase.getInstance();
-                reference[0] = rootNode[0].getReference("User");
+                reference[0] = rootNode[0].getReference();
                 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();

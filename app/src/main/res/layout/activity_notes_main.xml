@@ -23,10 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/notesTitle"
-        android:text="@string/notes"
+        android:text="Select a Campaign to add Notes"
         android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

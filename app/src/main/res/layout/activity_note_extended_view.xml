@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".notes.EditNote"
-    android:background="@color/GreyWhite">
+    android:background="@color/GreyWhite"
+    tools:context=".notes.NoteExtendedView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,9 +15,10 @@
         android:background="@drawable/roundcorners"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:id="@+id/EditNote"
+        android:id="@+id/NoteExpanded"
 
         >
+
 
 
         <TextView
@@ -25,45 +26,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text=""
+            android:text="X"
             android:textSize="20dp"
             android:textStyle="bold"
             />
-
-
-
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CNoteTitle"
+            android:id="@+id/CTitle"
             android:hint="CTitle"
             android:layout_gravity="center"
             android:textAlignment="center"
+
             />
-          <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/NNoteTitle"
-              android:hint="NTitle"
-              android:layout_gravity="center"
-              android:textAlignment="center"
-              />
-
-
-
-        <EditText
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/NTitle"
+            android:hint="NTitle"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ETitle"
+            android:id="@+id/titleNote"
             android:hint="Title"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:background="#40D0C9C0"
             />
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/EDescription"
+            android:id="@+id/descriptionNote"
             android:hint="Description"
             android:padding="10dp"
             android:layout_margin="10dp"
@@ -72,20 +68,20 @@
             android:gravity="top"
             />
         <TextView
-            android:id="@+id/finishEdit"
+            android:id="@+id/editNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Finish"
+            android:text="Edit"
             android:textColor="@color/black"
 
             />
         <TextView
-            android:id="@+id/cancelEdit"
+            android:id="@+id/deleteNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Cancel"
+            android:text="Delete"
             android:textColor="@color/black"
             />
 

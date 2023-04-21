@@ -84,7 +84,7 @@ public class NotesMainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns");
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
 
 
 

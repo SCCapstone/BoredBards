@@ -95,7 +95,7 @@ public class AddNotes extends AppCompatActivity {
         description = String.valueOf(descriptionInput.getText());
 
         Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString());
-        database.child("User").child(username).child("Campaigns").child(Title).child("Notes").child(title).setValue(Cnote);
+        database.child(username).child("Campaigns").child(Title).child("Notes").child(title).setValue(Cnote);
 
 
     }

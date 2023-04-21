@@ -2,6 +2,8 @@ package com.example.bored_bard.notes;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.icu.text.CaseMap;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -15,6 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.bored_bard.R;
+import com.example.bored_bard.UI_files.CampaginList;
+import com.example.bored_bard.UI_files.CampaignAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.BreakIterator;
 import java.text.DateFormat;
@@ -28,6 +34,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     Context context;
     List<Notes> list;
+
+    String CNote;
+    noteList noteList = new noteList();
+
+
     public MyAdapter(Context context, ArrayList<Notes> list) {
         this.context = context;
         this.list = list;
@@ -51,29 +62,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
         holder.NoteDescription.setText(list.get(position).getDescription());
 
+        holder.CTitle.setText(CNote);
 
-
-        holder.NoteCard.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.NoteCard.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+            public void onClick(View view) {
 
-                PopupMenu menu = new PopupMenu(context, view);
-                menu.getMenu().add("DELETE");
-                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle().equals("DELETE")){
+                Intent intent = new Intent(context, NoteExtendedView.class);
+                intent.putExtra("NTitle", list.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("Title", CNote);
+                intent.putExtra("Description", list.get(holder.getAdapterPosition()).getDescription());
+                intent.putExtra("NoteTitle", list.get(holder.getAdapterPosition()).getTitle());
 
-                            Toast.makeText(context, "Deleted",Toast.LENGTH_SHORT).show();
-                        }
-                            return true;
-                    }
-                });
-                menu.show();
-
-                return true;
+                intent.putExtra("Key", list.get(holder.getAdapterPosition()).getKey());
+                context.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -83,7 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     public static class MyViewHodler extends RecyclerView.ViewHolder{
 
-        TextView NoteTitle, NoteDescription;
+        public TextView NoteTitle, NoteDescription, CTitle;
         public TextView CampaignTitle;
         public CardView CampaignCard;
         CardView NoteCard;
@@ -94,10 +99,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
                 NoteTitle = itemView.findViewById(R.id.NoteTitle);
                 NoteDescription = itemView.findViewById(R.id.NoteDescription);
                 NoteCard = itemView.findViewById(R.id.NoteCard);
+                CTitle = itemView.findViewById(R.id.CTitle);
 
 
                 CampaignTitle = itemView.findViewById(R.id.recCampaignTitle);
                 CampaignCard = itemView.findViewById(R.id.CampaignCard);
+
 
 //
 

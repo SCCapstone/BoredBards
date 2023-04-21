@@ -47,7 +47,7 @@ FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-//       final FirebaseDatabase[] rootNode = new FirebaseDatabase[1];
+
 
 
 
@@ -63,7 +63,7 @@ FirebaseAuth mAuth;
                 Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
 
 
-                databaseReference.child("User").child(username).child("Campaigns").child(Title).setValue(Ccampign);
+                databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign);
 
 
             }
