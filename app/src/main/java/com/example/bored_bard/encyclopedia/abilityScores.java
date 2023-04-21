@@ -61,9 +61,18 @@ public class abilityScores {
         this.name = name;
     }
 
-    public List<HashMap<String,String>> getSkills() {
-        return skills;
+    public String skillsToString() {
+        String skillsString = "";
+
+        if (skills.isEmpty()) { return "None";}
+
+        for (HashMap<String,String> i : skills) {
+            skillsString += i.get("name") + "\n";
+        }
+        skillsString = skillsString.trim();
+        return skillsString;
     }
+    public List<HashMap<String,String>> getSkills() { return skills; }
 
     public void setSkills(List<HashMap<String,String>> skills) {
         this.skills = skills;

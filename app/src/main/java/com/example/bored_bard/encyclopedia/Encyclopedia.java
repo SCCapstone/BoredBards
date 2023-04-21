@@ -64,32 +64,6 @@ public class Encyclopedia extends AppCompatActivity {
         dbChange(gson);
 
 
-
-
-        //CollectionReference ref = db.collection("Encyclopedia");
-        //DocumentReference docRef = db.collection("Encyclopedia").document("Default");
-
-        //Calling and printing all documents in AbilityScores
-        /*db.collection("Encyclopedia").document("Default").collection("AbilityScores")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });*/
-
-
-
-
-
-
         //Setup for Bottom Nav Menu
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);

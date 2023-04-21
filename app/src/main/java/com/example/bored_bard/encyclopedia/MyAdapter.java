@@ -28,7 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<com.example.bored_bard.encyc
     @Override
     public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.ability_score,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.ability_score_row,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -39,12 +39,18 @@ public class MyAdapter extends RecyclerView.Adapter<com.example.bored_bard.encyc
 
         holder.full_name.setText(ability.getFull_name());
         holder.desc.setText(ability.getDesc());
-
+        holder.skills.setText(ability.skillsToString());
     }
 
     @Override
     public int getItemCount() {
         return abilityList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+
+        return super.getItemViewType(position);
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -55,6 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<com.example.bored_bard.encyc
             super(itemView);
             full_name = itemView.findViewById(R.id.viewFullName);
             desc = itemView.findViewById(R.id.viewDescription);
+            skills = itemView.findViewById(R.id.skillsRelevant);
         }
     }
 
