@@ -31,15 +31,17 @@ import java.util.EventListener;
 
 public class noteList extends AppCompatActivity {
 
-    TextView CNTitle;
+    TextView CNTitle, backBtn;
     RecyclerView recyclerView;
     ArrayList<Notes> noteslist;
+    FirebaseDatabase database;
     DatabaseReference databaseReference;
     MyAdapter adapter;
     FirebaseAuth mAuth;
     FirebaseUser user;
     ValueEventListener eventListener;
     MaterialButton addNoteBtn;
+    String CTitle;
 
 
     @Override
@@ -51,11 +53,13 @@ public class noteList extends AppCompatActivity {
 
         CNTitle = findViewById(R.id.CNoteTitle);
 
+
         String username = user.getDisplayName();
 
 
 
         addNoteBtn = findViewById(R.id.addNoteButton);
+        backBtn = findViewById(R.id.backBtn);
 
 //        addNoteBtn.setOnClickListener(view -> startActivity(new Intent(noteList.this, AddNotes.class)));
 
@@ -63,6 +67,16 @@ public class noteList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddNotes.class);
+                intent.putExtra("Title", CNTitle.getText().toString());
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
                 intent.putExtra("Title", CNTitle.getText().toString());
                 startActivity(intent);
                 finish();
@@ -79,14 +93,19 @@ public class noteList extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
 
+
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             CNTitle.setText(bundle.getString("Title"));
         }
 
-        String Title = String.valueOf(CNTitle.getText());
+        CTitle = String.valueOf(CNTitle.getText());
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child(Title).child("Notes");
+        adapter.CNote = CTitle;
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference(username).child("Campaigns").child(CTitle).child("Notes");
 
 
          eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
@@ -98,6 +117,7 @@ public class noteList extends AppCompatActivity {
                 {
 
                     Notes notes = dataSnapshot.getValue(Notes.class);
+                    notes.setKey(dataSnapshot.getKey());
                     noteslist.add(notes);
                 }
              adapter.notifyDataSetChanged();
@@ -108,7 +128,6 @@ public class noteList extends AppCompatActivity {
 
             }
         });
-
 
 
 
