@@ -71,11 +71,14 @@ public class MyAdapter extends RecyclerView.Adapter {
             case  CLASSES:
 
             case  CONDITIONS:
-
+                v = LayoutInflater.from(context).inflate(R.layout.condition_row,parent,false);
+                return new conditionsViewHolder(v);
             case  DAMAGETYPES:
-
+                v = LayoutInflater.from(context).inflate(R.layout.damage_types_row,parent,false);
+                return new damageTypesViewHolder(v);
             case  EQUIPMENT:
-
+                v = LayoutInflater.from(context).inflate(R.layout.equipment_row,parent,false);
+                return new equipmentViewHolder(v);
             case  EQUIPMENTCATEGORIES:
 
             case  FEATS:
@@ -120,7 +123,6 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Log.d("MyAdapter", entryList.get(position).toString());
         try {
             switch (entryList.get(position).getString("type")) {
                 case "AbilityScores":
@@ -136,10 +138,16 @@ public class MyAdapter extends RecyclerView.Adapter {
                 case "Classes":
                     break;
                 case "Conditions":
+                    conditions condition = gson.fromJson(entryList.get(position).toString(),conditions.class);
+                    ((conditionsViewHolder) holder).setView(condition);
                     break;
                 case "DamageTypes":
+                    damageTypes damage = gson.fromJson(entryList.get(position).toString(),damageTypes.class);
+                    ((damageTypesViewHolder) holder).setView(damage);
                     break;
                 case "Equipment":
+                    equipment equip = gson.fromJson(entryList.get(position).toString(),equipment.class);
+                    ((equipmentViewHolder) holder).setView(equip);
                     break;
                 case "EquipmentCategories":
                     break;
@@ -283,6 +291,56 @@ public class MyAdapter extends RecyclerView.Adapter {
         private void setView(alignment c) {
             name.setText(c.getName());
             desc.setText(c.getDesc());
+        }
+    }
+
+    public static class conditionsViewHolder extends RecyclerView.ViewHolder {
+
+        TextView desc, index, name, url;
+        public conditionsViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.viewFullName);
+            desc = itemView.findViewById(R.id.viewDescription);
+        }
+        private void setView(conditions c) {
+            name.setText(c.getName());
+            desc.setText(c.getDesc());
+        }
+    }
+
+    public static class damageTypesViewHolder extends RecyclerView.ViewHolder {
+
+        TextView desc, index, name, url;
+        public damageTypesViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.viewFullName);
+            desc = itemView.findViewById(R.id.viewDescription);
+        }
+        private void setView(damageTypes c) {
+            name.setText(c.getName());
+            desc.setText(c.getDesc());
+        }
+    }
+
+    public static class equipmentViewHolder extends RecyclerView.ViewHolder {
+
+        TextView desc, index, name, url, cost, equipmentCategory, gearCategory, weight;
+        public equipmentViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.viewFullName);
+            desc = itemView.findViewById(R.id.viewDescription);
+            cost = itemView.findViewById(R.id.viewPrice);
+            equipmentCategory = itemView.findViewById(R.id.viewEquipmentCategory);
+            gearCategory = itemView.findViewById(R.id.viewGearCategory);
+            weight = itemView.findViewById(R.id.viewWeight);
+        }
+        private void setView(equipment c) {
+            name.setText(c.getName());
+            desc.setText(c.getDesc());
+            cost.setText(c.getCostString());
+            equipmentCategory.setText(c.getEquipmentCategoryAsString());
+            gearCategory.setText(c.getGearCategoryAsString());
+            weight.setText(c.getWeightAsString());
         }
     }
 
