@@ -141,7 +141,7 @@ public class Encyclopedia extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        for (int j = 0; j < 2; j++) {
+                        for (int j = 0; j < 7; j++) {
                         //for(String i : collectionList) {
                             String i = collectionList.get(j);
                             Log.d(TAG,"\n" + i + "\n");
@@ -158,7 +158,6 @@ public class Encyclopedia extends AppCompatActivity {
                                             for (DocumentChange dc : value.getDocumentChanges()) {
                                                 if (dc.getType() == DocumentChange.Type.ADDED) {
                                                     String temp = gson.toJson(dc.getDocument().getData());
-                                                    Log.d(TAG, temp);
                                                     JSONObject tempObject;
                                                     try {
                                                         tempObject = new JSONObject(temp);
@@ -167,7 +166,6 @@ public class Encyclopedia extends AppCompatActivity {
                                                         throw new RuntimeException(e);
                                                     }
                                                     entryList.add(tempObject);
-                                                    Log.d(TAG, tempObject.toString());
                                                 }
 
                                                 myAdapter.notifyDataSetChanged();
