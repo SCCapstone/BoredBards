@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
+import com.example.bored_bard.UI_files.combat_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
@@ -34,6 +35,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 
 import java.lang.reflect.Type;
@@ -43,7 +46,7 @@ public class Encyclopedia extends AppCompatActivity {
 
     private static final String TAG = "MyActivity";
     RecyclerView recyclerView;
-    ArrayList<abilityScores> abilityScoresList;
+    ArrayList<JSONObject> entryList;
     MyAdapter myAdapter;
     FirebaseFirestore db;
     @Override
@@ -56,12 +59,36 @@ public class Encyclopedia extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         db = FirebaseFirestore.getInstance(); //Get Instance of Firestore
-        abilityScoresList = new ArrayList<abilityScores>();
-        myAdapter = new MyAdapter(Encyclopedia.this,abilityScoresList); //Initialize Adapter
+        entryList = new ArrayList<JSONObject>();
+        myAdapter = new MyAdapter(Encyclopedia.this,entryList); //Initialize Adapter
         recyclerView.setAdapter(myAdapter);
         Gson gson = new GsonBuilder().create();
 
         dbChange(gson);
+
+
+
+
+        /*db.collection("Encyclopedia")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()) {
+                            Object collectionNames;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                if (document.getId().equals("defaultCollectionNames")) {
+                                    collectionNames = document.getData();
+                                    Log.d(TAG,collectionNames.toString());
+                                }
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });*/
+
 
 
         //Setup for Bottom Nav Menu
@@ -93,27 +120,64 @@ public class Encyclopedia extends AppCompatActivity {
     }
 
     private void dbChange(Gson gson) {
-        db.collection("Encyclopedia").document("Default").collection("AbilityScores").orderBy("name", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+        ArrayList<String> collectionList = new ArrayList<>();
+        db.collection("Encyclopedia").document("defaultCollectionNames")
+                        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                        if (error != null) {
-                            Log.e("Firestore Error",error.getMessage());
-                            return;
-                        }
-
-                        for (DocumentChange dc : value.getDocumentChanges()) {
-                            if (dc.getType() == DocumentChange.Type.ADDED) {
-                                Type listType = new TypeToken<ArrayList<abilityScores>>() {}.getType();
-                                //abilityScoresList.add(gson.fromJson(dc.getDocument().toString(),abilityScores.class));
-                                abilityScoresList.add(dc.getDocument().toObject(abilityScores.class));
+                        if (task.isSuccessful()) {
+                            String json = gson.toJson(task.getResult().getData().get("Names"));
+                            String[] arr = gson.fromJson(json,String[].class);
+                            for (String i : arr) {
+                                collectionList.add(i);
+                                Log.d(TAG,i);
                             }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                })
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        for (int j = 0; j < 2; j++) {
+                        //for(String i : collectionList) {
+                            String i = collectionList.get(j);
+                            Log.d(TAG,"\n" + i + "\n");
+                            db.collection("Encyclopedia").document("Default").collection(i).orderBy("name", Query.Direction.ASCENDING)
+                                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                            myAdapter.notifyDataSetChanged();
+                                            if (error != null) {
+                                                Log.e("Firestore Error",error.getMessage());
+                                                return;
+                                            }
+
+                                            for (DocumentChange dc : value.getDocumentChanges()) {
+                                                if (dc.getType() == DocumentChange.Type.ADDED) {
+                                                    String temp = gson.toJson(dc.getDocument().getData());
+                                                    Log.d(TAG, temp);
+                                                    JSONObject tempObject;
+                                                    try {
+                                                        tempObject = new JSONObject(temp);
+                                                        tempObject.put("type", i);
+                                                    } catch (JSONException e) {
+                                                        throw new RuntimeException(e);
+                                                    }
+                                                    entryList.add(tempObject);
+                                                    Log.d(TAG, tempObject.toString());
+                                                }
+
+                                                myAdapter.notifyDataSetChanged();
+                                            }
+                                        }
+                                    });
                         }
                     }
                 });
+
 
     }
 
