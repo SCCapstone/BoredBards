@@ -26,6 +26,7 @@ public class alignment {
     }
 
     public String getDesc() {
+        desc = desc.trim();
         return desc;
     }
 
