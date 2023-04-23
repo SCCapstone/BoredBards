@@ -28,6 +28,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -44,12 +47,16 @@ dependencies {
     //Firebase Dependencies
     implementation platform('com.google.firebase:firebase-bom:31.2.2') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
-    implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
-
-    
-    implementation 'junit:junit:4.13.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'de.gerdi-project:GSON:6.0.6'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'junit:junit:4.13.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
 
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
@@ -59,4 +66,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' //Espresso UI unit test library
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test:rules:1.5.0'
+
+    //Google Sign in Dependencies
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:31.2.2')
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth'
+
+
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
 }

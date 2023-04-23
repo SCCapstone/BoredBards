@@ -125,12 +125,14 @@
     <!-- Username of whoever is logged in -->
     <TextView
         android:id="@+id/username"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="335dp"
+        android:layout_height="35dp"
+        android:autoSizeTextType="uniform"
         android:text="@string/username"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="25sp"
+        android:lines="1"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/AppName" />
@@ -191,6 +193,19 @@
             android:text="@string/tomb"
             android:textAlignment="center" />
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddCampaign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/add_new_campaign"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/campaigns"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 
 

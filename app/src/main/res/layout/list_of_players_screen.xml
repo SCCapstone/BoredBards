@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--@author Charles Simons - csimons637-->
 <!--@author Caroline Barrineau -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -7,18 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/CreamWhite" >
-
-    <!--Nav Bar-->
+    android:background="@color/GreyWhite"
+    tools:context=".UI_files.list_of_characters_activity" >
+    <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation_menu" />
 
     <!--This will be the center margin guide-->
@@ -66,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/edit_characters"
+        android:text="@string/your_players"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -83,85 +79,31 @@
         android:background="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/header_title"
-        />
+        app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!-- Table Layout of a specific character and their stats-->
-   <TableLayout
-       android:id="@+id/edit_stats_layout"
-       android:layout_width="350dp"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:gravity="top"
-       android:layout_marginTop="30dp"
-       app:layout_constraintEnd_toStartOf="@id/guideline_right"
-       app:layout_constraintStart_toStartOf="@+id/guideline_left"
-       app:layout_constraintTop_toBottomOf="@id/topDivider">
+    <!-- Card view of players -->
+    <!-- @todo take players from the database and display them -->
+    <!-- Inputting text -->
+    <LinearLayout
+        android:id="@+id/listofplayerslayout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-       <!-- @TODO auto fill about already made characters -->
+        <!-- Add a new character to edit -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/recycler_view_item" />
 
-       <TableRow>
-           <TextView
-               android:id="@+id/Name"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/name"
-               android:paddingEnd="30dp"
-               android:textSize="20sp"
-               android:textColor="@color/black" />
-           <EditText
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="@string/name"/>
-    </TableRow>
-       <TableRow>
-           <TextView
-               android:id="@+id/Type"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/type_"
-               android:paddingEnd="30dp"
-               android:textSize="20sp"
-               android:textColor="@color/black" />
-           <EditText
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="@string/type"/>
-       </TableRow>
-       <TableRow>
-           <TextView
-               android:id="@+id/Class"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/class__"
-               android:paddingEnd="30dp"
-               android:textSize="20sp"
-               android:textColor="@color/black" />
-           <EditText
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="@string/class_"/>
-       </TableRow>
-       <TableRow>
-           <TextView
-               android:id="@+id/Race"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/race_"
-               android:paddingEnd="30dp"
-               android:textSize="20sp"
-               android:textColor="@color/black" />
-           <EditText
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:hint="@string/race"/>
-       </TableRow>
-
-   </TableLayout>
-
-    <!-- @ Fill in with database info, may need to remake like recycler-->
-
-    <!-- Update Character -->
+    </LinearLayout>
     <!-- Buttons -->
     <LinearLayout
         android:id="@+id/ButtonlinearLayout"
@@ -172,7 +114,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/edit_stats_layout">
+        app:layout_constraintTop_toBottomOf="@id/listofplayerslayout">
 
         <Button
             android:id="@+id/UpdateCharacter"
@@ -182,16 +124,15 @@
             android:text="@string/update_character" />
         <!-- Add a new character to edit -->
         <Button
-            android:id="@+id/ReturntoList"
+            android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/return_to_list_of_players"
+            android:text="@string/add_new_character"
             app:layout_constraintEnd_toStartOf="@+id/guideline_right"
             app:layout_constraintStart_toStartOf="@+id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

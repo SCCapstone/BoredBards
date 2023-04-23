@@ -3,21 +3,54 @@ package com.example.bored_bard.UI_files;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.R;
+import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class campaign_menu_activity extends AppCompatActivity {
+
+
+    public TextView TitleC;
+    Campaign campaign;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.campaign_menu_screen);
+
+
+        TitleC = findViewById(R.id.header_title);
+
+
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        String username = user.getDisplayName(), Title;
+        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child("title:");
+
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            TitleC.setText(bundle.getString("Title"));
+        }
+
+
+
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);

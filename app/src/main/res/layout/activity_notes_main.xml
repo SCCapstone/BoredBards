@@ -23,23 +23,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/notesTitle"
-        android:text="@string/notes"
+        android:text="Select a Campaign to add Notes"
         android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
-        android:layout_above="@+id/addNoteButton"
+        android:layout_above="@+id/AddCampaign"
         android:layout_below="@+id/notesTitle" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addNoteButton"
+        android:id="@+id/AddCampaign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_nav"
         android:layout_marginBottom="14dp"
-        android:text="@string/add_note" />
+        android:text="Add Campaign" />
+
+
 </RelativeLayout>
