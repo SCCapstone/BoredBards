@@ -251,7 +251,7 @@ public class DieRoller extends AppCompatActivity {
         res_breakdown.setContentDescription(breakdown);
 
         TextView dieType = findViewById(R.id.type_window);
-        String dieMsg = "Rolling 2d" + numSides;
+        String dieMsg = "Rolling with advantage";
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
 
@@ -283,7 +283,7 @@ public class DieRoller extends AppCompatActivity {
         res_breakdown.setContentDescription(breakdown);
 
         TextView dieType = findViewById(R.id.type_window);
-        String dieMsg = "Rolling 2d" + numSides;
+        String dieMsg = "Rolling with disadvantage";
         dieType.setText(dieMsg);
         dieType.setContentDescription(String.valueOf(numSides));
 
