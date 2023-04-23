@@ -1,0 +1,164 @@
+/*Global Styles*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: auto;
+    background-color: #EFEAD8;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+
+header, nav ul {
+    /* width: 90%; */
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+main {
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+footer {
+    margin-top: 90px;
+    color: #84342D;
+    text-align: center;
+}
+
+footer h5 {
+    display: block;
+    text-align: center;
+    text-decoration: solid;
+    margin-left: 45px;
+    margin-right: 45px;
+    color: #84342D;
+}
+
+footer p {
+    font-size: medium;
+}
+
+a {
+    text-decoration: underline;
+    color: #BA7B6B;
+}
+
+a:hover {
+    color: #D58258;
+}
+
+/*Logo*/
+img.logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+header {
+    position: relative;
+}
+
+header h1 {
+    padding-top: 30px;
+    padding-left: 100px;
+    color: #84342D;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+nav ul {
+    padding-left: 50px;
+}
+
+/*Navbar*/
+nav {
+    background-color: #963A2F;
+}
+
+nav li {
+    display: inline-block;
+}
+
+li a {
+    display: inline-block;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+li a:hover {
+    background-color: #D58258;
+    color: white;
+}
+
+/*Home Page*/
+.appOverview h1 {
+    color: #84342D;
+}
+
+.howTo h1, h3 {
+    color: #84342D;
+}
+
+.howTo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+
+.aboutUs h1 {
+    color: #84342D;
+}
+
+.aboutUs img {
+    display: block;
+}
+
+div.secContainer {
+    width: 97%; /*Adjust for horizontal content centering*/
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* grid-template-columns: auto auto;
+    gap: auto auto; */
+}
+
+div.secDescr {
+    width: 750px;
+    height: 275px;
+}
+
+div.secDescr p {
+    display: inline-block;
+    width: 40%;
+    height: 200px;
+}
+
+div.secDescr img.thumb {
+    float: left;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.home {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image {
+    width: 325px;
+}
+
+#blurb {
+    width: 450px;
+}

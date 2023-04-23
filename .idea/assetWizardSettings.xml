@@ -324,8 +324,9 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="roller" />
-                            <entry key="sourceFile" value="C:\Users\csimo\Desktop\BoredBards\app\icon_images\svg_src\dice-d20.svg" />
+                            <entry key="autoMirrored" value="true" />
+                            <entry key="outputName" value="book" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../book.svg" />
                           </map>
                         </option>
                       </PersistentState>

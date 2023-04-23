@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- @author Caroline Barrineau -->
-<!--This screen will be where the user can insert initiative rolls  -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="UI_files.initiative_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/GreyWhite">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation_menu" />
 
     <!--This will be the center margin guide-->
@@ -62,13 +56,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <!-- Title "Enter Combat Rolls" -->
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/enter_combat_rolls"
+        android:text="New Character"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -87,37 +80,91 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!--  -->
-
-
-    <!--Edit Stats Button-->
-    <Button
-        android:id="@+id/editStats"
-        android:layout_width="wrap_content"
+    <!-- Inputting text -->
+    <LinearLayout
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkblushPink"
-        android:text="@string/edit_stats"
-        android:textSize="15sp"
-        android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toStartOf="@id/beginCombat"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        tools:ignore="TextContrastCheck" />
-
-    <!--Begin Button, constraint to edit stats button-->
-    <Button
-        android:id="@+id/beginCombat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkblushPink"
-        android:padding="15dp"
-        android:text="@string/combat"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_footer"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        app:layout_constraintStart_toEndOf="@+id/editStats"
-        tools:ignore="TextContrastCheck" />
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Name"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Type (NPC or player) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Type"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Race (Orc, Human, etc) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Race"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/race">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Class (wizard, fighter, etc -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Class"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/class_">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- Modifiers to certain stats (make a chart?) -->
+
+        <!-- @todo (later) Equipment, Abilities, Attributes -->
+
+        <!-- Submit New Character to database -->
+
+
+        <Button
+            android:id="@+id/submitNewCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/submit_new_character"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!-- citing GeeksforGeeks, StackOverflow, https://guides.codepath.com/android/Working-with-the-EditText -->

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.bored_bard"
-        minSdk 26
+        minSdk 25
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -32,8 +32,7 @@ android {
 
 dependencies {
     //Compatibility Dependencies
-    implementation 'androidx.appcompat:appcompat:1.6.1' //Appcompat library, used for APIs (Material Components)
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0' //Appcompat library, used for APIs (Material Components)
 
     //Startup Dependencies
     implementation("androidx.startup:startup-runtime:1.1.1")
@@ -44,13 +43,14 @@ dependencies {
     //Firebase Dependencies
     implementation platform('com.google.firebase:firebase-bom:31.2.2') //Firebase Android BoM library
     implementation 'com.google.firebase:firebase-analytics' //Firebase Analytics library
+    implementation 'junit:junit:4.13.2'
+    implementation 'com.google.android.material:material:<version>'
     implementation 'com.google.firebase:firebase-firestore' //Firebase Firestore(database) library
 
-    
     implementation 'junit:junit:4.13.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'de.gerdi-project:GSON:6.0.6'
-
+    
     // UI Testing Dependencies
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 

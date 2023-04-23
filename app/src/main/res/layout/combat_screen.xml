@@ -79,6 +79,7 @@
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_header" />

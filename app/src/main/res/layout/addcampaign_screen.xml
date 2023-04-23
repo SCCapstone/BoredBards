@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--@author Caroline Barrineau -->
+<!-- @author Caroline Barrineau -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <include layout = "@layout/reusable_layout_background" />
+    android:layout_height="match_parent"
+    tools:context=".UI_files.addCampaign_activity"
+    android:background="@color/GreyWhite">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,15 +53,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-
-
-    <!-- Title "Settings" -->
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/settings"
+        android:text="@string/new_campaign"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -79,72 +77,74 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!-- list of settings -->
+    <!-- Inputting text -->
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/topDivider">
+        app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <Button
-            android:id="@+id/reportIssue"
-            android:layout_width="fill_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/NewTitle"
+            android:layout_width= "350dp"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/report_an_issue"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div1"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
+            app:boxBackgroundColor="@color/skintonePink"
+            android:textColorHint="@color/black"
+            android:hint="@string/title_of_campaign"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/topDivider"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:hintAnimationEnabled="true"
+           >
 
-        <Button
-            android:id="@+id/offlineData"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/offline_data"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div3"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Bio"
+            android:layout_width= "350dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/short_campaign_bio"
+            android:padding="5dp"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxBackgroundColor="@color/CavernPink"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/topDivider"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:hintAnimationEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="152dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- @TODO Make Button be able to save new instance of campaign-->
         <Button
-            android:id="@+id/toLogout"
+            android:id="@+id/campaign1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkblushPink"
+            android:layout_marginTop="20dp"
+            android:text="@string/save_campaign"
             android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/logout"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div2"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
-        <Button
-            android:id="@+id/aboutUs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/about_us"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div4"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
