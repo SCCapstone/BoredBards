@@ -45,12 +45,10 @@ public class settings_activity extends AppCompatActivity {
         });
 
         TextView report = findViewById(R.id.reportIssue);
-        TextView offline_data = findViewById(R.id.offlineData);
-        TextView logout = findViewById(R.id.toLogout);
+        TextView logout = findViewById(R.id.logout);
         TextView about = findViewById(R.id.aboutUs);
 
         report.setOnClickListener(v -> reportNavigator());
-        offline_data.setOnClickListener(v -> offlineDataManagement());
         logout.setOnClickListener(v -> logout());
         about.setOnClickListener(v -> aboutNavigator());
     }
