@@ -2,6 +2,7 @@ package com.example.bored_bard.UI_files;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class campaign_menu_activity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference databaseReference;
+    TextView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,16 @@ public class campaign_menu_activity extends AppCompatActivity {
             TitleC.setText(bundle.getString("Title"));
         }
 
+        backBtn = findViewById(R.id.backBtn);
 
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);

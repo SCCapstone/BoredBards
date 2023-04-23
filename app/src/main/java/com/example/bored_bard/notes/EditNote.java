@@ -29,7 +29,7 @@ public class EditNote extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference reference;
     String id = "";
-
+    TextView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,8 +143,16 @@ public class EditNote extends AppCompatActivity {
             }
         });
 
+        backBtn = findViewById(R.id.backBtn);
 
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NoteExtendedView.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

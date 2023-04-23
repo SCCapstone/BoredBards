@@ -55,8 +55,19 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
+    <!-- Back Button -->
+    <TextView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/back"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- @todo make name of campaign connect to database -->
     <!-- Title "Curse of Strahd" -->
     <TextView
         android:id="@+id/header_title"
