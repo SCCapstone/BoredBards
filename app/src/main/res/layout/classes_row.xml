@@ -241,6 +241,13 @@
 
         </LinearLayout>
 
+        <!-- Line divider -->
+        <View
+            android:id="@+id/topDivider"
+            android:layout_width="300dp"
+            android:layout_height="5dp"
+            android:background="@color/RustPink" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

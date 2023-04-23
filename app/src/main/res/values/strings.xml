@@ -93,6 +93,10 @@
     <string name="cancel">Cancel</string>
     <string name="create_note">Create Note</string>
     <string name="back">back</string>
+    <string name="create_character">Create Character</string>
+    <string name="armor_class">Armor Class</string>
+    <string name="health_points">Health Points</string>
+    <string name="new_character">New Character</string>
 
 
 </resources>
