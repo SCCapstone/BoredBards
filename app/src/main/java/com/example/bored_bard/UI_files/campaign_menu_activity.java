@@ -2,6 +2,7 @@ package com.example.bored_bard.UI_files;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +15,46 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class campaign_menu_activity extends AppCompatActivity {
 
+
+    public TextView TitleC;
+    Campaign campaign;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    DatabaseReference databaseReference;
+    TextView backBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.campaign_menu_screen);
+
+
+        TitleC = findViewById(R.id.header_title);
+
+
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        String username = user.getDisplayName(), Title;
+        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child("title:");
+
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            TitleC.setText(bundle.getString("Title"));
+        }
+
+        backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);

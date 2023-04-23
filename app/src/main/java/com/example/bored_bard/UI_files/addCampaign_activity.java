@@ -14,13 +14,64 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class addCampaign_activity extends AppCompatActivity{
+
+
+Button createCampaign;
+EditText CampaignTitle, CampaignInfo;
+FirebaseUser user;
+DatabaseReference databaseReference;
+FirebaseAuth mAuth;
+
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addcampaign_screen);
+
+        createCampaign = findViewById(R.id.campaign1);
+        CampaignInfo = findViewById(R.id.Bio);
+        CampaignTitle = findViewById(R.id.NewTitle);
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+
+
+
+
+        createCampaign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = user.getDisplayName(), Title;
+
+                Title = String.valueOf(CampaignTitle.getText());
+
+                Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
+
+
+                databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent = new Intent(getApplicationContext(), CampaginList.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+
+
+
+            }
+        });
+
+
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);

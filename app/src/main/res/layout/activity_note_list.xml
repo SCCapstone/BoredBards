@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--@author Caroline Barrineau -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
-    tools:context=".UI_files.list_of_characters_activity" >
+    tools:context=".notes.noteList">
+
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -58,11 +58,11 @@
         app:layout_constraintGuide_begin="24dp" />
 
     <TextView
-        android:id="@+id/header_title"
+        android:id="@+id/CNoteTitle"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/your_players"
+        android:text="Your Notes"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -79,7 +79,7 @@
         android:background="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/header_title" />
+        app:layout_constraintTop_toBottomOf="@id/CNoteTitle" />
 
     <!-- Back Button -->
     <TextView
@@ -94,11 +94,8 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Card view of players -->
-    <!-- @todo take players from the database and display them -->
-    <!-- Inputting text -->
     <LinearLayout
-        android:id="@+id/listofplayerslayout"
+        android:id="@+id/listOfNotes"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -108,44 +105,17 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <!-- Add a new character to edit -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RVPlayers"
+            android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:itemCount="2"
-            tools:listitem="@layout/rv_characters" />
-
-    </LinearLayout>
-    <!-- Buttons -->
-    <LinearLayout
-        android:id="@+id/ButtonlinearLayout"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/listofplayerslayout">
-
-        <Button
-            android:id="@+id/UpdateCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/update_character" />
-        <!-- Add a new character to edit -->
-        <Button
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/add_new_character"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:scrollbars="vertical"
             />
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addNoteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

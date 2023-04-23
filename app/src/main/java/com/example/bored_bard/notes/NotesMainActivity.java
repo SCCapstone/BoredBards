@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
@@ -21,11 +22,85 @@ import io.realm.RealmResults;
 
 public class NotesMainActivity extends AppCompatActivity {
 
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
+    List<Campaign> campaignList;
+    ValueEventListener eventListener;
+    TextView backBtn;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_main);
-        MaterialButton addNoteBtn = findViewById(R.id.addNoteButton);
+        MaterialButton addCampaignBtn = findViewById(R.id.AddCampaign);
+
+
+        addCampaignBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), addCampaign_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        campaignList = new ArrayList<>();
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(NotesMainActivity.this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+
+        CampaignAdapterNotes myAdapter = new CampaignAdapterNotes(NotesMainActivity.this, campaignList);
+        recyclerView.setAdapter(myAdapter);
+
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        String username = user.getDisplayName();
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
+
+
+
+        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                campaignList.clear();
+                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
+
+                    Campaign campaign = itemSnapshot.getValue(Campaign.class);
+
+                    campaignList.add(campaign);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.notes_page);

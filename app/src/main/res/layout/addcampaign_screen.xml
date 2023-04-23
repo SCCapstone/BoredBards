@@ -79,72 +79,51 @@
 
     <!-- Inputting text -->
     <LinearLayout
-        android:layout_width="350dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/topDivider" >
+        android:background="@drawable/roundcorners"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/NewTitle"
-            android:layout_width= "350dp"
+            android:hint="@string/title"
+            android:padding="15dp"
+            android:layout_margin="10dp"
+            android:background="#40D0C9C0" />
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/skintonePink"
-            android:textColorHint="@color/black"
-            android:hint="@string/title_of_campaign"
-            android:padding="5dp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@id/topDivider"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintAnimationEnabled="true"
-           >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Bio"
-            android:layout_width= "350dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/short_campaign_bio"
-            android:padding="5dp"
-            android:textColorHint="@color/black"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxBackgroundColor="@color/CavernPink"
-            app:layout_constraintEnd_toStartOf="@id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@id/topDivider"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintAnimationEnabled="true"
-            >
+            android:hint="@string/description"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="#40D0C9C0"
+            android:lines="8"
+            android:gravity="top" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="152dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- @TODO Make Button be able to save new instance of campaign-->
-        <Button
-            android:id="@+id/campaign1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:layout_marginTop="20dp"
-            android:text="@string/save_campaign"
-            android:textAlignment="center"
-            android:textSize="20sp" />
+    <Button
+        android:id="@+id/campaign1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkblushPink"
+        android:layout_marginTop="20dp"
+        android:text="@string/save_campaign"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
 
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

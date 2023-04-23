@@ -61,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
+        android:textColor="@color/black"
         android:text="@string/settings"
         android:textAlignment="center"
         android:textSize="35sp"

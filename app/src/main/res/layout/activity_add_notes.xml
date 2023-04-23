@@ -20,6 +20,18 @@
         android:gravity="center"
         android:layout_margin="20dp"/>
 
+    <!-- Back Button -->
+    <TextView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/back"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,8 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/titleinput"
-            android:hint="Title"
-            android:padding="10dp"
+            android:hint="@string/title"
+            android:padding="15dp"
             android:layout_margin="10dp"
             android:background="#40D0C9C0"
             />
@@ -58,8 +70,23 @@
         android:id="@+id/savebutton"
         android:text="Create Note"
         android:layout_gravity="center"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        />
+        android:layout_marginTop="36dp"
+        android:text="@string/create_note"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintEnd_toStartOf="@+id/savebutton"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
