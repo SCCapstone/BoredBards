@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,42 +7,115 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/GreyWhite"
-    android:padding="20dp"
     tools:context=".notes.AddNotes">
 
+    <!-- Nav Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <!--This will be the center margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <!--This will be the left margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!--This will be the right margin guide-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="24dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="50dp" />
+
+    <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <!-- "Create New Note" Title -->
     <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titleTextView"
-        android:text="Create a new note"
+        android:paddingTop="20dp"
+        android:text="@string/create_a_new_note"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp"
-        android:gravity="center"
-        />
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
 
+    <!-- Campaign Title -->
     <TextView
         android:id="@+id/NCampaignTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Campaign Title"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:paddingBottom="10dp"
+        android:hint="CTitle"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+
+        />
+
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/NCampaignTitle"
+        />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/roundcorners"
-        android:padding="10dp"
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
 
-        >
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/titleinput"
-            android:hint="Title"
+            android:hint="@string/title"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:background="#40D0C9C0"
@@ -51,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/descriptioninput"
-            android:hint="Description"
+            android:hint="@string/description"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:background="#40D0C9C0"
@@ -62,22 +135,27 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/savebutton"
-        android:text="Create Note"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        />
-    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/exitButton"
-        android:text="Cancel"
         android:layout_gravity="center"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        />
+        android:layout_marginTop="36dp"
+        android:text="@string/create_note"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/exitButton"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toEndOf="@+id/savebutton"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

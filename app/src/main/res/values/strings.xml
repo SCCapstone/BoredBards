@@ -86,6 +86,13 @@
     <string name="type_">Type</string>
     <string name="click_to_register">Click to Register</string>
     <string name="click_to_login">Click to Login</string>
+    <string name="create_a_new_note">Create a New Note</string>
+    <string name="campaign_title">Campaign Title</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_note">Create Note</string>
+    <string name="back">back</string>
 
 
 </resources>
