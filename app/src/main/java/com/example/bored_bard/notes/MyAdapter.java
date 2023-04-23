@@ -73,6 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
                 intent.putExtra("Title", CNote);
                 intent.putExtra("Description", list.get(holder.getAdapterPosition()).getDescription());
                 intent.putExtra("NoteTitle", list.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("id",   list.get(holder.getAdapterPosition()).getId());
 
                 intent.putExtra("Key", list.get(holder.getAdapterPosition()).getKey());
                 context.startActivity(intent);
