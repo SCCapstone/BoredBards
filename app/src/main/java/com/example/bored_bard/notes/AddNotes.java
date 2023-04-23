@@ -31,6 +31,7 @@ public class AddNotes extends AppCompatActivity {
 
     EditText titleInput, descriptionInput;
     MaterialButton saveBtn, exitBtn;
+    TextView backBtn;
 
 
     @Override
@@ -54,10 +55,6 @@ public class AddNotes extends AppCompatActivity {
             CNTitle.setText(bundle.getString("Title"));
 
         }
-
-
-
-
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,14 +91,22 @@ public class AddNotes extends AppCompatActivity {
                 finish();
             }
         });
+        TextView backBtn;
+
+        backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }
     private void InsertNote(){
-
-
-
-
         String Title = String.valueOf(CNTitle.getText());
 
         String title, description, id;
@@ -114,8 +119,7 @@ public class AddNotes extends AppCompatActivity {
 
         Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString(), id);
         database.child(username).child("Campaigns").child(Title).child("Notes").child(id).setValue(Cnote);
-
-
     }
+
 
 }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--@author Caroline Barrineau -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -61,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
+        android:textColor="@color/black"
         android:text="@string/settings"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -104,19 +103,19 @@
             android:layout_height="1dp"
             android:background="@color/darkblushPink"/>
 
-        <Button
-            android:id="@+id/offlineData"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:text="@string/offline_data"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/div3"
-            android:layout_width="200dp"
-            android:layout_height="1dp"
-            android:background="@color/darkblushPink"/>
+<!--        <Button-->
+<!--            android:id="@+id/offlineData"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAlignment="center"-->
+<!--            android:padding="15dp"-->
+<!--            android:text="@string/offline_data"-->
+<!--            android:textSize="15sp" />-->
+<!--        <View-->
+<!--            android:id="@+id/div3"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/darkblushPink"/>-->
 
         <Button
             android:id="@+id/logout"

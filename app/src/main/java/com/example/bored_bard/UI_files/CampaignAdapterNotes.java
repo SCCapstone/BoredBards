@@ -15,8 +15,6 @@ import com.example.bored_bard.notes.noteList;
 
 import android.view.View;
 
-
-
 import java.util.List;
 
 public class CampaignAdapterNotes extends RecyclerView.Adapter<MyViewHolder> {
@@ -46,12 +44,6 @@ public class CampaignAdapterNotes extends RecyclerView.Adapter<MyViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(context, noteList.class);
                 intent.putExtra("Title", campaignList.get(holder.getAdapterPosition()).getTitle());
-
-
-
-
-
-
                 context.startActivity(intent);
             }
         });

@@ -1,3 +1,4 @@
+<!-- Home Page -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +20,7 @@
                     <li><a href="./about.html">About Us</a></li>
                     <li><a href="https://github.com/SCCapstone/BoredBards/releases/tag/v1.0">Download APK</a></li>
                     <li><a href="https://github.com/SCCapstone/BoredBards">App Repository</a></li>
+                    <li><a href="./demo.html">Demo Video</a></li>
                 </ul>    
             </nav>
         </header>
@@ -31,28 +33,48 @@
             <section class="howTo">
                 <h1>Details</h1>
                 <p>The DM's Grimoire opens on the login page, which supports Google Account synchronization or raw account creation. Once a user is logged in, they can access their campaigns and players, the dice roller, their notes and the settings page. Each of these is contained on a separate screen and can be accessed from the nav-bar at the bottom of each page.</p>
-                <h3>Campaigns</h3>
+                <h2>Campaigns</h2>
                 <p>The campaigns page allows a user to create, maintain and delete their campaigns. They can add or remove players and attach notes to each campaign.</p>
-                <!--Add the image source for campaigns screenshot-->
-                <img src="" alt="The campaings menu, after the login page. This lists the user's campaigns.">
+                <h3>Campaign Menu</h3>
+                <p>The campaign menu shows a user's campaigns in order of creation.</p>
+                <img class="cmp" src="./website_images/campaign_menu_scrsht.png" alt="The campaings menu, after the login page. This lists the user's campaigns.">
+                <h3>Campaign Creation</h3>
+                <p>After clicking the plus button, the user can create a new campaign. They enter the campaign's title and enter a short description.</p>
+                <img src="./website_images/campaign_creation_scrsht.png" alt="The campaign creation screen. Here, the user enters a title and description for their new campaign.">
+                <h3>Campaign Detail Screen</h3>
+                <p>The detail screen shows the specifics of a campaign, like its players, NPCs, enemies and more.</p>
+                <img class="cmp" src="./website_images/campaign_detail_scrsht.png" alt="The campaings detail page. This page allows access to the campaign's specific attributes, like the players, NPCs, enemies, etc..">
+                <h3>Combat Screen</h3>
+                <p>The combat screen allows a user to enter rolls for players' intitative as well as for enemies and other NPCs.</p>
+                <img class="cmp" src="./website_images/campaign_combat_scrsht.png" alt="The combat screen for a campaign. This lists allows the user to add initiative rolls for each character, player and/or enemy in the campaign.">
 
-                <h3>Dice Roller</h3>
+                <h2>Dice Roller</h2>
                 <p>The dice roller allows the DM to roll each of the six types of dice commonly used in Dungeons and Dragons. The rolls can consist of any number of type of die, but not a mixture of different types. For example, a DM can roll 12d6 at the same time; but they cannot roll 1d6 and 1d8 at the same time. When rolling a d20, a DM can use the advantage and disadvantage buttons to roll 2d20 and keep the highest or lowest, respectively.</p>
                 <p>The result breakdown displays each of the results of a multi-die roll, separating them with a comma. It will also display each of the results from an advantaged or disadvantaged roll.</p>
                 <img src="./website_images/diceRoller_scrsht.png" alt="The dice roller. Different types of dice and various options for rolling them; all facilitating the basic rolls for most Dungeons and Dragons campaigns.">
 
-                <h3>Notes</h3>
-                <p>The notes page allows a DM to record important notes and events from their campaign and keep them in a list, sorted by date of creation. Notes can be deleted and modified after creation.</p>
-                <p>At the botom of the page, there is a button for adding a new note.</p>
-                <img src="" alt="The notes page. At the bottom, a button labeled 'Add Note'.">
-                <p>After clicking the 'Add Note' button, the user is taken to a page for entering the note's title and contents. After the note is filled with the intend information, the user clicks the 'Create Note' button.</p>
-                <img src="" alt="The note creation page. Here, a user enters the note's title and contents.">
-                <p>Upon clicking a specific, existing note, the user can see the note's details. These include the title, contents and date of creation.</p>
-                <img src="" alt="The note detail page. This page displays the note's title, its contents and its date of creation.">
+                <h2>Encyclopedia</h2>
+                <p>The encyclopedia allows a DM to search for monsters, items and spells. The encyclopedia is based on a publicly available API for D&D information, which allows developers to access monsters, items, spells, abilities and more; all from official source materials.</p>
+                <p></p>
+                <img src="" alt="The encyclopedia page. This allows users to search through the source material for anitem, spell, monster, etc.">
 
-                <h3>Settings</h3>
+                <h2>Notes</h2>
+                <p>The notes page allows a DM to record important notes and events from their campaign and keep them in a list, sorted by date of creation. Notes can be deleted and modified after creation.</p>
+                <h3>Note Creation</h3>
+                <p>At the bottom of the page, there is a button for adding a new campaign. A user can also choose an existing campaign to make notes for it.</p>
+                <img src="./website_images/notes_main_scrsht.png" alt="The notes page. At the bottom, a button labeled 'Add Note'.">
+                <p>After clicking the a campaign, the user is taken to a page for adding a new note. Upon clicking the 'Add Note' button, the user can enter the note's title and contents. After the note is filled with the intend information, the user clicks the 'Create Note' button to save it.</p>
+                <img src="./website_images/notes_add_scrsht.png" alt="The note creation page. Here, a user enters the note's title and contents.">
+                <h3>Note Modification</h3>
+                <p>Upon clicking a specific, existing note, the user can see the note's details; including the title and contents. From this screen, a user can edit a note.</p>
+                <img src="./website_images/notes_edit_delete_scrsht.png" alt="The note detail page. This page displays the note's title, its contents and its date of creation.">
+                <h3>Note Deletion</h3>
+                <p>Notes can also be deleted by the user. By selecting a note, the user can choose to remove it from the notes page and from their account with the 'Delete' option in the bottom right corner of a note.</p>
+                <img src="./website_images/notes_delete_scrsht.png" alt="The note deletion page. This page allows a user to remove a note.">
+
+                <h2>Settings</h2>
                 <p>The settings page is the user's place to logout, report an issue or get information about the project. There are three options listed on this page. The first, allows the user to report an issue they encountered in the app or suggest a change or addition. The second, allows a user to logout of the application and return to the login page. The third, takes the user to the project repository's detail page.</p>
-                <img src="" alt="The settings page. Here, there are three buttons to be clicked.">
+                <img src="./website_images/settings_scrsht.png" alt="The settings page. Here, there are three buttons to be clicked.">
             </section>
         </main>
 
@@ -62,6 +84,7 @@
         <p>For information on the authors, click <a href="./about.html">here</a> or click the "About" section at the top of the page.</p>
         <p>To download our application's APK, click <a href="./download.html">here</a> or click the "Download APK" section also at the top of the page.</p>
         <p>To visit our project repository, click <a href="https://github.com/SCCapstone/BoredBards">here</a> or click the "App Repository" section.</p>
+        <p>To view our video demo, click <a href="./demo.html">here</a> or click the Demo Video section at the top of the page.</p>
         <p>Copyright 2023 The Bored Bards</p>
     </footer>
 
