@@ -32,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.UI_files.settings_activity;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -79,10 +80,10 @@ public class DieRoller extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
             } else {
                 return false;
             }
