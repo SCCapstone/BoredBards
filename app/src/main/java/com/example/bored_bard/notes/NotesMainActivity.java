@@ -21,6 +21,7 @@ import com.example.bored_bard.UI_files.google_signin_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -140,10 +141,10 @@ public class NotesMainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
-//            } else if (item.getItemId() == R.id.encyclopedia) {
-//                startActivity(new Intent(getApplicationContext(), encyclopedia.class));
-//                overridePendingTransition(0, 0);
-//                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
             } else {
                 return false;
             }
