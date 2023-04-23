@@ -36,32 +36,28 @@ public class CampaginList extends AppCompatActivity {
 
     TextView backBtn;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campagin_list);
-
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCampaigns);
 
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(CampaginList.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         campaignList = new ArrayList<>();
-
         CampaignAdapter adapter = new CampaignAdapter(CampaginList.this, campaignList);
         recyclerView.setAdapter(adapter);
+
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
 
         databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
-
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 campaignList.clear();
@@ -90,12 +86,6 @@ public class CampaginList extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
-
-
 
     }
 

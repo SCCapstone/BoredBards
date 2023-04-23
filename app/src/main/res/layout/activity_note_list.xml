@@ -81,20 +81,18 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/CNoteTitle" />
 
+    <!-- Back Button -->
     <TextView
+        android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:textStyle="bold"
         android:text="@string/back"
-        android:id="@+id/backBtn"
         android:textSize="17sp"
         android:textAlignment="center"
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-    </TextView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/listOfNotes"
@@ -107,13 +105,11 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-
-
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recyclerview"
-
+            android:scrollbars="vertical"
             />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addNoteButton"

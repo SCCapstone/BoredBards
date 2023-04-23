@@ -31,6 +31,7 @@ public class AddNotes extends AppCompatActivity {
 
     EditText titleInput, descriptionInput;
     MaterialButton saveBtn, exitBtn;
+    TextView backBtn;
 
 
     @Override
@@ -55,10 +56,6 @@ public class AddNotes extends AppCompatActivity {
 
         }
 
-
-
-
-
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +75,9 @@ public class AddNotes extends AppCompatActivity {
                     InsertNote();
 
                 Toast.makeText(getApplicationContext(),"Note created",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), noteList.class);
+                intent.putExtra("Title", CNTitle.getText().toString());
+                startActivity(intent);
                 finish();
 
             }
@@ -91,14 +91,22 @@ public class AddNotes extends AppCompatActivity {
                 finish();
             }
         });
+        TextView backBtn;
+
+        backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }
     private void InsertNote(){
-
-
-
-
         String Title = String.valueOf(CNTitle.getText());
 
         String title, description, id;
@@ -111,8 +119,7 @@ public class AddNotes extends AppCompatActivity {
 
         Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString(), id);
         database.child(username).child("Campaigns").child(Title).child("Notes").child(id).setValue(Cnote);
-
-
     }
+
 
 }

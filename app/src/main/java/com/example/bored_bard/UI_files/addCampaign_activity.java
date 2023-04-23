@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class addCampaign_activity extends AppCompatActivity{
 
 
 Button createCampaign;
-TextInputEditText CampaignTitle, CampaignInfo;
+EditText CampaignTitle, CampaignInfo;
 FirebaseUser user;
 DatabaseReference databaseReference;
 FirebaseAuth mAuth;
@@ -45,8 +46,8 @@ FirebaseAuth mAuth;
         setContentView(R.layout.addcampaign_screen);
 
         createCampaign = findViewById(R.id.campaign1);
-        CampaignInfo = findViewById(R.id.campaignInfo);
-        CampaignTitle = findViewById(R.id.campaignTitle);
+        CampaignInfo = findViewById(R.id.Bio);
+        CampaignTitle = findViewById(R.id.NewTitle);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();

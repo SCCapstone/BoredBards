@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--@author Caroline Barrineau -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".player.addPlayer"
     android:background="@color/GreyWhite"
-    tools:context=".UI_files.list_of_characters_activity" >
+    >
+
+
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -17,7 +18,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
+
     <!--This will be the center margin guide-->
+    <!--TODO add a cancel button -->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center"
         android:layout_width="wrap_content"
@@ -57,12 +61,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
+
+
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="@string/your_players"
+        android:text="New Character"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -81,24 +87,8 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!-- Back Button -->
-    <TextView
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="@string/back"
-        android:textSize="17sp"
-        android:textAlignment="center"
-        android:layout_margin="10dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Card view of players -->
-    <!-- @todo take players from the database and display them -->
     <!-- Inputting text -->
     <LinearLayout
-        android:id="@+id/listofplayerslayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -108,44 +98,101 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <!-- Add a new character to edit -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RVPlayers"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:itemCount="2"
-            tools:listitem="@layout/recycler_view_item" />
+        <!-- Name -->
+        <com.google.android.material.textfield.TextInputLayout
 
-    </LinearLayout>
-    <!-- Buttons -->
-    <LinearLayout
-        android:id="@+id/ButtonlinearLayout"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/listofplayerslayout">
-
-        <Button
-            android:id="@+id/UpdateCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/update_character" />
-        <!-- Add a new character to edit -->
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Race (Orc, Human, etc) -->
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/race">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Race"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Class (wizard, fighter, etc -->
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/class_">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Type (Player Health Points) -->
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Health Points">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/HpInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Armor Class">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ACInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Modifiers to certain stats (make a chart?) -->
+
+        <!-- @todo (later) Equipment, Abilities, Attributes -->
+
+        <!-- Submit New Character to database -->
+
+
         <Button
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/createChar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/add_new_character"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-            app:layout_constraintStart_toStartOf="@+id/guideline_left"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            />
+            android:text="Create Character"/>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

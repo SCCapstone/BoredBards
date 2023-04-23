@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.CampaginList;
@@ -46,6 +47,7 @@ public class NotesMainActivity extends AppCompatActivity {
     FirebaseUser user;
     List<Campaign> campaignList;
     ValueEventListener eventListener;
+    TextView backBtn;
 
 
 
@@ -64,10 +66,16 @@ public class NotesMainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        backBtn = findViewById(R.id.backBtn);
 
-
-
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         campaignList = new ArrayList<>();
