@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "785284946720-fjnc0skh562o06q6p3ccceqbllq040lb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bored_bard",
+            "certificate_hash": "d4e1057fbe7484fb1cc381bb81b049fdd98b5f46"
+          }
+        },
+        {
           "client_id": "785284946720-mgf7hnv9mtr14fs9opmg0djktqs3u1al.apps.googleusercontent.com",
           "client_type": 3
         }

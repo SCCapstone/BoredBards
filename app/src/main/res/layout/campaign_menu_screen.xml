@@ -7,7 +7,9 @@
     tools:context=".UI_files.campaign_menu_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/GreyWhite">
+    >
+
+    <include layout = "@layout/reusable_layout_background" />
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -53,43 +55,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-    <!-- DON'T MESS WITH CONSTRAINT BOTTOM_TO_TOP_OF, adjust footer instead -->
-    <!-- Background: BlushPinkWave-->
-    <ImageView
-        android:id="@+id/LightestWave"
-        android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave3"
-        android:contentDescription="@string/blushpinkwave" />
-
-    <!-- Background: BlushPinkWave-->
-    <ImageView
-        android:id="@+id/DarkBlushWave"
-        android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:layout_marginBottom="2.5dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave2"
-        android:contentDescription="@string/darkblushwave" />
-
-    <!-- Background: RustRedWave-->
-    <ImageView
-        android:id="@+id/RustRedWave"
-        android:layout_width="match_parent"
-        android:layout_height="116dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline_footer"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/wave"
-        android:contentDescription="@string/rustredwave" />
+    <!-- Back Button -->
+    <TextView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/back"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Title "Curse of Strahd" -->
     <TextView
@@ -98,6 +75,7 @@
         android:layout_height="100dp"
         android:paddingTop="20dp"
         android:text="@string/curse_of_strahd"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -125,16 +103,6 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
-        <!-- go to Notes -->
-        <Button
-            android:id="@+id/Notes"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
-            android:text="@string/notes"
-            android:textAlignment="center"/>
 
         <!-- go to creatable NPCs -->
         <Button
@@ -142,8 +110,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/npc"
             android:textAlignment="center"/>
 
@@ -153,8 +120,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/enemies_and_monsters"
             android:textAlignment="center"/>
 
@@ -164,8 +130,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
+            android:textSize="15sp"
             android:text="@string/maps"
             android:textAlignment="center"/>
 
@@ -175,9 +140,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:textSize="13sp"
-            android:backgroundTint="@color/darkblushPink"
-            android:text="@string/player_stats"
+            android:textSize="15sp"
+            android:text="@string/players"
             android:textAlignment="center"/>
 
         <!--Begin Button, constraint to edit stats button-->
@@ -185,16 +149,16 @@
             android:id="@+id/beginCombat"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
             android:padding="15dp"
+            android:textSize="15sp"
             android:text="@string/combat"
-            android:textSize="13sp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
             app:layout_constraintStart_toEndOf="@+id/editStats"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

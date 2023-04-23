@@ -6,8 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/GreyWhite"
     tools:context=".UI_files.campaign_activity">
+
+    <include layout = "@layout/reusable_layout_background" />
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -125,12 +126,14 @@
     <!-- Username of whoever is logged in -->
     <TextView
         android:id="@+id/username"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="335dp"
+        android:layout_height="35dp"
+        android:autoSizeTextType="uniform"
         android:text="@string/username"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="25sp"
+        android:lines="1"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/AppName" />
@@ -160,37 +163,36 @@
             android:textColor="@color/black"
             android:textAlignment="inherit"/>
 
-        <!-- Do not add the names of the campaigns to strings -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
         <Button
             android:id="@+id/campaign1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/darkblushPink"
             android:padding="5dp"
-            android:textSize="20sp"
             android:text="@string/strahd"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/abyss"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/tomb"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddCampaign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/add_new_campaign"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/campaigns"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 
 

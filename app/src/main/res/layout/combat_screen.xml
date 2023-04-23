@@ -79,9 +79,23 @@
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+
+    <!-- Back Button -->
+    <TextView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/back"
+        android:textSize="17sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--Edit Stats Button-->
     <Button
@@ -113,5 +127,21 @@
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toEndOf="@+id/editStats"
         tools:ignore="TextContrastCheck" />
+
+    <TableLayout
+        android:id="@+id/combatOrderTable"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
+
+        <TableRow>
+  <!-- Maybe card view if we can figure out how to have the database fill in car -->
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

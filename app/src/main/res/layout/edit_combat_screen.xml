@@ -69,44 +69,13 @@
         android:layout_height="100dp"
         android:paddingTop="20dp"
         android:text="@string/enter_combat_rolls"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_header" />
-
-
-    <!-- Table Labels -->
-    <!-- Character -->
-    <TextView
-        android:id="@+id/CharacterLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Characters"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        android:fontFamily="monospace"
-        app:layout_constraintTop_toBottomOf="@id/topDivider"
-        app:layout_constraintBottom_toTopOf="@id/namesLL"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toStartOf="@id/guideline_center"
-        />
-
-    <!-- Initiative Roll Number -->
-    <TextView
-        android:id="@+id/RollLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Initiative"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        android:fontFamily="monospace"
-        app:layout_constraintTop_toBottomOf="@id/topDivider"
-        app:layout_constraintBottom_toTopOf="@id/namesLL"
-        app:layout_constraintStart_toStartOf="@id/guideline_center"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        />
 
     <!-- Line divider under title -->
     <View
@@ -118,91 +87,52 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!-- User Input areas -->
-
-    <LinearLayout
-        android:id="@+id/namesLL"
+    <!--  -->
+    <TableLayout
+        android:id="@+id/combatOrderTable"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="top"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        android:gravity="top"
+
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/topDivider">
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
 
-        <TextView
-            android:id="@+id/Player1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/skintonePink"
-            android:padding="10dp"
-            android:text="@string/default_plyr1_name"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/skintonePink"
-            android:padding="10dp"
-            android:text="@string/default_plyr2_name"
-            android:textAlignment="inherit" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/skintonePink"
-            android:padding="10dp"
-            android:text="Monster 1"
-            android:textAlignment="inherit" />
-
-<!-- editable text boxes to put in the roll number -->
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rollsLL"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_center"
-        app:layout_constraintEnd_toEndOf="@id/namesLL"
-        app:layout_constraintTop_toTopOf="@id/namesLL">
-
-        <!-- paired with Player 1 in namesLL -->
-        <EditText
-            android:id="@+id/P1Roll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
-
-            />
-        <!-- paired with Player 2 in namesLL -->
-        <EditText
-            android:id="@+id/P2Roll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
-            />
-        <EditText
-            android:id="@+id/P3Roll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
-            />
-    </LinearLayout>
+        <TableRow>
+            <!-- Entering in the player's dice rolls -->
+            <!-- @TODO default all the inputted characters names into the TextViews  -->
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:paddingEnd="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/roll"
+                android:inputType="number"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/Name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:paddingEnd="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/roll"
+                android:inputType="number"/>
+        </TableRow>
+    </TableLayout>
 
     <!--Edit Stats Button-->
     <Button
@@ -211,12 +141,11 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/darkblushPink"
         android:text="@string/edit_stats"
-        android:textSize="16sp"
-        android:padding="10dp"
+        android:textSize="15sp"
+        android:padding="15dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toStartOf="@id/beginCombat"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/namesLL"
         tools:ignore="TextContrastCheck" />
 
     <!--Begin Button, constraint to edit stats button-->
@@ -225,14 +154,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/darkblushPink"
-        android:padding="10dp"
+        android:padding="15dp"
         android:text="@string/combat"
-        android:textSize="16sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_footer"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
 
         app:layout_constraintStart_toEndOf="@+id/editStats"
-        app:layout_constraintTop_toBottomOf="@+id/namesLL"
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

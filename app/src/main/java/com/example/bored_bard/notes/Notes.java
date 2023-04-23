@@ -2,32 +2,48 @@ package com.example.bored_bard.notes;
 
 import io.realm.RealmObject;
 
-public class Notes extends RealmObject {
+public class Notes {
     String title;
     String description;
-    long createdTime;
+    String key;
+
+    String id;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public Notes(){
+
+    }
+
+    public Notes(String title, String description, String id){
+
+        this.description = description;
+        this.title = title;
+        this.id = id;
+    }
 
     public String getTitle() {
+
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getDescription() {
+
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getId(){
+        return id;
     }
 
-    public long getCreatedTime() {
-        return createdTime;
-    }
 
-    public void setCreatedTime(long createdTime) {
-        this.createdTime = createdTime;
-    }
+
+
 }
