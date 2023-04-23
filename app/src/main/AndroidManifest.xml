@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Bored_Bard"
         tools:targetApi="31">
         <activity
+            android:name=".encyclopedia.Encyclopedia"
+            android:exported="false" />
+        <activity
+            android:name=".notes.DeleteNote"
+            android:exported="false" />
+        <activity
             android:name=".player.addPlayer"
             android:exported="false" />
         <activity

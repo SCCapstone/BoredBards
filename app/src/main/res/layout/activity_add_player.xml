@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,6 @@
     tools:context=".player.addPlayer"
     android:background="@color/GreyWhite"
     >
-
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,7 +20,6 @@
 
 
     <!--This will be the center margin guide-->
-    <!--TODO add a cancel button -->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_center"
@@ -61,14 +60,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
-
-
     <TextView
-        android:id="@+id/header_title"
+        android:id="@+id/CTitle"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
-        android:text="New Character"
+        android:text="@string/new_character"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="35sp"
@@ -85,10 +82,11 @@
         android:background="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/header_title" />
+        app:layout_constraintTop_toBottomOf="@id/CTitle" />
 
     <!-- Inputting text -->
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -153,7 +151,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Health Points">
+            android:hint="@string/health_points">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/HpInput"
@@ -168,7 +166,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Armor Class">
+            android:hint="@string/armor_class">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ACInput"
@@ -179,20 +177,25 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <!-- Modifiers to certain stats (make a chart?) -->
-
-        <!-- @todo (later) Equipment, Abilities, Attributes -->
-
-        <!-- Submit New Character to database -->
-
-
-        <Button
-            android:id="@+id/createChar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Create Character"/>
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/createChar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/create_character"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/linearlayout" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toStartOf="@+id/createChar"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/linearlayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

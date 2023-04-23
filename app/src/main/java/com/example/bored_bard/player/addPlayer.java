@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bored_bard.R;
+import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.notes.AddNotes;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -24,13 +25,12 @@ import org.w3c.dom.Text;
 public class addPlayer extends AppCompatActivity {
 
    TextInputEditText Name, Race, CClass, HP, AC;
-   Button createChar;
-
+   Button createChar, cancel;
    FirebaseAuth mAuth;
    FirebaseUser user;
    DatabaseReference reference;
    TextView CTitle;
-    String Title = "";
+   String Title = "";
 
 
 
@@ -69,6 +69,15 @@ public class addPlayer extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), playerList.class);
                 intent.putExtra("Title", Title);
                 startActivity(intent);
+            }
+        });
+        cancel = findViewById(R.id.cancel_button);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

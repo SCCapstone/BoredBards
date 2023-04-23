@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
-    tools:context=".player.playerList">
+    tools:context=".encyclopedia.Encyclopedia">
 
-    <!-- TODO add scrollview -->
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -58,19 +57,31 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="24dp" />
 
+    <!-- "Create New Note" Title -->
     <TextView
-        android:id="@+id/CTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        android:text="Your Players"
-        android:textColor="@color/black"
+        android:text="Encyclopedia"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+
+    <!-- Line divider under title -->
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="350dp"
+        android:layout_height="5dp"
+        android:background="@color/darkblushPink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        />
 
     <!-- Back Button -->
     <TextView
@@ -85,40 +96,17 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Line divider under title -->
-    <View
-        android:id="@+id/topDivider"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:background="@color/darkblushPink"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/encyclopediaRecyclerView"
+        android:layout_width= "match_parent"
+        android:layout_height= "wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@id/topDivider"
+        app:layout_constraintStart_toEndOf="@id/guideline_left"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/CTitle" />
 
-    <LinearLayout
-        android:id="@+id/listOfPlayers"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/topDivider" >
+        />
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/addPlayerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Player" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

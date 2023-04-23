@@ -8,6 +8,7 @@
     android:background="@color/GreyWhite"
     tools:context=".notes.noteList">
 
+    <!-- TODO add scrollview -->
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
