@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Bored_Bard"
         tools:targetApi="31">
         <activity
+            android:name=".player.addPlayer"
+            android:exported="false" />
+        <activity
+            android:name=".player.playerList"
+            android:exported="false" />
+        <activity
             android:name=".notes.NoteExtendedView"
             android:exported="false" />
         <activity
@@ -52,8 +58,7 @@
         </activity>
         <activity
             android:name=".notes.EditNote"
-            android:exported="false"
-           />
+            android:exported="false" />
         <activity
             android:name=".notes.AddNotes"
             android:exported="false">

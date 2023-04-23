@@ -78,6 +78,9 @@ public class AddNotes extends AppCompatActivity {
                     InsertNote();
 
                 Toast.makeText(getApplicationContext(),"Note created",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), noteList.class);
+                intent.putExtra("Title", CNTitle.getText().toString());
+                startActivity(intent);
                 finish();
 
             }

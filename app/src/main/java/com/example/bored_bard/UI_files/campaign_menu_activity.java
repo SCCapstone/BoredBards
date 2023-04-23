@@ -2,6 +2,7 @@ package com.example.bored_bard.UI_files;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
+import com.example.bored_bard.player.playerList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,12 +29,16 @@ public class campaign_menu_activity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference databaseReference;
 
+    Button playerStats;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.campaign_menu_screen);
 
-
+        playerStats = findViewById(R.id.playerStats);
         TitleC = findViewById(R.id.header_title);
 
 
@@ -40,13 +46,23 @@ public class campaign_menu_activity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName(), Title;
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child("title:");
+
 
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             TitleC.setText(bundle.getString("Title"));
         }
+        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child(TitleC.getText().toString());
+        playerStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), playerList.class);
+                intent.putExtra("Title", TitleC.getText().toString());
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 
@@ -85,14 +101,14 @@ public class campaign_menu_activity extends AppCompatActivity {
         Button NPCs = findViewById(R.id.NPC);
         Button EandM = findViewById(R.id.EandM);
         Button maps = findViewById(R.id.maps);
-        Button players = findViewById(R.id.playerStats);
+//        Button players = findViewById(R.id.playerStats);
         Button bgnCmbt = findViewById(R.id.beginCombat);
 
 //        notes.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), notes_activity.class)));
 //        NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MPC_activity.class)));
 //        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
 //        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
+//        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), list_of_characters_activity.class)));
         bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
     }
 }

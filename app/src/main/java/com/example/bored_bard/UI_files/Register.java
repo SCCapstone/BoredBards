@@ -56,7 +56,6 @@ public class Register extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.LoginNow);
         mAuth = FirebaseAuth.getInstance();
-        DAOUser dao = new DAOUser();
         user = mAuth.getCurrentUser();
         final FirebaseDatabase[] rootNode = new FirebaseDatabase[1];
         final DatabaseReference[] reference = new DatabaseReference[1];

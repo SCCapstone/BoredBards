@@ -61,12 +61,11 @@ public class noteList extends AppCompatActivity {
         addNoteBtn = findViewById(R.id.addNoteButton);
         backBtn = findViewById(R.id.backBtn);
 
-//        addNoteBtn.setOnClickListener(view -> startActivity(new Intent(noteList.this, AddNotes.class)));
 
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddNotes.class);
+                Intent intent = new Intent(noteList.this, AddNotes.class);
                 intent.putExtra("Title", CNTitle.getText().toString());
                 startActivity(intent);
                 finish();
