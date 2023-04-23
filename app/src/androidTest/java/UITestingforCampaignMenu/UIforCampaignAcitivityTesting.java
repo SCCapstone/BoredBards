@@ -48,7 +48,7 @@ public class UIforCampaignAcitivityTesting {
     @Test
     public void selectNotesButton(){
         // checks if Notes button exists and can be clicked
-        onView(withId(R.id.notes_page)).perform(click());
+        onView(withId(R.id.Notes)).perform(click());
     }
 
     @Test

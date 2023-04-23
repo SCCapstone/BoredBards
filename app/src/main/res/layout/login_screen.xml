@@ -4,22 +4,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="UI_files.login_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
-    tools:context=".UI_files.campaign_activity">
-
-    <!-- Nav Bar -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_navigation_menu" />
+    >
 
     <!--This will be the left margin guide-->
     <androidx.constraintlayout.widget.Guideline
@@ -43,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="40dp" />
+        app:layout_constraintGuide_end="0dp" />
 
     <!--Bottom Guideline, in prep for some sort of toolbar at the bottom-->
     <androidx.constraintlayout.widget.Guideline
@@ -91,6 +80,34 @@
         app:srcCompat="@drawable/wave"
         android:contentDescription="@string/rustredwave" />
 
+    <!-- Email Address -->
+    <EditText
+        android:id="@+id/EmailAddress"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:autofillHints="@string/email_address"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_footer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Password -->
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:autofillHints="@string/password"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress"
+        />
+
     <!-- "BoredBard Present" -->
     <TextView
         android:id="@+id/Credits"
@@ -100,7 +117,6 @@
         android:fontFamily="serif-monospace"
         android:padding="16dp"
         android:text="@string/credits"
-        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
@@ -112,9 +128,9 @@
         android:id="@+id/AppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:padding="16dp"
         android:text="@string/app_name"
-        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -122,76 +138,29 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/Credits" />
 
-    <!-- Username of whoever is logged in -->
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="150dp"
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:textSize="25sp"
+        android:backgroundTint="@color/darkblushPink"
+        android:layout_marginTop="16dp"
+        android:text="@string/login"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/AppName" />
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
-    <!-- Campaigns -->
-    <LinearLayout
-        android:id="@+id/campaigns"
-        android:layout_width="350dp"
+    <!-- Don't have account? Button -->
+    <Button
+        android:id="@+id/toRegButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="top"
-        android:orientation="vertical"
+        android:text="@string/need_account"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/username">
-
-        <TextView
-            android:id="@+id/campaignHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/your_campaigns"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="inherit"/>
-
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/strahd"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/abyss"
-            android:textAlignment="center" />
-        <!-- Do not add the names of the campaigns to strings -->
-        <Button
-            android:id="@+id/campaign3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="@string/tomb"
-            android:textAlignment="center" />
-    </LinearLayout>
-
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

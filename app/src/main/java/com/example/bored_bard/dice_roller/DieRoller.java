@@ -138,7 +138,6 @@ public class DieRoller extends AppCompatActivity {
         if (excessDice()) {
             Toast.makeText(getApplicationContext(), "25 dice seems a bit high. Consider a smaller number", Toast.LENGTH_SHORT).show();
         }
-        setNumSides(numDice);
     }
 
     /**

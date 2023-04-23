@@ -2,7 +2,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
@@ -13,5 +13,5 @@ buildscript {
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
-    id 'com.google.gms.google-services' version '4.3.15' apply false
+    id 'com.google.gms.google-services' version '4.3.14' apply false
 }

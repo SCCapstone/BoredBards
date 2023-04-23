@@ -17,35 +17,23 @@ import androidx.annotation.Nullable;
 
  public class Campaign {
     String title;
-    String information;
-//    ArrayList<NPC> npcList;
-//    ArrayList<Player> playerList;
+    String setting;
+    ArrayList<NPC> npcList;
+    ArrayList<Player> playerList;
 //    ArrayList<Note> notebook;
 
     /**
      * Constructor for Campaign
      * @param title the user's name for the campaign
-     * @param information the Campaign's basic setting and information
+     * @param setting the Campaign's setting
      * @param npcList a list of non-player characters in the Campaign
      * @param playerList a list of player characters in the Campaign
      */
-    public Campaign(String title, String information) {
+    public Campaign(String title, String setting, ArrayList<NPC> npcList, ArrayList<Player> playerList) {
         this.title = title;
-        this.information = information;
-//        this.npcList = npcList;
-//        this.playerList = playerList;
-    }
-    public String getTitle() {
-
-        return title;
-    }
-
-    public String getInformation() {
-
-        return information;
-    }
-    public Campaign(){
-
+        this.setting = setting;
+        this.npcList = npcList;
+        this.playerList = playerList;
     }
 
     /**
@@ -55,25 +43,22 @@ import androidx.annotation.Nullable;
      * @param charClass character's class
      * @param race character's race
      */
-//    public void addNewPlayer(String type, String name, String charClass, String race,
-//                             Integer strength, Integer dexterity, Integer constitution, Integer intelligence, Integer wisdom, Integer charisma,
-//                             Integer strengthMod, Integer dexterityMod, Integer constitutionMod, Integer intelligenceMod, Integer wisdomMod, Integer charismaMod) {
-//        // player attributes will need to be set by the UI, when added
-//        // users will enter the values manually, since we don't have a pdf scanner option (yet)
-//        Player p = new Player(type, name, charClass, race); // this only creates the base character; no attributes, modifiers, etc.
-//        p.setAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
-//        p.setModifiers(strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod);
-//        this.playerList.add(p);
-//    }
+    public void addNewPlayer(String type, String name, String charClass, String race,
+                             Integer strength, Integer dexterity, Integer constitution, Integer intelligence, Integer wisdom, Integer charisma,
+                             Integer strengthMod, Integer dexterityMod, Integer constitutionMod, Integer intelligenceMod, Integer wisdomMod, Integer charismaMod) {
+        // player attributes will need to be set by the UI, when added
+        // users will enter the values manually, since we don't have a pdf scanner option (yet)
+        Player p = new Player(type, name, charClass, race); // this only creates the base character; no attributes, modifiers, etc.
+        p.setAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma);
+        p.setModifiers(strengthMod, dexterityMod, constitutionMod, intelligenceMod, wisdomMod, charismaMod);
+        this.playerList.add(p);
+    }
 
     /**
      * Adds an existing player character to the Campaign
      * @param p the existing player character to be added
      */
-//    public void addPlayer(Player p) {
-//        this.playerList.add(p);
-//    }
-
-
-
+    public void addPlayer(Player p) {
+        this.playerList.add(p);
+    }
  }
