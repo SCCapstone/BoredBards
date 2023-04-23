@@ -344,4 +344,27 @@ public class MyAdapter extends RecyclerView.Adapter {
         }
     }
 
+    public static class classesViewHolder extends RecyclerView.ViewHolder {
+
+        TextView name, hit_die, index, proficiencies, proficiency_choices, saving_throws, spellcasting, starting_equipment, subclasses;
+        public classesViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name = itemView.findViewById(R.id.viewClassName);
+            hit_die = itemView.findViewById(R.id.viewHitDie);
+            proficiencies = itemView.findViewById(R.id.viewProficiencies);
+            proficiency_choices = itemView.findViewById(R.id.viewOptionalProficiencies);
+            saving_throws = itemView.findViewById(R.id.viewSavingThrows);
+            spellcasting = itemView.findViewById(R.id.viewSpellcasting);
+            starting_equipment = itemView.findViewById(R.id.viewStartingItems);
+            subclasses = itemView.findViewById(R.id.viewSubclasses);
+        }
+        private void setView(classes c) {
+            name.setText(c.getName());
+            hit_die.setText("d"+c.getHit_dieAsString());
+            proficiencies.setText(c.getProficienciesAsString());
+            proficiency_choices.setText(c.getProficiency_choicesAsString());
+            saving_throws.setText(c.getSaving_throwsAsString());
+        }
+    }
+
 }
