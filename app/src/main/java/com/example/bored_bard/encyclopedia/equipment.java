@@ -9,20 +9,20 @@ public class equipment {
     private HashMap<String, String> cost;
     private String index;
     private String name;
-    private HashMap<String, String> equipmentCategory;
-    private HashMap<String, String> gearCategory;
+    private HashMap<String, String> equipment_category;
+    private HashMap<String, String> gear_category;
     private String url;
-    private int weight;
+    private float weight;
 
 
     public equipment(){};
-    public equipment(List<String> desc, HashMap<String, String> cost, String index, String name, HashMap<String, String> equipmentCategory, HashMap<String, String> gearCategory, String url, int weight) {
+    public equipment(List<String> desc, HashMap<String, String> cost, String index, String name, HashMap<String, String> equipment_category, HashMap<String, String> gear_category, String url, float weight) {
         this.desc = desc;
         this.cost = cost;
         this.index = index;
         this.name = name;
-        this.equipmentCategory = equipmentCategory;
-        this.gearCategory = gearCategory;
+        this.equipment_category = equipment_category;
+        this.gear_category = gear_category;
         this.url = url;
         this.weight = weight;
     }
@@ -70,31 +70,30 @@ public class equipment {
         this.name = name;
     }
 
-    public HashMap<String, String> getEquipmentCategory() {
-        return equipmentCategory;
+    public HashMap<String, String> getequipment_category() {
+        return equipment_category;
     }
 
-    public String getEquipmentCategoryAsString() {
-        if (equipmentCategory != null) { return equipmentCategory.get("name"); }
+    public String getequipment_categoryAsString() {
+        if (equipment_category != null) { return equipment_category.get("name"); }
         else { return "No Equipment Category"; }
     }
 
-    public void setEquipmentCategory(HashMap<String, String> equipmentCategory) {
-        this.equipmentCategory = equipmentCategory;
+    public void setequipment_category(HashMap<String, String> equipment_category) {
+        this.equipment_category = equipment_category;
     }
 
-    public HashMap<String, String> getGearCategory() {
-        return gearCategory;
+    public HashMap<String, String> getgear_category() {
+        return gear_category;
     }
 
-    //TODO: figure out why Gear and Equipment variables are returning as null
-    public String getGearCategoryAsString() {
-        if (gearCategory != null) { return gearCategory.get("name"); }
+    public String getgear_categoryAsString() {
+        if (gear_category != null) { return gear_category.get("name"); }
         else { return "No Gear Category"; }
     }
 
-    public void setGearCategory(HashMap<String, String> gearCategory) {
-        this.gearCategory = gearCategory;
+    public void setgear_category(HashMap<String, String> gear_category) {
+        this.gear_category = gear_category;
     }
 
     public String getUrl() {
@@ -105,7 +104,7 @@ public class equipment {
         this.url = url;
     }
 
-    public int getWeight() {
+    public float getWeight() {
         return weight;
     }
 
@@ -113,7 +112,7 @@ public class equipment {
         return String.valueOf(weight);
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 }
