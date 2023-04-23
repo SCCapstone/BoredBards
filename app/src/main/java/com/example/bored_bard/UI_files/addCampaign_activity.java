@@ -10,6 +10,8 @@ import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -23,6 +25,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class addCampaign_activity extends AppCompatActivity{
@@ -63,7 +66,16 @@ FirebaseAuth mAuth;
                 Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
 
 
-                databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign);
+                databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent = new Intent(getApplicationContext(), CampaginList.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+
 
 
             }

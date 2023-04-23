@@ -28,6 +28,9 @@ public class EditNote extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference reference;
+    String id = "";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +55,12 @@ public class EditNote extends AppCompatActivity {
             NTitle.setText(bundle.getString("NTitle"));
             ETitle.setText(bundle.getString("NoteTitle"));
             EDescription.setText(bundle.getString("Description"));
+            id = bundle.getString("id");
         }
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(NTitle.getText().toString());
+        reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(id);
 
 
 
@@ -80,6 +84,7 @@ public class EditNote extends AppCompatActivity {
                         intent.putExtra("NTitle", NTitle.getText().toString());
                         intent.putExtra("Description", EDescriptionOG);
                         intent.putExtra("NoteTitle", ETitleOG);
+                        intent.putExtra("id", id);
                         startActivity(intent);
                         finish();
                     }
@@ -108,7 +113,8 @@ public class EditNote extends AppCompatActivity {
                         NewTitle = ETitle.getText().toString();
                         NewDescription = EDescription.getText().toString();
 
-                        Notes note = new Notes(NewTitle,NewDescription);
+                        Notes note = new Notes(NewTitle,NewDescription, id);
+
                         reference.setValue(note).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -118,6 +124,7 @@ public class EditNote extends AppCompatActivity {
                                 intent.putExtra("NTitle", ETitle.getText().toString());
                                 intent.putExtra("Description", EDescription.getText().toString());
                                 intent.putExtra("NoteTitle", ETitle.getText().toString());
+                                intent.putExtra("id", id);
                                 startActivity(intent);
                                 finish();
                             }

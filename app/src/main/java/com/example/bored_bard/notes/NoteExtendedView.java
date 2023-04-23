@@ -30,7 +30,7 @@ public class NoteExtendedView extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
     DatabaseReference reference;
-    String key = "";
+    String key = "", id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +59,10 @@ public class NoteExtendedView extends AppCompatActivity {
             NTitle.setText(bundle.getString("NTitle"));
             titleNote.setText(bundle.getString("NoteTitle"));
             descriptionNote.setText(bundle.getString("Description"));
-            key = bundle.getString("Key");
+            id = bundle.getString("id");
+
         }
-        reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(NTitle.getText().toString());
+        reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(id);
 
         closeNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +83,7 @@ public class NoteExtendedView extends AppCompatActivity {
                 intent.putExtra("NTitle", NTitle.getText().toString());
                 intent.putExtra("Description", descriptionNote.getText().toString());
                 intent.putExtra("NoteTitle", titleNote.getText().toString());
+                intent.putExtra("id", id);
 
                 startActivity(intent);
                 finish();

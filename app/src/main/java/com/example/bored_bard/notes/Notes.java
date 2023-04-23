@@ -7,6 +7,8 @@ public class Notes {
     String description;
     String key;
 
+    String id;
+
     public String getKey() {
         return key;
     }
@@ -19,10 +21,11 @@ public class Notes {
 
     }
 
-    public Notes(String title, String description){
+    public Notes(String title, String description, String id){
 
         this.description = description;
         this.title = title;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -35,6 +38,11 @@ public class Notes {
 
         return description;
     }
+
+    public String getId(){
+        return id;
+    }
+
 
 
 

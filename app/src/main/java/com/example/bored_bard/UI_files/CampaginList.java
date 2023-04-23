@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
@@ -31,6 +34,7 @@ public class CampaginList extends AppCompatActivity {
     List<Campaign> campaignList;
     ValueEventListener eventListener;
 
+    TextView backBtn;
 
 
 
@@ -55,7 +59,7 @@ public class CampaginList extends AppCompatActivity {
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns");
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
 
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,6 +77,17 @@ public class CampaginList extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        backBtn = findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

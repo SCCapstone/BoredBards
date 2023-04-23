@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.bored_bard.R;
+import com.example.bored_bard.UI_files.Register;
 import com.example.bored_bard.UI_files.google_signin_activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,6 +62,18 @@ public class AddNotes extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               String title = String.valueOf(titleInput.getText());
+                String description = String.valueOf(descriptionInput.getText());
+
+
+                if (TextUtils.isEmpty(title)) {
+                    Toast.makeText(AddNotes.this, "Can't leave blank please enter a Title", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(description)) {
+                    Toast.makeText(AddNotes.this, "Can't leave blank please enter a Description", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                     InsertNote();
 
@@ -87,15 +101,16 @@ public class AddNotes extends AppCompatActivity {
 
         String Title = String.valueOf(CNTitle.getText());
 
-        String title, description;
+        String title, description, id;
         String username = user.getDisplayName();
 
         title = String.valueOf(titleInput.getText());
+        id = String.valueOf(titleInput.getText());
 
         description = String.valueOf(descriptionInput.getText());
 
-        Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString());
-        database.child(username).child("Campaigns").child(Title).child("Notes").child(title).setValue(Cnote);
+        Notes Cnote = new Notes(titleInput.getText().toString(), descriptionInput.getText().toString(), id);
+        database.child(username).child("Campaigns").child(Title).child("Notes").child(id).setValue(Cnote);
 
 
     }
