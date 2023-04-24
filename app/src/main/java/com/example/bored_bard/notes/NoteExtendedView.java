@@ -95,8 +95,8 @@ public class NoteExtendedView extends AppCompatActivity {
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoteExtendedView.this);
-                builder.setTitle("Deletion");
-                builder.setMessage("Are you sure you want to Delete this note");
+                builder.setTitle("Deleting Note");
+                builder.setMessage("Are you sure you want to Delete this note?");
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

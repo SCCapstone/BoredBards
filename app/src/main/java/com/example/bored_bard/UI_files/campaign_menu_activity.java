@@ -1,11 +1,14 @@
 package com.example.bored_bard.UI_files;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bored_bard.Combat.combat_activity;
@@ -13,14 +16,19 @@ import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.encyclopedia.Encyclopedia;
+import com.example.bored_bard.notes.NoteExtendedView;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.example.bored_bard.notes.enemiesAndMonstersList;
+import com.example.bored_bard.notes.noteList;
 import com.example.bored_bard.player.playerList;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.sql.Time;
 
 public class campaign_menu_activity extends AppCompatActivity {
 
@@ -32,7 +40,7 @@ public class campaign_menu_activity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference databaseReference;
     TextView backBtn;
-    Button playerStats, beginCombatBtn, monstersBtn;
+    Button playerStats, beginCombatBtn, monstersBtn, deleteCampaign;
 
 
 
@@ -43,9 +51,11 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         playerStats = findViewById(R.id.playerStats);
         TitleC = findViewById(R.id.header_title);
+        //button calls
         backBtn = findViewById(R.id.backBtn);
         beginCombatBtn = findViewById(R.id.beginCombat);
         monstersBtn = findViewById(R.id.EandM);
+        deleteCampaign = findViewById(R.id.deleteCampaign);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -60,7 +70,8 @@ public class campaign_menu_activity extends AppCompatActivity {
         }
 
         databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(TitleC.getText().toString());
-         Title = String.valueOf(TitleC.getText());
+
+         Title = TitleC.getText().toString();
 
 
 
@@ -87,7 +98,9 @@ public class campaign_menu_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), combat_activity.class);
-                intent.putExtra("CombatTitle", Title);
+                intent.putExtra("CombatTitle", TitleC.getText().toString());
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -103,6 +116,42 @@ public class campaign_menu_activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        deleteCampaign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(campaign_menu_activity.this);
+                builder.setTitle("Deleting Campaign");
+                builder.setMessage("Are you sure you want to Delete this Campaign? Once Deleted all data with it will be deleted as well.");
+                builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(campaign_menu_activity.this, "Campaign Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+
+
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
 
 
 

@@ -54,15 +54,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> 
             holder.HP.setText(Plist.get(position).getHp());
             holder.AC.setText(Plist.get(position).getAc());
 
-            holder.Name.setText(Plist.get(position).getName());
 
-
-            holder.CharacterCard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(context, "Werid", Toast.LENGTH_SHORT).show();
-                }
-            });
     }
 
     @Override

@@ -83,20 +83,31 @@ public class Register extends AppCompatActivity {
                 
                 if (TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
+                if (password.length() < 6){
+                    Toast.makeText(Register.this, "Password is too short", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                    return;
+                }
+
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(Register.this, "Enter Username", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
+
+
 
                 User Fuser = new User(editTextEmailAddress.getText().toString(),editTextPassword.getText().toString(),editUsername.getText().toString());
 
-                reference[0].child(username).child("UserInfo").setValue(Fuser);
+
 
 
 
@@ -111,12 +122,19 @@ public class Register extends AppCompatActivity {
 
                                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                             .setDisplayName(Fuser.getUsername()).build();
+
                                     user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                            if(task.isSuccessful()) {
+
+                                               reference[0].child(username).child("UserInfo").setValue(Fuser);
                                                Toast.makeText(Register.this, "Username updated.",
                                                        Toast.LENGTH_SHORT).show();
+                                               Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
+                                               startActivity(intent);
+                                               finish();
+
                                            }
                                         }
                                     });
@@ -128,7 +146,7 @@ public class Register extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(Register.this, "Authentication failed.",
+                                    Toast.makeText(Register.this, "Please enter a valid Email.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }
@@ -137,9 +155,7 @@ public class Register extends AppCompatActivity {
 
 
                //Sends user back to login in page after the user creates account
-                Intent intent = new Intent(getApplicationContext(), google_signin_activity.class);
-                startActivity(intent);
-                finish();
+
                 }
 
         });

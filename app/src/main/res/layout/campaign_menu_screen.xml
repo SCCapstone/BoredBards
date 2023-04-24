@@ -132,6 +132,19 @@
             android:padding="15dp"
             android:textSize="15sp"
             android:text="@string/combat"
+
+            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@+id/editStats"
+            tools:ignore="TextContrastCheck" />
+        <!--Begin Button, constraint to edit stats button-->
+        <Button
+            android:id="@+id/deleteCampaign"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:text="Delete Campaign"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
             app:layout_constraintEnd_toEndOf="@id/guideline_right"
