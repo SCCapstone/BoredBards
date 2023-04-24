@@ -33,7 +33,7 @@ import io.realm.RealmResults;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     Context context;
-    List<Notes> list;
+    ArrayList<Notes> list;
 
     String CNote;
     noteList noteList = new noteList();
@@ -92,6 +92,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
         public TextView NoteTitle, NoteDescription, CTitle;
         public TextView CampaignTitle;
         public CardView CampaignCard;
+
+        public CardView CharacterCard;
+
+        public TextView Name;
+        public TextView Race;
+        public TextView CClass;
+        public TextView HP;
+        public TextView AC;
         CardView NoteCard;
 
             public MyViewHodler(@NonNull View itemView){
@@ -102,12 +110,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
                 NoteCard = itemView.findViewById(R.id.NoteCard);
                 CTitle = itemView.findViewById(R.id.CTitle);
 
+                Name = itemView.findViewById(R.id.NameC);
+                Race = itemView.findViewById(R.id.RaceC);
+                CClass = itemView.findViewById(R.id.ClassC);
+                HP = itemView.findViewById(R.id.HPC);
+                AC = itemView.findViewById(R.id.ACC);
+                CharacterCard = itemView.findViewById(R.id.CharacterCard);
+
+
 
                 CampaignTitle = itemView.findViewById(R.id.recCampaignTitle);
                 CampaignCard = itemView.findViewById(R.id.CampaignCard);
 
 
-//
+
+
+
 
 
             }

@@ -8,7 +8,7 @@ public class Player {
     String Name;
     String CClass;
     String Hp;
-    String level;
+
     String AC;
 
     public Player(){
@@ -39,9 +39,6 @@ public class Player {
         return Hp;
     }
 
-    public String getLevel() {
-        return level;
-    }
 
     public String getAC() {
         return AC;

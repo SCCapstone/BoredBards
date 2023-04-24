@@ -96,29 +96,35 @@
         app:layout_constraintTop_toBottomOf="@id/CTitle" />
 
     <LinearLayout
-        android:id="@+id/listOfPlayers"
+
+        android:id="@+id/linearLayout2"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/topDivider" >
-
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/topDivider">
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/recyclerviewPlayers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/addPlayerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Player" />
+            android:scrollbars="vertical" />
+
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addPlayerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Player"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
