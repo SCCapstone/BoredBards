@@ -59,7 +59,7 @@
         app:layout_constraintGuide_begin="24dp" />
 
     <TextView
-        android:id="@+id/CTitle"
+        android:id="@+id/workdamnit"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:paddingTop="20dp"
@@ -93,28 +93,18 @@
         android:background="@color/darkblushPink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/CTitle" />
+        app:layout_constraintTop_toBottomOf="@id/workdamnit" />
 
-    <LinearLayout
 
-        android:id="@+id/linearLayout2"
-        android:layout_width="350dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewPlayers"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/topDivider">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewPlayers"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-    </LinearLayout>
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/addPlayerBtn"
+        app:layout_constraintTop_toBottomOf="@+id/workdamnit"
+        app:layout_constraintVertical_bias="0.016"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addPlayerBtn"

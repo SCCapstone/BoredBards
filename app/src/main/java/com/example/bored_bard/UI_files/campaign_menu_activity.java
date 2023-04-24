@@ -47,22 +47,24 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        assert user != null;
+
         String username = user.getDisplayName(), Title;
-
-
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             TitleC.setText(bundle.getString("Title"));
+
         }
-        assert username != null;
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child(TitleC.getText().toString());
+
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(TitleC.getText().toString());
+         Title = String.valueOf(TitleC.getText());
+
+
         playerStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), playerList.class);
-                intent.putExtra("Title", TitleC.getText().toString());
+                intent.putExtra("PlayerTitle", TitleC.getText().toString());
                 startActivity(intent);
                 finish();
             }
@@ -78,6 +80,11 @@ public class campaign_menu_activity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+
+
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
@@ -119,7 +126,7 @@ public class campaign_menu_activity extends AppCompatActivity {
         //NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), playerList.class)));
 //        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
 //        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-        players.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), playerList.class)));
+
         bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
 
     }

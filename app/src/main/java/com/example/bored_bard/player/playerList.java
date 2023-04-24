@@ -41,34 +41,42 @@ public class playerList extends AppCompatActivity {
     ArrayList<Player> playerlist;
     FirebaseDatabase database;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_list);
 
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerviewPlayers);
 
+        //User info
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
-        TitleC = findViewById(R.id.CTitle);
 
+       //declare title change
+        TitleC = findViewById(R.id.workdamnit);
 
+        //declare buttons
         addPlayerBtn = findViewById(R.id.addPlayerBtn);
         backBtn = findViewById(R.id.backBtn);
 
 
-
-
-
-
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
-            TitleC.setText(bundle.getString("Title"));
+            TitleC.setText(bundle.getString("PlayerTitle"));
 
         }
-        String CTitle = String.valueOf(TitleC.getText());
+
+
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerviewPlayers);
+
+
+
+
+
+
         database = FirebaseDatabase.getInstance();
 
 
@@ -84,7 +92,7 @@ public class playerList extends AppCompatActivity {
         recyclerView.setAdapter(playerAdapter);
 
 
-        databaseReference = database.getReference(username).child("Campaigns").child(CTitle).child("Players");
+        databaseReference = database.getReference(username).child("Campaigns").child(TitleC.getText().toString()).child("Players");
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,9 +100,7 @@ public class playerList extends AppCompatActivity {
                 playerlist.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren())
                 {
-
                     Player player = dataSnapshot.getValue(Player.class);
-
                     playerlist.add(player);
                 }
                 playerAdapter.notifyDataSetChanged();
@@ -110,7 +116,7 @@ public class playerList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), addPlayer.class);
-                intent.putExtra("Title", CTitle);
+                intent.putExtra("Title", TitleC.getText().toString());
                 startActivity(intent);
                 finish();
             }
