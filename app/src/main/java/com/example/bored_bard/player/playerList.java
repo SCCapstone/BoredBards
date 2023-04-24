@@ -14,11 +14,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bored_bard.R;
+import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.UI_files.campaign_menu_activity;
+import com.example.bored_bard.UI_files.settings_activity;
+import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.MyAdapter;
 import com.example.bored_bard.notes.Notes;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.example.bored_bard.notes.noteList;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -127,7 +132,34 @@ public class playerList extends AppCompatActivity {
         });
 
 
-
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
+        bottomNavView.setSelectedItemId(R.id.campaigns_page);
+        // bottom navigation bar to move between activities
+        bottomNavView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
+            }
+        });
 
 
 

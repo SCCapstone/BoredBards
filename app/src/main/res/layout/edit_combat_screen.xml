@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="UI_files.initiative_activity"
+    tools:context="Combat.combat_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite">
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="24dp" />
+        app:layout_constraintGuide_begin="25dp" />
 
     <!--This will be the right margin guide-->
     <androidx.constraintlayout.widget.Guideline
@@ -63,21 +63,25 @@
         app:layout_constraintGuide_begin="24dp" />
 
     <!-- Title "Enter Combat Rolls" -->
+
+    <!-- Line divider under title -->
+
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
+        android:layout_marginTop="4dp"
         android:paddingTop="20dp"
         android:text="@string/enter_combat_rolls"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="@+id/guideline_header" />
 
-    <!-- Line divider under title -->
     <View
         android:id="@+id/topDivider"
         android:layout_width="350dp"
@@ -91,6 +95,9 @@
         android:id="@+id/combatRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
 
@@ -106,33 +113,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/editStats"
+    <TextView
+        android:id="@+id/combatTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkblushPink"
-        android:text="@string/edit_stats"
-        android:textSize="15sp"
-        android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toStartOf="@id/beginCombat"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        tools:ignore="TextContrastCheck" />
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:text="combatTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Begin Button, constraint to edit stats button-->
-    <Button
-        android:id="@+id/beginCombat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkblushPink"
-        android:padding="15dp"
-        android:text="@string/combat"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_footer"
-        app:layout_constraintEnd_toEndOf="@id/guideline_right"
 
-        app:layout_constraintStart_toEndOf="@+id/editStats"
-        tools:ignore="TextContrastCheck" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!-- citing GeeksforGeeks, StackOverflow, https://guides.codepath.com/android/Working-with-the-EditText -->

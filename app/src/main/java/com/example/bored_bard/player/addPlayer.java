@@ -12,7 +12,13 @@ import android.widget.Toast;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
+import com.example.bored_bard.UI_files.settings_activity;
+import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.AddNotes;
+import com.example.bored_bard.notes.NotesMainActivity;
+import com.example.bored_bard.notes.noteList;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -69,18 +75,49 @@ public class addPlayer extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), playerList.class);
                 intent.putExtra("PlayerTitle", Title);
                 startActivity(intent);
+                finish();
             }
         });
         cancel = findViewById(R.id.cancel_button);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
+                Intent intent = new Intent(getApplicationContext(), playerList.class);
+                intent.putExtra("PlayerTitle", Title);
                 startActivity(intent);
                 finish();
             }
         });
 
+
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
+        bottomNavView.setSelectedItemId(R.id.campaigns_page);
+        // bottom navigation bar to move between activities
+        bottomNavView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
+            }
+        });
 
 
 
@@ -103,4 +140,6 @@ public class addPlayer extends AppCompatActivity {
 
 
     }
+
+
 }

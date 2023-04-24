@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bored_bard.R;
+import com.example.bored_bard.player.Player;
 
 
 import java.util.ArrayList;
@@ -19,7 +20,12 @@ import java.util.ArrayList;
 
 public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHolder>{
     Context context;
-    //ArrayList<> list;
+   ArrayList<Player> playerlist;
+
+    public CombatAdapter(Context context, ArrayList<Player> playerlist) {
+        this.context = context;
+        this.playerlist = playerlist;
+    }
 
     @NonNull
     @Override
@@ -31,12 +37,14 @@ public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHold
 
     @Override
     public void onBindViewHolder(@NonNull CombatHolder holder, int position) {
-
+            holder.Name.setText(playerlist.get(position).getName());
+            holder.HP.setText(playerlist.get(position).getHp());
+            holder.AC.setText(playerlist.get(position).getAc());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return playerlist.size();
     }
 
 
