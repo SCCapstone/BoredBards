@@ -47,30 +47,30 @@ public class Monsters {
         for (Map<String,Object> i : this.armor_class) {
             switch (i.get("type").toString()) {
                 case ("natural"):
+                    temp += "Natural Armor: " + i.get("value") + "\n";
+                    break;
                 case ("dex"): {
-                    temp += i.get("value");
+                    temp += "Dexterity: " + i.get("value") + "\n";
                     break;
                 }
                 case ("armor"): {
                     List<Map<String,Object>> armor = (List<Map<String, Object>>) i.get("armor");
                     for (Map<String,Object> j : armor) {
-                        temp += j.get("name") + ": " + i.get("value");
+                        temp += j.get("name") + ": " + i.get("value") + "\n";
                     }
-
                     break;
                 }
                 case ("spell"): {
                     Map<String,String> spell = (Map<String, String>) i.get("spell");
-                    temp += spell.get("name") + ": " + i.get("value");
+                    temp += spell.get("name") + ": " + i.get("value") + "\n";
                     break;
                 }
                 default: {
-                    temp += "10";
+                    temp += "10\n";
                     break;
                 }
 
             }
-            temp += "\n";
         }
 
         temp = temp.trim();
