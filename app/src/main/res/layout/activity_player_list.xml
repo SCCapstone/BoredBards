@@ -99,22 +99,17 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewPlayers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginVertical="10dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/addPlayerBtn"
-        app:layout_constraintTop_toBottomOf="@+id/workdamnit"
-        app:layout_constraintVertical_bias="0.016"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addPlayerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Player"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
