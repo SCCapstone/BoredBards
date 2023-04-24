@@ -21,7 +21,7 @@
                 android:id="@+id/viewFullName"
                 android:text="The name of the item"
                 android:textColor="@color/black"
-                android:textSize="26dp"
+                android:textSize="26sp"
                 android:textStyle="bold"/>
 
         </LinearLayout>
@@ -36,9 +36,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewDescription"
-                android:text="The description of the item"
+                android:text="@string/the_description_of_the_item"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -51,17 +51,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price: "
+                android:text="@string/price"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewPrice"
-                android:text="0 gp"
+                android:text="@string/_0_gp"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -74,17 +74,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weight: "
+                android:text="@string/weight"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewWeight"
-                android:text="N/A"
+                android:text="@string/n_a"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -97,17 +97,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Equipment Category: "
+                android:text="@string/equipment_category"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewEquipmentCategory"
-                android:text="N/A"
+                android:text="@string/n_a"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
 
@@ -120,19 +120,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gear Category: "
+                android:text="@string/gear_category"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/viewGearCategory"
-                android:text="N/A"
+                android:text="@string/n_a"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
+        <!-- Line divider -->
+        <View
+            android:id="@+id/topDivider"
+            android:layout_width="300dp"
+            android:layout_height="5dp"
+            android:background="@color/RustPink" />
 
     </LinearLayout>
 
