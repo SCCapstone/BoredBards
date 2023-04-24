@@ -47,6 +47,7 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        assert user != null;
         String username = user.getDisplayName(), Title;
 
 
@@ -55,6 +56,7 @@ public class campaign_menu_activity extends AppCompatActivity {
         if(bundle != null){
             TitleC.setText(bundle.getString("Title"));
         }
+        assert username != null;
         databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns").child(TitleC.getText().toString());
         playerStats.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +113,7 @@ public class campaign_menu_activity extends AppCompatActivity {
         //Button NPCs = findViewById(R.id.NPC);
         //Button EandM = findViewById(R.id.EandM);
         //Button maps = findViewById(R.id.maps);
-        Button players = findViewById(R.id.playerStats);
+        Button players = playerStats;
         Button bgnCmbt = findViewById(R.id.beginCombat);
 
         //NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), playerList.class)));

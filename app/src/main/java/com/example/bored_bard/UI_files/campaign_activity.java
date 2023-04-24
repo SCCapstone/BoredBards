@@ -59,9 +59,11 @@ public class campaign_activity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+        assert user != null;
         String username = user.getDisplayName();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns");
+        assert username != null;
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
 
             @Override
