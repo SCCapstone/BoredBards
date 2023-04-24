@@ -6,20 +6,19 @@ import java.util.Map;
 public class Monsters {
 
     private String name;
-    private String desc;
     private List<Map<String,Object>> armor_class;
-    private int hit_points;
-    private int charisma;
-    private int constitution;
-    private int dexterity;
-    private int intelligence;
-    private int strength;
-    private int wisdom;
+    private String hit_points;
+    private String charisma;
+    private String constitution;
+    private String dexterity;
+    private String intelligence;
+    private String strength;
+    private String wisdom;
+    private Map<String,String> senses;
 
     public Monsters(){};
-    public Monsters(String name, String desc, List<Map<String, Object>> armor_class, int hit_points, int charisma, int constitution, int dexterity, int intelligence, int strength, int wisdom) {
+    public Monsters(String name, List<Map<String, Object>> armor_class, String hit_points, String charisma, String constitution, String dexterity, String intelligence, String strength, String wisdom, Map<String,String> senses) {
         this.name = name;
-        this.desc = desc;
         this.armor_class = armor_class;
         this.hit_points = hit_points;
         this.charisma = charisma;
@@ -28,6 +27,7 @@ public class Monsters {
         this.intelligence = intelligence;
         this.strength = strength;
         this.wisdom = wisdom;
+        this.senses = senses;
     }
 
     public String getName() {
@@ -38,14 +38,6 @@ public class Monsters {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public List<Map<String, Object>> getArmor_class() {
         return armor_class;
     }
@@ -54,17 +46,17 @@ public class Monsters {
         String temp = "";
         for (Map<String,Object> i : this.armor_class) {
             switch (i.get("type").toString()) {
-                case ("natural"): {
-                    temp += i.get("value");
-                    break;
-                }
+                case ("natural"):
                 case ("dex"): {
                     temp += i.get("value");
                     break;
                 }
                 case ("armor"): {
-                    Map<String,String> armor = (Map<String, String>) i.get("armor");
-                    temp += armor.get("name") + ": " + i.get("value");
+                    List<Map<String,Object>> armor = (List<Map<String, Object>>) i.get("armor");
+                    for (Map<String,Object> j : armor) {
+                        temp += j.get("name") + ": " + i.get("value");
+                    }
+
                     break;
                 }
                 case ("spell"): {
@@ -90,59 +82,67 @@ public class Monsters {
         this.armor_class = armor_class;
     }
 
-    public int getHit_points() {
+    public String getHit_points() {
         return hit_points;
     }
 
-    public void setHit_points(int hit_points) {
+    public void setHit_points(String hit_points) {
         this.hit_points = hit_points;
     }
 
-    public int getCharisma() {
+    public String getCharisma() {
         return charisma;
     }
 
-    public void setCharisma(int charisma) {
+    public void setCharisma(String charisma) {
         this.charisma = charisma;
     }
 
-    public int getConstitution() {
+    public String getConstitution() {
         return constitution;
     }
 
-    public void setConstitution(int constitution) {
+    public void setConstitution(String constitution) {
         this.constitution = constitution;
     }
 
-    public int getDexterity() {
+    public String getDexterity() {
         return dexterity;
     }
 
-    public void setDexterity(int dexterity) {
+    public void setDexterity(String dexterity) {
         this.dexterity = dexterity;
     }
 
-    public int getIntelligence() {
+    public String getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    public void setIntelligence(String intelligence) {
         this.intelligence = intelligence;
     }
 
-    public int getStrength() {
+    public String getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(String strength) {
         this.strength = strength;
     }
 
-    public int getWisdom() {
+    public String getWisdom() {
         return wisdom;
     }
 
-    public void setWisdom(int wisdom) {
+    public void setWisdom(String wisdom) {
         this.wisdom = wisdom;
+    }
+
+    public Map<String, String> getSenses() {
+        return senses;
+    }
+
+    public void setSenses(Map<String, String> senses) {
+        this.senses = senses;
     }
 }

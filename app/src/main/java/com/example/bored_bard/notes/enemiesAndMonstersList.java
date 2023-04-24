@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,8 +40,8 @@ public class enemiesAndMonstersList extends AppCompatActivity {
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.monster_list); //Tie java file to xml file
 
         recyclerView = findViewById(R.id.enemiesAndMonstersRecyclerView); //Initialize RecyclerView
@@ -60,8 +61,13 @@ public class enemiesAndMonstersList extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                entryList.add(gson.fromJson(document.getData().toString(),Monsters.class));
+                                String json = gson.toJson(document.getData());
+                                //Log.d("Monster: ", json);
+                                entryList.add(gson.fromJson(json,Monsters.class));
                                 myAdapter.notifyDataSetChanged();
+                            }
+                            for (Monsters i : entryList) {
+                                Log.d("entry: ", i.getName());
                             }
                         }
                     }

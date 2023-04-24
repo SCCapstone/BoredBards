@@ -1,6 +1,7 @@
 package com.example.bored_bard.notes;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,24 +41,24 @@ public class monsterAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        Log.d("monsterAdapter: ", entryList.get(position).getName());
         Monsters monster = entryList.get(position);
         ((monsterViewHolder) holder).setView(entryList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return entryList.size();
     }
 
 
 
     public static class monsterViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, desc, armor_class, hit_points, charisma, constitution, dexterity, intelligence, strength, wisdom;
+        TextView name, armor_class, hit_points, charisma, constitution, dexterity, intelligence, strength, wisdom;
         public monsterViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.viewFullName);
-            desc = itemView.findViewById(R.id.viewDescription);
+            name = itemView.findViewById(R.id.viewName);
             armor_class = itemView.findViewById(R.id.viewArmorClass);
             hit_points = itemView.findViewById(R.id.viewHitPoints);
             charisma = itemView.findViewById(R.id.viewCharisma);
@@ -69,7 +70,6 @@ public class monsterAdapter extends RecyclerView.Adapter {
         }
         private void setView(Monsters c) {
             name.setText(c.getName());
-            desc.setText(c.getDesc());
             armor_class.setText(c.getArmor_classAsString());
             hit_points.setText(c.getHit_points());
             charisma.setText(c.getCharisma());
