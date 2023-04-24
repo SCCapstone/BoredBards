@@ -71,7 +71,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="@+id/guideline_header" />
+        app:layout_constraintTop_toTopOf="parent" />
     <!-- Campaign Title -->
     <TextView
         android:id="@+id/CNoteTitle"
@@ -95,18 +95,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/CNoteTitle"
         />
-    <!-- Back Button -->
-    <TextView
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="@string/back"
-        android:textSize="17sp"
-        android:textAlignment="center"
-        android:layout_margin="10dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/EditNote"
@@ -145,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/EDescription"
-            android:hint="Description"
+            android:hint="@string/description_"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:background="#40D0C9C0"
@@ -160,9 +149,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="44dp"
-        android:text="Finish"
+        android:layout_marginTop="25dp"
+        android:text="@string/finish"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toStartOf="@+id/cancelEdit"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/EditNote" />
@@ -172,9 +162,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="25dp"
         android:text="@string/cancel"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toEndOf="@+id/finishEdit"
         app:layout_constraintTop_toBottomOf="@id/EditNote" />
