@@ -97,6 +97,8 @@
     <string name="armor_class">Armor Class</string>
     <string name="health_points">Health Points</string>
     <string name="new_character">New Character</string>
+    <string name="finish">Finish</string>
+    <string name="description_">Description</string>
 
 
 </resources>

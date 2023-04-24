@@ -84,7 +84,6 @@ public class campaign_activity extends AppCompatActivity {
         //UI references
         Button campaign1 = (Button) findViewById(R.id.campaign1);
         FloatingActionButton FABaddCampaign = (FloatingActionButton) findViewById(R.id.FABaddCampaign);
-        campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
         FABaddCampaign.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), addCampaign_activity.class)));
 
 

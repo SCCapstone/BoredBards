@@ -168,17 +168,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-
-        <Button
-            android:id="@+id/campaign1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkblushPink"
-            android:padding="5dp"
-            android:text="@string/strahd"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
