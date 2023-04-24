@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
-import com.example.bored_bard.encyclopedia.Encyclopedia;
+import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,9 +24,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.bored_bard.campaign.Campaign;
+
 import java.util.ArrayList;
 import java.util.List;
 public class campaign_activity extends AppCompatActivity {

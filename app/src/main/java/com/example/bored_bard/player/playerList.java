@@ -82,6 +82,7 @@ public class playerList extends AppCompatActivity {
         recyclerView.setAdapter(playerAdapter);
 
 
+
         databaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
 
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
@@ -103,6 +104,7 @@ public class playerList extends AppCompatActivity {
             }
         });
 
+
         addPlayerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +114,7 @@ public class playerList extends AppCompatActivity {
                 finish();
             }
         });
+
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

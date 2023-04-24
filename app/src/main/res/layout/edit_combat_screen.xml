@@ -87,54 +87,25 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
-    <!--  -->
-    <TableLayout
-        android:id="@+id/combatOrderTable"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="top"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/combatRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/topDivider">
-
-        <TableRow>
-            <!-- Entering in the player's dice rolls -->
-            <!-- @TODO default all the inputted characters names into the TextViews  -->
-            <TextView
-                android:id="@+id/Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:paddingEnd="30dp"
-                android:textSize="20sp"
-                android:textColor="@color/black" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/roll"
-                android:inputType="number"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/Name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:paddingEnd="30dp"
-                android:textSize="20sp"
-                android:textColor="@color/black" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/roll"
-                android:inputType="number"/>
-        </TableRow>
-    </TableLayout>
 
     <!--Edit Stats Button-->
+    <TextView
+        android:id="@+id/CombatbackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="16dp"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/editStats"
         android:layout_width="wrap_content"

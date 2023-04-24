@@ -3,7 +3,6 @@ package com.example.bored_bard.notes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -12,16 +11,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.bored_bard.R;
-import com.example.bored_bard.UI_files.CampaginList;
-import com.example.bored_bard.UI_files.CampaignAdapter;
 import com.example.bored_bard.UI_files.CampaignAdapterNotes;
 import com.example.bored_bard.UI_files.addCampaign_activity;
 import com.example.bored_bard.UI_files.campaign_activity;
-import com.example.bored_bard.UI_files.google_signin_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
-import com.example.bored_bard.encyclopedia.Encyclopedia;
+import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,10 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmResults;
 
 public class NotesMainActivity extends AppCompatActivity {
 

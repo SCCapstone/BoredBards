@@ -8,10 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bored_bard.Combat.combat_activity;
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
-import com.example.bored_bard.encyclopedia.Encyclopedia;
+import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.example.bored_bard.player.playerList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,8 +31,7 @@ public class campaign_menu_activity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference databaseReference;
     TextView backBtn;
-
-    Button playerStats;
+    Button playerStats, beginCombatBtn, monstersBtn;
 
 
 
@@ -42,7 +42,9 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         playerStats = findViewById(R.id.playerStats);
         TitleC = findViewById(R.id.header_title);
-
+        backBtn = findViewById(R.id.backBtn);
+        beginCombatBtn = findViewById(R.id.beginCombat);
+        monstersBtn = findViewById(R.id.EandM);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -60,6 +62,16 @@ public class campaign_menu_activity extends AppCompatActivity {
          Title = String.valueOf(TitleC.getText());
 
 
+
+         monstersBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+//                 Intent intent = Intent(getApplicationContext(), name.here);
+//                 startActivity(intent);
+//                 finish();
+             }
+         });
+
         playerStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +82,17 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
         });
 
-        backBtn = findViewById(R.id.backBtn);
+        beginCombatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), combat_activity.class);
+                intent.putExtra("CombatTitle", Title);
+            }
+        });
+
+
+
+
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,19 +137,5 @@ public class campaign_menu_activity extends AppCompatActivity {
                 return false;
             }
         });
-
-
-        //Button NPCs = findViewById(R.id.NPC);
-        //Button EandM = findViewById(R.id.EandM);
-        //Button maps = findViewById(R.id.maps);
-        Button players = playerStats;
-        Button bgnCmbt = findViewById(R.id.beginCombat);
-
-        //NPCs.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), playerList.class)));
-//        EandM.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EandM_activity.class)));
-//        maps.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), maps_activity.class)));
-
-        bgnCmbt.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), combat_activity.class)));
-
     }
 }

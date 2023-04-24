@@ -15,10 +15,7 @@
         android:theme="@style/Theme.Bored_Bard"
         tools:targetApi="31">
         <activity
-            android:name=".encyclopedia.Encyclopedia"
-            android:exported="false" />
-        <activity
-            android:name=".notes.DeleteNote"
+            android:name=".dice_roller.encyclopedia.Encyclopedia"
             android:exported="false" />
         <activity
             android:name=".player.addPlayer"
@@ -107,7 +104,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UI_files.combat_activity"
+            android:name=".Combat.combat_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

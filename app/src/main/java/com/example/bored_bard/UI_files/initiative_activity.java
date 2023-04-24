@@ -1,4 +1,5 @@
 package com.example.bored_bard.UI_files;
+import com.example.bored_bard.Combat.combat_activity;
 import com.example.bored_bard.R;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.notes.NotesMainActivity;
@@ -8,7 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.view.View;
+
 /**
  * @author Caroline Barrineau
  */

@@ -1,4 +1,4 @@
-package com.example.bored_bard.encyclopedia;
+package com.example.bored_bard.dice_roller.encyclopedia;
 
 import android.content.Context;
 import android.util.Log;

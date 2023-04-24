@@ -1,4 +1,4 @@
-package com.example.bored_bard.encyclopedia;
+package com.example.bored_bard.dice_roller.encyclopedia;
 
 import android.content.Intent;
 import android.os.Bundle;

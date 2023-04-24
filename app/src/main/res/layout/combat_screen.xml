@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
-    tools:context=".UI_files.combat_activity">
+    tools:context=".Combat.combat_activity">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -86,7 +86,7 @@
 
     <!-- Back Button -->
     <TextView
-        android:id="@+id/backBtn"
+        android:id="@+id/CombatbackBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"

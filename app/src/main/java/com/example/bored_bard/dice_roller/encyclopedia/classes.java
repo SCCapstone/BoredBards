@@ -1,4 +1,4 @@
-package com.example.bored_bard.encyclopedia;
+package com.example.bored_bard.dice_roller.encyclopedia;
 
 import java.util.Map;
 import java.util.List;
