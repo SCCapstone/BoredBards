@@ -114,7 +114,7 @@ public class campaign_activity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.settings_page) {
-                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.encyclopedia) {
