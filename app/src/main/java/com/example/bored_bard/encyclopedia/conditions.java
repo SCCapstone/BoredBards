@@ -1,4 +1,4 @@
-package com.example.bored_bard.dice_roller.encyclopedia;
+package com.example.bored_bard.encyclopedia;
 
 import java.util.List;
 

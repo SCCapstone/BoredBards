@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/GreyWhite"
-    tools:context=".encyclopedia.Encyclopedia">
+    tools:context=".notes.enemiesAndMonstersList">
 
     <!-- Nav Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -62,7 +62,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Encyclopedia"
+        android:text="Enemies and Monsters"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="35sp"
@@ -93,7 +93,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/encyclopediaRecyclerView"
+        android:id="@+id/enemiesAndMonstersRecyclerView"
         android:layout_width= "match_parent"
         android:layout_height= "0dp"
         android:layout_marginVertical="15dp"
@@ -101,6 +101,5 @@
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toEndOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/topDivider" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
-import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;

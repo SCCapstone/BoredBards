@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHolder>{
     Context context;
-    ArrayList<> list;
+    //ArrayList<> list;
 
     @NonNull
     @Override

@@ -12,8 +12,9 @@ import com.example.bored_bard.Combat.combat_activity;
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
-import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
+import com.example.bored_bard.notes.enemiesAndMonstersList;
 import com.example.bored_bard.player.playerList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,9 +67,9 @@ public class campaign_menu_activity extends AppCompatActivity {
          monstersBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-//                 Intent intent = Intent(getApplicationContext(), name.here);
-//                 startActivity(intent);
-//                 finish();
+                 Intent intent = new Intent(getApplicationContext(), enemiesAndMonstersList.class);
+                 startActivity(intent);
+                 finish();
              }
          });
 

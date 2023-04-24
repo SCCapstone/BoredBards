@@ -32,7 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.UI_files.settings_activity;
-import com.example.bored_bard.dice_roller.encyclopedia.Encyclopedia;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
