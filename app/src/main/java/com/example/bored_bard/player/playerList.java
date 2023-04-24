@@ -2,6 +2,7 @@ package com.example.bored_bard.player;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,8 +40,9 @@ public class playerList extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth mAuth;
     FirebaseUser user;
-    DatabaseReference databaseReference;
-    TextView TitleC, backBtn;
+    public DatabaseReference PlayerDatabaseReference;
+    public TextView PlayerCampaignTitle;
+    TextView backBtn;
     ValueEventListener eventListener;
     Button addPlayerBtn;
 
@@ -61,7 +63,7 @@ public class playerList extends AppCompatActivity {
         String username = user.getDisplayName();
 
        //declare title change
-        TitleC = findViewById(R.id.workdamnit);
+       PlayerCampaignTitle = findViewById(R.id.workdamnit);
 
         //declare buttons
         addPlayerBtn = findViewById(R.id.addPlayerBtn);
@@ -70,12 +72,12 @@ public class playerList extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
-            TitleC.setText(bundle.getString("PlayerTitle"));
+            PlayerCampaignTitle.setText(bundle.getString("PlayerTitle"));
 
         }
         playerlist = new ArrayList<>();
 
-       String Title = String.valueOf(TitleC.getText());
+       String Title = String.valueOf(PlayerCampaignTitle.getText());
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewPlayers);
 
@@ -88,9 +90,11 @@ public class playerList extends AppCompatActivity {
 
 
 
-        databaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
 
-        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+
+     PlayerDatabaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
+
+        eventListener = PlayerDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -110,11 +114,14 @@ public class playerList extends AppCompatActivity {
         });
 
 
+
+
+
         addPlayerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), addPlayer.class);
-                intent.putExtra("Title", TitleC.getText().toString());
+                intent.putExtra("Title", PlayerCampaignTitle.getText().toString());
                 startActivity(intent);
                 finish();
             }
@@ -125,7 +132,7 @@ public class playerList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), campaign_menu_activity.class);
-                intent.putExtra("Title", TitleC.getText().toString());
+                intent.putExtra("Title", PlayerCampaignTitle.getText().toString());
                 startActivity(intent);
                 finish();
             }
@@ -167,5 +174,8 @@ public class playerList extends AppCompatActivity {
 
 
 
+
+
     }
+
 }

@@ -59,6 +59,8 @@ public class combat_activity extends Activity {
 
 
 
+
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
         combatTitle.setText(bundle.getString("CombatTitle"));
@@ -102,8 +104,7 @@ public class combat_activity extends Activity {
             }
         });
 
-
-
+        playerAdapter.onBindViewHolder(Title = String.valueOf(combatTitle));
 
 
 
@@ -115,6 +116,7 @@ public class combat_activity extends Activity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), campaign_menu_activity.class);
                 intent.putExtra("Title", combatTitle.getText().toString());
                 startActivity(intent);

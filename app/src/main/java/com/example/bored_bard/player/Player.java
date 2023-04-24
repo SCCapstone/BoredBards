@@ -1,7 +1,5 @@
 package com.example.bored_bard.player;
 
-import androidx.annotation.NonNull;
-
 public class Player {
 
     String race;
@@ -9,6 +7,7 @@ public class Player {
     String cclass;
     String hp;
     String ac;
+
 
     public Player(){
 
@@ -19,6 +18,7 @@ public class Player {
         this.cclass = cclass;
         this.hp = hp;
         this.ac = ac;
+
     }
 
 
@@ -42,6 +42,8 @@ public class Player {
     public String getAc() {
         return ac;
     }
+
+
 
     public String toString() {
         String temp = "Race: " + this.getRace() + ", Name: " + this.getName() + ", CClass: " + this.getCclass() + ", HP: " + this.getHp() + ", AC: " + this.getAc();

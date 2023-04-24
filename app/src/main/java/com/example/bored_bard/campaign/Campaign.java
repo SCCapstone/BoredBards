@@ -1,6 +1,6 @@
 package com.example.bored_bard.campaign;
 
-import com.example.bored_bard.character_classes.*;
+
 // import com.example.bored_bard.<note classes>;
 
 import java.util.ArrayList;
@@ -26,8 +26,6 @@ import androidx.annotation.Nullable;
      * Constructor for Campaign
      * @param title the user's name for the campaign
      * @param information the Campaign's basic setting and information
-     * @param npcList a list of non-player characters in the Campaign
-     * @param playerList a list of player characters in the Campaign
      */
     public Campaign(String title, String information) {
         this.title = title;

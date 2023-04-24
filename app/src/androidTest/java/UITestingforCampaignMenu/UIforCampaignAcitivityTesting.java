@@ -2,6 +2,7 @@ package UITestingforCampaignMenu;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -10,6 +11,7 @@ import androidx.test.filters.LargeTest;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.campaign_menu_activity;
+import com.example.bored_bard.UI_files.google_signin_activity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -29,21 +31,11 @@ public class UIforCampaignAcitivityTesting {
         onView(withId(R.id.beginCombat)).perform(click());
     }
     @Test
-    public void selectNPCButton(){
-        // checks if NPC button exists and can be clicked
-        onView(withId(R.id.NPC)).perform(click());
-    }
-    @Test
     public void selectEandMButton(){
         // checks if EandM button exists and can be clicked
         onView(withId(R.id.EandM)).perform(click());
     }
 
-    @Test
-    public void selectMapsButton(){
-        // checks if Maps button exists and can be clicked
-        onView(withId(R.id.maps)).perform(click());
-    }
 
     @Test
     public void selectNotesButton(){
@@ -56,4 +48,8 @@ public class UIforCampaignAcitivityTesting {
         // checks if PlayerStats button exists and can be clicked
         onView(withId(R.id.playerStats)).perform(click());
     }
+
+
+
+
 }

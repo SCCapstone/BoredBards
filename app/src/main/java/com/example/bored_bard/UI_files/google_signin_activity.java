@@ -64,13 +64,15 @@ public class google_signin_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_signin);
-        editTextEmailAddress = findViewById(R.id.email);
-        editTextPassword = findViewById(R.id.password);
+        editTextEmailAddress = findViewById(R.id.loginEmail);
+        editTextPassword = findViewById(R.id.loginPassword);
         buttonLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.RegisterNow);
         mAuth = FirebaseAuth.getInstance();
 
+
+        // sends the user to the Register
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +82,8 @@ public class google_signin_activity extends AppCompatActivity {
             }
         });
 
+
+        //logs the user in.
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,18 +14,13 @@ import com.example.bored_bard.UI_files.campaign_activity;
 import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.dice_roller.DieRoller;
 import com.example.bored_bard.encyclopedia.Encyclopedia;
-import com.example.bored_bard.notes.AddNotes;
 import com.example.bored_bard.notes.NotesMainActivity;
-import com.example.bored_bard.notes.noteList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 public class addPlayer extends AppCompatActivity {
 
@@ -132,6 +126,7 @@ public class addPlayer extends AppCompatActivity {
         String cclass = String.valueOf(CClass.getText());
         String hp = String.valueOf(HP.getText());
         String ac = String.valueOf(AC.getText());
+        String initiative = "";
 
 
         Player player = new Player(name, race, cclass, hp, ac);

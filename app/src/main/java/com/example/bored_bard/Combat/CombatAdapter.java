@@ -13,9 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.player.Player;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import java.util.ArrayList;
+import java.util.jar.Attributes;
 
 
 public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHolder>{
@@ -36,15 +41,23 @@ public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CombatHolder holder, int position) {
-            holder.Name.setText(playerlist.get(position).getName());
+    public void onBindViewHolder(@NonNull CombatHolder holder, int position) {FirebaseUser user;
+
+
+                holder.Name.setText(playerlist.get(position).getName());
             holder.HP.setText(playerlist.get(position).getHp());
             holder.AC.setText(playerlist.get(position).getAc());
+
+
+
     }
 
     @Override
     public int getItemCount() {
         return playerlist.size();
+    }
+
+    public void onBindViewHolder(String s) {
     }
 
 

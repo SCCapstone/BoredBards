@@ -22,9 +22,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,8 +54,8 @@ FirebaseAuth mAuth;
         user = mAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-
-
+       String campaignTitle = CampaignTitle.getText().toString();
+       String campaignDescription = CampaignInfo.getText().toString();
 
 
 
@@ -64,13 +66,28 @@ FirebaseAuth mAuth;
 
                 Title = String.valueOf(CampaignTitle.getText());
 
+                String campaignDescription = String.valueOf(CampaignInfo.getText());
+
+
+                if (TextUtils.isEmpty(Title)) {
+                    Toast.makeText(addCampaign_activity.this, "Enter Title", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(campaignDescription)) {
+                    Toast.makeText(addCampaign_activity.this, "Enter Description", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
+
+
 
 
                 databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Intent intent = new Intent(getApplicationContext(), CampaginList.class);
+                        Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
                         startActivity(intent);
                         finish();
                     }

@@ -3,32 +3,17 @@ package com.example.bored_bard.notes;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.CaseMap;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.bored_bard.R;
-import com.example.bored_bard.UI_files.CampaginList;
-import com.example.bored_bard.UI_files.CampaignAdapter;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.BreakIterator;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
