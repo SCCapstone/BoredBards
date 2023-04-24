@@ -22,7 +22,7 @@ import android.view.View;
 
 import java.util.List;
 
-public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
+public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
     private List<Campaign> campaignList;
@@ -34,14 +34,14 @@ public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler
 
     @NonNull
     @Override
-    public MyAdapter.MyViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.campaign_item,parent,false);
 
-        return new MyAdapter.MyViewHodler(view);
+        return new MyAdapter.MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHodler holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
           holder.CampaignTitle.setText(campaignList.get(position).getTitle());
 
           holder.CampaignCard.setOnClickListener(new View.OnClickListener() {

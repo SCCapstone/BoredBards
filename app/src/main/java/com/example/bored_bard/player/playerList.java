@@ -68,32 +68,23 @@ public class playerList extends AppCompatActivity {
 
         }
 
-
-
         RecyclerView recyclerView = findViewById(R.id.recyclerviewPlayers);
 
 
-
-
-
-
         database = FirebaseDatabase.getInstance();
-
-
-
-
-
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(playerList.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         playerlist = new ArrayList<>();
+
         PlayerAdapter playerAdapter = new PlayerAdapter(playerList.this, playerlist);
+
         recyclerView.setAdapter(playerAdapter);
 
 
         databaseReference = database.getReference(username).child("Campaigns").child(TitleC.getText().toString()).child("Players");
-        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

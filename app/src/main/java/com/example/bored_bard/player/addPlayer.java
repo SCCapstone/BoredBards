@@ -67,7 +67,7 @@ public class addPlayer extends AppCompatActivity {
                 InsertPlayer();
                 Toast.makeText(addPlayer.this, "Player Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), playerList.class);
-                intent.putExtra("Title", Title);
+                intent.putExtra("PlayerTitle", Title);
                 startActivity(intent);
             }
         });

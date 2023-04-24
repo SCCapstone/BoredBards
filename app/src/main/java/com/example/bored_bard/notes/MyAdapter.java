@@ -30,7 +30,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Notes> list;
@@ -48,15 +48,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
 
     @NonNull
     @Override
-    public MyViewHodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
         View view = LayoutInflater.from(context).inflate(R.layout.note_item,parent, false);
-        return new MyViewHodler(view);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHodler holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.NoteTitle.setText(list.get(position).getTitle());
 
@@ -87,7 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
         return list.size();
     }
 
-    public static class MyViewHodler extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         public TextView NoteTitle, NoteDescription, CTitle;
         public TextView CampaignTitle;
@@ -102,7 +102,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHodler> {
         public TextView AC;
         CardView NoteCard;
 
-            public MyViewHodler(@NonNull View itemView){
+            public MyViewHolder(@NonNull View itemView){
                 super(itemView);
 
                 NoteTitle = itemView.findViewById(R.id.NoteTitle);

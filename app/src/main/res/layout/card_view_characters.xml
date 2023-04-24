@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="56dp"
             android:layout_marginTop="4dp"
-            android:text="Name:"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:text="Name"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,8 +65,7 @@
             android:layout_marginStart="52dp"
             android:layout_marginTop="36dp"
             android:text="Race"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,8 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
             android:layout_marginTop="36dp"
-
             android:text="hp"
+            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -116,6 +115,7 @@
             android:layout_marginTop="84dp"
             android:text="Class"
             android:textSize="15sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -133,9 +133,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="260dp"
-
             android:layout_marginTop="84dp"
             android:text="Armor Class"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
