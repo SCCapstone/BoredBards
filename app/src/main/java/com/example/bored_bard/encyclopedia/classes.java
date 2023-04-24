@@ -85,19 +85,23 @@ public class classes {
             temp += "Choose " + choose.intValue() + " from options listed below:\n\n";
             Map<String, Object> from = (Map<String, Object>) i.get("from");
             List<Map<String, Object>> options = (List<Map<String, Object>>) from.get("options");
+            assert options != null;
             for (Map<String, Object> j : options) {
                 if (j.get("option_type").equals("choice")) {
                     Map<String, Object> choice = (Map<String, Object>) j.get("choice");
+                    assert choice != null;
                     temp += choice.get("desc") + ":\n";
                     Map<String, Object> fromChoice = (Map<String, Object>) choice.get("from");
                     List<Map<String, Object>> optionsFromChoice = (List<Map<String, Object>>) fromChoice.get("options");
                     for (Map<String, Object> k : optionsFromChoice) {
                         Map<String, String> item = (Map<String, String>) k.get("item");
+                        assert item != null;
                         temp += item.get("name") + "\n";
                     }
                     temp += "\n";
                 } else {
                     Map<String, String> item = (Map<String, String>) j.get("item");
+                    assert item != null;
                     temp += item.get("name") + "\n";
                 }
             }
