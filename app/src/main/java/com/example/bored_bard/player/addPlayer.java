@@ -62,8 +62,31 @@ public class addPlayer extends AppCompatActivity {
         createChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
+                String name = String.valueOf(Name.getText());
+                String race = String.valueOf(Race.getText());
+                String cclass = String.valueOf(CClass.getText());
+                String hp = String.valueOf(HP.getText());
+                String ac = String.valueOf(AC.getText());
+                if ( name.length() == 0){
+                    Toast.makeText(addPlayer.this, "Please enter a name", Toast.LENGTH_SHORT).show();
+                return;
+                }
+                if ( race.length() == 0){
+                    Toast.makeText(addPlayer.this, "Please enter race", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ( cclass.length() == 0){
+                    Toast.makeText(addPlayer.this, "Please enter a Class", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ( hp.length() == 0){
+                    Toast.makeText(addPlayer.this, "Please enter Health Points", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if ( ac.length() == 0){
+                    Toast.makeText(addPlayer.this, "Please enter Armor Class", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 InsertPlayer();
                 Toast.makeText(addPlayer.this, "Player Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), playerList.class);

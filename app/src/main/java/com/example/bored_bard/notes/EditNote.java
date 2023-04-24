@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -111,6 +112,15 @@ public class EditNote extends AppCompatActivity {
                         String NewTitle, NewDescription;
                         NewTitle = ETitle.getText().toString();
                         NewDescription = EDescription.getText().toString();
+
+                        if (TextUtils.isEmpty(NewTitle)) {
+                            Toast.makeText(EditNote.this, "Please add a Title", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (TextUtils.isEmpty(NewDescription)) {
+                            Toast.makeText(EditNote.this, "Come on man you can't leave this empty", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
                         Notes note = new Notes(NewTitle,NewDescription, id);
 
