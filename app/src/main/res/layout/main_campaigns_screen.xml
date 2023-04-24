@@ -178,7 +178,6 @@
         android:focusable="true"
         android:layout_gravity="center"
         android:contentDescription="@string/add_new_campaign"
-        android:layout_marginBottom="120dp"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/recyclerview"
