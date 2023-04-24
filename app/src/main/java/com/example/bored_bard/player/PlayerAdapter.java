@@ -50,9 +50,9 @@ public class PlayerAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> 
 
             holder.Name.setText(Plist.get(position).getName());
             holder.Race.setText(Plist.get(position).getRace());
-            holder.CClass.setText(Plist.get(position).getCClass());
+            holder.CClass.setText(Plist.get(position).getCclass());
             holder.HP.setText(Plist.get(position).getHp());
-            holder.AC.setText(Plist.get(position).getAC());
+            holder.AC.setText(Plist.get(position).getAc());
 
             holder.Name.setText(Plist.get(position).getName());
 

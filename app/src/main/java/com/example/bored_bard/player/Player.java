@@ -4,46 +4,49 @@ import androidx.annotation.NonNull;
 
 public class Player {
 
-    String Race;
-    String Name;
-    String CClass;
-    String Hp;
-
-    String AC;
+    String race;
+    String name;
+    String cclass;
+    String hp;
+    String ac;
 
     public Player(){
 
     }
-    public Player(String Name, String Race, String CClass, String Hp, String AC){
-        this.Name = Name;
-        this.Race = Race;
-        this.CClass = CClass;
-        this.Hp = Hp;
-        this.AC = AC;
+    public Player(String name, String race, String cclass, String hp, String ac){
+        this.name = name;
+        this.race = race;
+        this.cclass = cclass;
+        this.hp = hp;
+        this.ac = ac;
     }
 
 
     public String getRace() {
-        return Race;
+        return race;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public String getCClass(){
-        return CClass;
+    public String getCclass(){
+        return cclass;
     }
 
     public String getHp() {
-        return Hp;
+        return hp;
     }
 
 
-    public String getAC() {
-        return AC;
+    public String getAc() {
+        return ac;
     }
 
+    public String toString() {
+        String temp = "Race: " + this.getRace() + ", Name: " + this.getName() + ", CClass: " + this.getCclass() + ", HP: " + this.getHp() + ", AC: " + this.getAc();
+        return temp;
+    }
 
 
 }
