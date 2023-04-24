@@ -91,8 +91,13 @@ public class addPlayer extends AppCompatActivity {
 
         String username = user.getDisplayName();
         String name = String.valueOf(Name.getText());
+        String race = String.valueOf(Race.getText());
+        String cclass = String.valueOf(CClass.getText());
+        String hp = String.valueOf(HP.getText());
+        String ac = String.valueOf(AC.getText());
 
-        Player player = new Player(Name.getText().toString(), Race.getText().toString(), CClass.getText().toString(), HP.getText().toString(), AC.getText().toString());
+
+        Player player = new Player(name, race, cclass, hp, ac);
 
         reference.child(username).child("Campaigns").child(Title).child("Players").child(name).setValue(player);
 

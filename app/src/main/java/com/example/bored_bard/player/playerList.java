@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,31 +61,30 @@ public class playerList extends AppCompatActivity {
         //declare buttons
         addPlayerBtn = findViewById(R.id.addPlayerBtn);
         backBtn = findViewById(R.id.backBtn);
-
+        database = FirebaseDatabase.getInstance();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             TitleC.setText(bundle.getString("PlayerTitle"));
 
         }
+        playerlist = new ArrayList<>();
+
+       String Title = String.valueOf(TitleC.getText());
 
         RecyclerView recyclerView = findViewById(R.id.recyclerviewPlayers);
 
-
-        database = FirebaseDatabase.getInstance();
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(playerList.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-
-        playerlist = new ArrayList<>();
 
         PlayerAdapter playerAdapter = new PlayerAdapter(playerList.this, playerlist);
 
         recyclerView.setAdapter(playerAdapter);
 
 
-        databaseReference = database.getReference(username).child("Campaigns").child(TitleC.getText().toString()).child("Players");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
+
+        eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
