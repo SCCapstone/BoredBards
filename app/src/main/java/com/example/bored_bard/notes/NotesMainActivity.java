@@ -30,17 +30,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class NotesMainActivity extends AppCompatActivity {
 
-
-    FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
     FirebaseUser user;
     List<Campaign> campaignList;
     ValueEventListener eventListener;
-    TextView backBtn;
+
 
 
 
@@ -48,6 +48,8 @@ public class NotesMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_main);
+
+
         MaterialButton addCampaignBtn = findViewById(R.id.AddCampaign);
 
 
@@ -68,17 +70,21 @@ public class NotesMainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
 
 
+        //Creates a new instance of the CampaignAdapterNotes class and sets it as the object for the recyclerview to display
         CampaignAdapterNotes myAdapter = new CampaignAdapterNotes(NotesMainActivity.this, campaignList);
         recyclerView.setAdapter(myAdapter);
 
-
+        //FirebaseAuth Calls
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
+
+        //FireBase Realtime Database Reference call
         databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
 
 
 
+        //Adds the Campaigns from the Campaign List to be displayed by the recyclerView
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

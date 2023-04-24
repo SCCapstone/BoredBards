@@ -22,7 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import io.realm.Realm;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class AddNotes extends AppCompatActivity {
     TextView CNTitle;
     FirebaseAuth mAuth;
@@ -39,9 +41,11 @@ public class AddNotes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
 
-
+        //Firebase Auth Calls for username
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+
+
         titleInput = findViewById(R.id.titleinput);
         descriptionInput = findViewById(R.id.descriptioninput);
         saveBtn = findViewById(R.id.savebutton);
@@ -50,12 +54,15 @@ public class AddNotes extends AppCompatActivity {
         CNTitle = findViewById(R.id.NCampaignTitle);
         CNTitle = findViewById(R.id.NCampaignTitle);
 
+        //Sets the Title of the page.
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             CNTitle.setText(bundle.getString("Title"));
 
         }
 
+
+        //Creates a New Note and returns the user to the NotesList page
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,10 +70,13 @@ public class AddNotes extends AppCompatActivity {
                 String description = String.valueOf(descriptionInput.getText());
 
 
+                //Checks to see if the Title was left blank. If so it will prompt the user to add a Title
                 if (TextUtils.isEmpty(title)) {
                     Toast.makeText(AddNotes.this, "Can't leave blank please enter a Title", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                //Checks to see if the Description was left blank. If so it will prompt the user to add a Description
                 if (TextUtils.isEmpty(description)) {
                     Toast.makeText(AddNotes.this, "Can't leave blank please enter a Description", Toast.LENGTH_SHORT).show();
                     return;
@@ -74,6 +84,8 @@ public class AddNotes extends AppCompatActivity {
 
                     InsertNote();
 
+
+                //Takes the user to the Notes list page.
                 Toast.makeText(getApplicationContext(),"Note created",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), noteList.class);
                 intent.putExtra("Title", CNTitle.getText().toString());
@@ -83,29 +95,23 @@ public class AddNotes extends AppCompatActivity {
             }
         });
 
+        //Cancels the Creation of a Note and Returns you to the Notes list page.
         exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), noteList.class);
+                intent.putExtra("Title", CNTitle.getText().toString());
                 startActivity(intent);
                 finish();
             }
         });
-        TextView backBtn;
 
-        backBtn = findViewById(R.id.backBtn);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
     }
+
+    //Uses the Reference point to insert the New Note under the selected Campaign
     private void InsertNote(){
         String Title = String.valueOf(CNTitle.getText());
 

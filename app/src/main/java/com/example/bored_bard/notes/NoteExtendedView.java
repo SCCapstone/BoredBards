@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class NoteExtendedView extends AppCompatActivity {
 
     LinearLayout NoteExpanded;
@@ -37,6 +39,7 @@ public class NoteExtendedView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_extended_view);
 
+        //FireBaseAuth and DatabaseReference Calls.
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         String username = user.getDisplayName();
@@ -53,6 +56,7 @@ public class NoteExtendedView extends AppCompatActivity {
         String ENTitle = String.valueOf(NTitle.getText());
         String ECTitle = String.valueOf(CTitle.getText());
 
+        //Information sent from the MyAdapter class or from the EditNotes class.
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             CTitle.setText(bundle.getString("Title"));
@@ -62,8 +66,11 @@ public class NoteExtendedView extends AppCompatActivity {
             id = bundle.getString("id");
 
         }
+
+        //Database reference
         reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(id);
 
+        //This will close the Extended View.
         closeNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,9 +82,11 @@ public class NoteExtendedView extends AppCompatActivity {
             }
         });
 
+        //This will take you to EditNotes page.
         editNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //This is the information that is pulled from this View and sent to the EditNotes page.
                 Intent intent = new Intent(NoteExtendedView.this, EditNote.class);
                 intent.putExtra("Title", CTitle.getText().toString());
                 intent.putExtra("NTitle", NTitle.getText().toString());
@@ -90,13 +99,19 @@ public class NoteExtendedView extends AppCompatActivity {
             }
         });
 
+        //This will prompt the User asking if they want to Delete the Note.
+        //If the User clicks Yes it will target the referenced Note and Delete it from the Database.
+        //If the User clicks no it will close the prompt.
         deleteNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Creates the prompt message
                 AlertDialog.Builder builder = new AlertDialog.Builder(NoteExtendedView.this);
                 builder.setTitle("Deleting Note");
                 builder.setMessage("Are you sure you want to Delete this note?");
+
+                //When clicked will deleted the Note and prompt the User with a message saying Deleted Note
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -106,12 +121,14 @@ public class NoteExtendedView extends AppCompatActivity {
                                 Toast.makeText(NoteExtendedView.this, "Deleted Note", Toast.LENGTH_SHORT).show();
                             }
                         });
+                        //Information that is sent back to the noteList page as a reference point for the Database
                         Intent intent = new Intent(getApplicationContext(), noteList.class);
                         intent.putExtra("Title", CTitle.getText().toString());
                         startActivity(intent);
                         finish();
                     }
                 });
+                //Closes the prompt
                 builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

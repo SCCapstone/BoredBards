@@ -26,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class noteList extends AppCompatActivity {
 
     TextView CNTitle, backBtn;
@@ -46,23 +48,22 @@ public class noteList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_list);
+
+       //Firebase Auth Calls
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-
-        CNTitle = findViewById(R.id.CNoteTitle);
-
-
         String username = user.getDisplayName();
 
-
+        CNTitle = findViewById(R.id.CNoteTitle);
 
         addNoteBtn = findViewById(R.id.addNoteButton);
         backBtn = findViewById(R.id.backBtn);
 
-
+        //Takes the User to the Add Notes page.
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Sends the Relevant information for the database to the AddNotes page
                 Intent intent = new Intent(noteList.this, AddNotes.class);
                 intent.putExtra("Title", CNTitle.getText().toString());
                 startActivity(intent);
@@ -70,9 +71,11 @@ public class noteList extends AppCompatActivity {
             }
         });
 
+        //Returns the User to the NotesMainActivity Page
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Sends the Relevant information for the database to the NotesMainActivity page
                 Intent intent = new Intent(getApplicationContext(), NotesMainActivity.class);
                 intent.putExtra("Title", CNTitle.getText().toString());
                 startActivity(intent);
@@ -81,30 +84,37 @@ public class noteList extends AppCompatActivity {
         });
 
 
+        //Creates the notesList ArrayList to call the Notes from
         noteslist = new ArrayList<>();
 
+        //Creates RecyclerView Calls
         recyclerView = findViewById(R.id.recyclerview);
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(noteList.this, 1);
-        MyAdapter adapter = new MyAdapter(noteList.this, noteslist);
         recyclerView.setLayoutManager(gridLayoutManager);
+
+
+        //Calls the Adapter for the CardView
+        MyAdapter adapter = new MyAdapter(noteList.this, noteslist);
+        //sets the RecyclerView to the Adapter
         recyclerView.setAdapter(adapter);
 
 
-
+        //Gets the Campaign Title From the CampaignAdapterNote class
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             CNTitle.setText(bundle.getString("Title"));
         }
 
+        // sets CTitle to the value of the Campaign Title
         CTitle = String.valueOf(CNTitle.getText());
-
         adapter.CNote = CTitle;
 
+        //Firebase Realtime Database reference calls
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference(username).child("Campaigns").child(CTitle).child("Notes");
 
 
+        //Creates the instances of the Notes for the RecyclerView to display
          eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -125,6 +135,7 @@ public class noteList extends AppCompatActivity {
 
             }
         });
+
 
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.encyclopedia);

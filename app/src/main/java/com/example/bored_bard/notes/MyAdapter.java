@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bored_bard.R;
 
 import java.util.ArrayList;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
@@ -35,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
+        //This calls the CardView layout that we will be displaying.
         View view = LayoutInflater.from(context).inflate(R.layout.note_item,parent, false);
         return new MyViewHolder(view);
     }
@@ -43,12 +45,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+
+        //These call the Views and set them equal to the information from the ArrayList of Notes
         holder.NoteTitle.setText(list.get(position).getTitle());
-
         holder.NoteDescription.setText(list.get(position).getDescription());
-
         holder.CTitle.setText(CNote);
 
+
+        //This will send the information of the Note to NoteExtend view.
         holder.NoteCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +76,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return list.size();
     }
 
+    //Creates all the Id Instances need for calling specific information from the database.
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         public TextView NoteTitle, NoteDescription, CTitle;

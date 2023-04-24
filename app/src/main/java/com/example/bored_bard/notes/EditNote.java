@@ -20,7 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class EditNote extends AppCompatActivity {
 
     EditText  EDescription;
@@ -49,6 +51,7 @@ public class EditNote extends AppCompatActivity {
         finishEdit = findViewById(R.id.finishEdit);
         cancelEdit = findViewById(R.id.cancelEdit);
 
+        //Is information from NoteExtendView sent to be Edited
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             CTitle.setText(bundle.getString("Title"));
@@ -58,7 +61,7 @@ public class EditNote extends AppCompatActivity {
             id = bundle.getString("id");
         }
 
-
+        //Calls the Firebase References from the RealTime database
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(CTitle.getText().toString()).child("Notes").child(id);
 
@@ -69,13 +72,15 @@ public class EditNote extends AppCompatActivity {
         String ETitleOG = ETitle.getText().toString();
         String EDescriptionOG = EDescription.getText().toString();
 
-        //Button cancels the editing of the note
+        //Button cancels the editing of the note and returns them to the NotesExtendedView page
         cancelEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditNote.this);
                 builder.setTitle("Cancel");
                 builder.setMessage("Are you sure you want to Cancel this Edit? You will lose all your changes.");
+
+                //Will send the Original unchanged data back to the NotesExtendedView
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -89,6 +94,8 @@ public class EditNote extends AppCompatActivity {
                         finish();
                     }
                 });
+
+                //Closes the prompt
                 builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -100,12 +107,19 @@ public class EditNote extends AppCompatActivity {
             }
         });
 
+
+        //This will prompt the user with a message box asking if they want to save their edit.
+        //If they click yes then the edit will be saved
+        //If they click no then it won't change anything and close the prompt
         finishEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Prompts the user
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditNote.this);
                 builder.setTitle("Save");
                 builder.setMessage("Are you sure you want to Save this note?");
+
+                //On yes will save the edited Note
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -113,17 +127,24 @@ public class EditNote extends AppCompatActivity {
                         NewTitle = ETitle.getText().toString();
                         NewDescription = EDescription.getText().toString();
 
+
+                        //Checks to see if the Note Title is empty. If so stops the edit and prompts the user to add a title
                         if (TextUtils.isEmpty(NewTitle)) {
                             Toast.makeText(EditNote.this, "Please add a Title", Toast.LENGTH_SHORT).show();
                             return;
                         }
+
+
+                        //Checks to see if the Note Title is empty. If so stops the edit and prompts the user to add a title
                         if (TextUtils.isEmpty(NewDescription)) {
                             Toast.makeText(EditNote.this, "Come on man you can't leave this empty", Toast.LENGTH_SHORT).show();
                             return;
                         }
 
+                        //Creates and instance of the Note
                         Notes note = new Notes(NewTitle,NewDescription, id);
 
+                        //Replaces the Value of the old Note instance with that of the Edited Note
                         reference.setValue(note).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -141,6 +162,8 @@ public class EditNote extends AppCompatActivity {
 
                     }
                 });
+
+                //Close prompt box
                 builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
