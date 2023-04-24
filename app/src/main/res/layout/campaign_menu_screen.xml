@@ -104,16 +104,6 @@
         app:layout_constraintTop_toBottomOf="@id/topDivider" >
 
 
-        <!-- go to creatable NPCs -->
-        <Button
-            android:id="@+id/NPC"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="15sp"
-            android:text="@string/npc"
-            android:textAlignment="center"/>
-
         <!-- go to Enemies and monsters -->
         <Button
             android:id="@+id/EandM"
@@ -122,16 +112,6 @@
             android:padding="15dp"
             android:textSize="15sp"
             android:text="@string/enemies_and_monsters"
-            android:textAlignment="center"/>
-
-        <!-- go to maps -->
-        <Button
-            android:id="@+id/maps"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:textSize="15sp"
-            android:text="@string/maps"
             android:textAlignment="center"/>
 
         <!-- go to player stats -->

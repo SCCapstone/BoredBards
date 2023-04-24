@@ -67,16 +67,6 @@ public class NotesMainActivity extends AppCompatActivity {
                 finish();
             }
         });
-        backBtn = findViewById(R.id.backBtn);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), campaign_activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
         campaignList = new ArrayList<>();

@@ -1,21 +1,21 @@
 package com.example.bored_bard.encyclopedia;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
 public class classes {
     private String name;
     private int hit_die;
     private String index;
-    private List<String> proficiencies;
-    private List<HashMap<String,Object>> proficiency_choices;
-    private List<HashMap<String,Object>> saving_throws;
-    private HashMap<String, Object> spellcasting;
-    private List<String> starting_equipment;
-    private List<String> subclasses;
+    private List<Map<String,String>> proficiencies;
+    private List<Map<String,Object>> proficiency_choices;
+    private List<Map<String,Object>> saving_throws;
+    private Map<String, Object> spellcasting;
+    private List<Map<String,Object>> starting_equipment;
+    private List<Map<String,String>> subclasses;
 
     public classes(){};
-    public classes(String name, int hit_die, String index, List<String> proficiencies, List<HashMap<String, Object>> proficiency_choices, List<HashMap<String,Object>> saving_throws, HashMap<String, Object> spellcasting, List<String> starting_equipment, List<String> subclasses) {
+    public classes(String name, int hit_die, String index, List<Map<String,String>> proficiencies, List<Map<String, Object>> proficiency_choices, List<Map<String,Object>> saving_throws, Map<String, Object> spellcasting, List<Map<String,Object>> starting_equipment, List<Map<String,String>> subclasses) {
         this.name = name;
         this.hit_die = hit_die;
         this.index = index;
@@ -53,83 +53,162 @@ public class classes {
         this.index = index;
     }
 
-    public List<String> getProficiencies() {
+    public List<Map<String,String>> getProficiencies() {
         return proficiencies;
     }
 
     public String getProficienciesAsString() {
         String temp = "";
-        for (String i : proficiencies) {
-            temp += i + "\n";
+        for (Map<String,String> i : proficiencies) {
+            temp += i.get("name") + "\n";
         }
         temp = temp.trim();
         return temp;
     }
 
-    public void setProficiencies(List<String> proficiencies) {
+    public void setProficiencies(List<Map<String,String>> proficiencies) {
         this.proficiencies = proficiencies;
     }
 
-    public List<HashMap<String, Object>> getProficiency_choices() {
+    public List<Map<String, Object>> getProficiency_choices() {
         return proficiency_choices;
     }
 
     public String getProficiency_choicesAsString() {
+        if (proficiency_choices == null) {
+            return "N/A";
+        }
         String temp = "";
-        for (HashMap<String,Object> i : proficiency_choices) {
-            temp += i.get("desc" + ":\n\n");
-            HashMap<String, Object> from = (HashMap<String, Object>) i.get("from");
-            List<HashMap<String,Object>> options = (List<HashMap<String,Object>>) from.get("options");
-            for (HashMap<String,Object> j : options) {
-                HashMap<String,String> item = (HashMap<String, String>) j.get("item");
-                temp += item.get("name" + "\n");
+
+        for (Map<String,Object> i : proficiency_choices) {
+            Double choose = (Double) i.get("choose");
+            temp += "Choose " + choose.intValue() + " from options listed below:\n\n";
+            Map<String, Object> from = (Map<String, Object>) i.get("from");
+            List<Map<String, Object>> options = (List<Map<String, Object>>) from.get("options");
+            assert options != null;
+            for (Map<String, Object> j : options) {
+                if (j.get("option_type").equals("choice")) {
+                    Map<String, Object> choice = (Map<String, Object>) j.get("choice");
+                    assert choice != null;
+                    temp += choice.get("desc") + ":\n";
+                    Map<String, Object> fromChoice = (Map<String, Object>) choice.get("from");
+                    List<Map<String, Object>> optionsFromChoice = (List<Map<String, Object>>) fromChoice.get("options");
+                    for (Map<String, Object> k : optionsFromChoice) {
+                        Map<String, String> item = (Map<String, String>) k.get("item");
+                        assert item != null;
+                        temp += item.get("name") + "\n";
+                    }
+                    temp += "\n";
+                } else {
+                    Map<String, String> item = (Map<String, String>) j.get("item");
+                    assert item != null;
+                    temp += item.get("name") + "\n";
+                }
             }
+            temp += "\n";
         }
 
+        temp = temp.trim();
         return temp;
     }
 
-    public void setProficiency_choices(List<HashMap<String, Object>> proficiency_choices) {
+    public void setProficiency_choices(List<Map<String, Object>> proficiency_choices) {
         this.proficiency_choices = proficiency_choices;
     }
 
-    public List<HashMap<String,Object>> getSaving_throws() {
+    public List<Map<String,Object>> getSaving_throws() {
         return saving_throws;
     }
 
     public String getSaving_throwsAsString() {
         String temp = "";
-        for (HashMap<String,Object> i : saving_throws) {
+        for (Map<String,Object> i : saving_throws) {
             temp += i.get("name") + "\n";
         }
+        temp = temp.trim();
         return temp;
     }
 
-    public void setSaving_throws(List<HashMap<String,Object>> saving_throws) {
+    public void setSaving_throws(List<Map<String,Object>> saving_throws) {
         this.saving_throws = saving_throws;
     }
 
-    public HashMap<String, Object> getSpellcasting() {
+    public Map<String, Object> getSpellcasting() {
         return spellcasting;
     }
 
-    public void setSpellcasting(HashMap<String, Object> spellcasting) {
+    public String getSpellcastingAsString() {
+        if (spellcasting == null) {
+            return "N/A";
+        }
+
+        String temp = "";
+
+        Map<String,String> spellcasting_ability = (Map<String, String>) spellcasting.get("spellcasting_ability");
+        temp += "Ability used to cast spells: " + spellcasting_ability.get("name") + "\n";
+
+        List<Map<String,Object>> info = (List<Map<String, Object>>) spellcasting.get("info");
+        for (Map<String,Object> i : info) {
+            temp += i.get("name") + ":\n";
+            List<String> desc = (List<String>) i.get("desc");
+            for (String j : desc) {
+                temp += j + "\n";
+            }
+            temp += "\n";
+        }
+
+        return temp;
+    }
+
+
+    public void setSpellcasting(Map<String, Object> spellcasting) {
         this.spellcasting = spellcasting;
     }
 
-    public List<String> getStarting_equipment() {
+    public List<Map<String,Object>> getStarting_equipment() {
         return starting_equipment;
     }
 
-    public void setStarting_equipment(List<String> starting_equipment) {
+    public String getStartingEquipmentAsString() {
+        if (starting_equipment == null) {
+            return "N/A";
+        }
+
+        String temp = "";
+
+        for (Map<String, Object> i : starting_equipment) {
+            Map<String,Object> equipment = (Map<String, Object>) i.get("equipment");
+            Double quantity = (Double) i.get("quantity");
+            temp += equipment.get("name") + "\n" + "Quantity: " + quantity.intValue() + "\n\n";
+        }
+        temp = temp.trim();
+        return temp;
+    }
+
+
+    public void setStarting_equipment(List<Map<String,Object>> starting_equipment) {
         this.starting_equipment = starting_equipment;
     }
 
-    public List<String> getSubclasses() {
+    public List<Map<String,String>> getSubclasses() {
         return subclasses;
     }
 
-    public void setSubclasses(List<String> subclasses) {
+    public String getSubclassesAsString() {
+        if (subclasses == null) {
+            return "N/A";
+        }
+
+        String temp = "";
+
+        for (Map<String,String> i : subclasses) {
+            temp += i.get("name") + "\n";
+        }
+        temp = temp.trim();
+        return temp;
+    }
+
+    public void setSubclasses(List<Map<String,String>> subclasses) {
         this.subclasses = subclasses;
     }
 }

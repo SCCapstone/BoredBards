@@ -97,6 +97,15 @@
     <string name="armor_class">Armor Class</string>
     <string name="health_points">Health Points</string>
     <string name="new_character">New Character</string>
+    <string name="finish">Finish</string>
+    <string name="description_">Description</string>
+    <string name="the_description_of_the_item">The description of the item</string>
+    <string name="price">Price:</string>
+    <string name="_0_gp">0 gp</string>
+    <string name="weight">Weight:</string>
+    <string name="n_a">N/A</string>
+    <string name="equipment_category">Equipment Category:</string>
+    <string name="gear_category">Gear Category:</string>
 
 
 </resources>

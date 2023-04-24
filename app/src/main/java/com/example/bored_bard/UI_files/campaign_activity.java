@@ -59,9 +59,11 @@ public class campaign_activity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+        assert user != null;
         String username = user.getDisplayName();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(username).child("Campaigns");
+        assert username != null;
+        databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -84,7 +86,6 @@ public class campaign_activity extends AppCompatActivity {
         //UI references
         Button campaign1 = (Button) findViewById(R.id.campaign1);
         FloatingActionButton FABaddCampaign = (FloatingActionButton) findViewById(R.id.FABaddCampaign);
-        campaign1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), campaign_menu_activity.class)));
         FABaddCampaign.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), addCampaign_activity.class)));
 
 
@@ -114,7 +115,7 @@ public class campaign_activity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.settings_page) {
-                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
                 overridePendingTransition(0, 0);
                 return true;
             } else if (item.getItemId() == R.id.encyclopedia) {

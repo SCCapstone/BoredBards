@@ -14,7 +14,12 @@ import android.widget.TextView;
 
 import com.example.bored_bard.R;
 import com.example.bored_bard.UI_files.CampaginList;
+import com.example.bored_bard.UI_files.campaign_activity;
+import com.example.bored_bard.UI_files.settings_activity;
 import com.example.bored_bard.campaign.Campaign;
+import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -128,6 +133,34 @@ public class noteList extends AppCompatActivity {
             }
         });
 
+        BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
+        bottomNavView.setSelectedItemId(R.id.encyclopedia);
+        // bottom navigation bar to move between activities
+        bottomNavView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
+            }
+        });
 
 
     }

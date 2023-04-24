@@ -140,8 +140,9 @@ public class DieRoller extends AppCompatActivity {
             numDice = Integer.parseInt(input.getText().toString());
         }
 
+        String tst_msg = numDice + " dice seems a bit high. Consider a smaller number";
         if (excessDice()) {
-            Toast.makeText(getApplicationContext(), "25 dice seems a bit high. Consider a smaller number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), tst_msg, Toast.LENGTH_SHORT).show();
         }
         setNumSides(numDice);
     }
@@ -208,23 +209,27 @@ public class DieRoller extends AppCompatActivity {
     /**
      * rolls multiple dice, based on user input
      * on the related EditText object
-     * (checks that the Die object is not null
+     * (checks that the Die object is not null)
      * @param die - the die to be rolled
      * @param numDice - the number of times to roll
      */
     private void rollMultiple(@NonNull Die die, int numDice) {
         int res;
+        int out = 0;
         ArrayList<Integer> multiResult = new ArrayList<>();
 
         for (int i = 0; i < numDice; i++) {
             res = die.roll();
             multiResult.add(res);
+            out += res;
         }
 
         // displays a breakdown of the rolls
         String temp = multiResult.toString().substring(1, multiResult.toString().length() - 1);
         String breakdown = ("Breakdown of results:\n\n" + temp);
 
+        TextView res_window = findViewById(R.id.result_window);
+        res_window.setText(String.valueOf(out));
         TextView res_breakdown = findViewById(R.id.roll_breakdown);
         res_breakdown.setText(breakdown);
         res_breakdown.setContentDescription(breakdown);

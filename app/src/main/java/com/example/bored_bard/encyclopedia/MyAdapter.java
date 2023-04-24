@@ -69,7 +69,8 @@ public class MyAdapter extends RecyclerView.Adapter {
             case  BACKGROUNDS:
 
             case  CLASSES:
-
+                v = LayoutInflater.from(context).inflate(R.layout.classes_row,parent,false);
+                return new classesViewHolder(v);
             case  CONDITIONS:
                 v = LayoutInflater.from(context).inflate(R.layout.condition_row,parent,false);
                 return new conditionsViewHolder(v);
@@ -124,6 +125,7 @@ public class MyAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         try {
+            Log.d("Item currently displayed: ",entryList.get(position).getString("name"));
             switch (entryList.get(position).getString("type")) {
                 case "AbilityScores":
                     abilityScores ability = gson.fromJson(entryList.get(position).toString(),abilityScores.class);
@@ -136,6 +138,8 @@ public class MyAdapter extends RecyclerView.Adapter {
                 case "Backgrounds":
                     break;
                 case "Classes":
+                    classes playerClass = gson.fromJson(entryList.get(position).toString(),classes.class);
+                    ((classesViewHolder) holder).setView(playerClass);
                     break;
                 case "Conditions":
                     conditions condition = gson.fromJson(entryList.get(position).toString(),conditions.class);
@@ -338,8 +342,8 @@ public class MyAdapter extends RecyclerView.Adapter {
             name.setText(c.getName());
             desc.setText(c.getDesc());
             cost.setText(c.getCostString());
-            equipmentCategory.setText(c.getEquipmentCategoryAsString());
-            gearCategory.setText(c.getGearCategoryAsString());
+            equipmentCategory.setText(c.getequipment_categoryAsString());
+            gearCategory.setText(c.getgear_categoryAsString());
             weight.setText(c.getWeightAsString());
         }
     }
@@ -364,6 +368,9 @@ public class MyAdapter extends RecyclerView.Adapter {
             proficiencies.setText(c.getProficienciesAsString());
             proficiency_choices.setText(c.getProficiency_choicesAsString());
             saving_throws.setText(c.getSaving_throwsAsString());
+            spellcasting.setText(c.getSpellcastingAsString());
+            starting_equipment.setText(c.getStartingEquipmentAsString());
+            subclasses.setText(c.getSubclassesAsString());
         }
     }
 
