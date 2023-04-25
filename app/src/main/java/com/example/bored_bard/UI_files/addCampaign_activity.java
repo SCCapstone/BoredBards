@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.view.View;
@@ -58,6 +60,22 @@ FirebaseAuth mAuth;
         user = mAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+
+        InputFilter filter = new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    char c = source.charAt(i);
+                    if (c == '.' || c == '#' || c == '$' || c == '[' || c == ']') {
+                        return ""; // return an empty string to prevent the character from being entered
+                    }
+                }
+                return null; // let the character be entered
+            }
+        };
+
+        CampaignTitle.setFilters(new InputFilter[] {filter});
+
        String campaignTitle = CampaignTitle.getText().toString();
        String campaignDescription = CampaignInfo.getText().toString();
 
@@ -70,6 +88,8 @@ FirebaseAuth mAuth;
        createCampaign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 String username = user.getDisplayName(), Title;
 
                 Title = String.valueOf(CampaignTitle.getText());

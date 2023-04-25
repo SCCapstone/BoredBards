@@ -22,16 +22,33 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.jar.Attributes;
 
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHolder>{
     Context context;
    ArrayList<Player> playerlist;
 
+
+    /**
+     *
+      * @param context is context?
+     * @param playerlist is the ArrayList of Players that will be used to set the CombatCard View
+     *                   With the Data From the RealTime Database
+     */
     public CombatAdapter(Context context, ArrayList<Player> playerlist) {
         this.context = context;
         this.playerlist = playerlist;
     }
 
+    /**
+     *
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return view is the CombatCard View
+     */
     @NonNull
     @Override
     public CombatHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,11 +57,18 @@ public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHold
         return new CombatHolder(view);
     }
 
+    /**
+     *
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull CombatHolder holder, int position) {FirebaseUser user;
 
 
-                holder.Name.setText(playerlist.get(position).getName());
+            //Sets the CombatCard with Values from the ArrayList
+            holder.Name.setText(playerlist.get(position).getName());
             holder.HP.setText(playerlist.get(position).getHp());
             holder.AC.setText(playerlist.get(position).getAc());
 
@@ -52,15 +76,19 @@ public class CombatAdapter extends RecyclerView.Adapter<CombatAdapter.CombatHold
 
     }
 
+    /**
+     *
+     * @return the size of the playerList
+     */
     @Override
     public int getItemCount() {
         return playerlist.size();
     }
 
-    public void onBindViewHolder(String s) {
-    }
 
-
+    /**
+     * Stores the Views that are needed for the CombatCard
+     */
     public static class CombatHolder extends RecyclerView.ViewHolder{
         TextView Name, AC;
         EditText HP, IntRoll;

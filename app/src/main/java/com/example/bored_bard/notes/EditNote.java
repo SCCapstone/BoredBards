@@ -14,6 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -60,6 +62,21 @@ public class EditNote extends AppCompatActivity {
             EDescription.setText(bundle.getString("Description"));
             id = bundle.getString("id");
         }
+
+        InputFilter filter = new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    char c = source.charAt(i);
+                    if (c == '.' || c == '#' || c == '$' || c == '[' || c == ']') {
+                        return ""; // return an empty string to prevent the character from being entered
+                    }
+                }
+                return null; // let the character be entered
+            }
+        };
+
+        ETitle.setFilters(new InputFilter[] {filter});
 
         //Calls the Firebase References from the RealTime database
         firebaseDatabase = FirebaseDatabase.getInstance();

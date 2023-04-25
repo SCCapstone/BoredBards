@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -81,6 +83,21 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
+
+        InputFilter filter = new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    char c = source.charAt(i);
+                    if (c == '.' || c == '#' || c == '$' || c == '[' || c == ']') {
+                        return ""; // return an empty string to prevent the character from being entered
+                    }
+                }
+                return null; // let the character be entered
+            }
+        };
+        editUsername.setFilters(new InputFilter[] {filter});
+
 
         /**
          * Will Register a User using Email, Password, and Username

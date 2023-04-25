@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -60,6 +62,19 @@ public class AddNotes extends AppCompatActivity {
             CNTitle.setText(bundle.getString("Title"));
 
         }
+        InputFilter filter = new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    char c = source.charAt(i);
+                    if (c == '.' || c == '#' || c == '$' || c == '[' || c == ']') {
+                        return ""; // return an empty string to prevent the character from being entered
+                    }
+                }
+                return null; // let the character be entered
+            }
+        };
+        titleInput.setFilters(new InputFilter[] {filter});
 
 
         //Creates a New Note and returns the user to the NotesList page

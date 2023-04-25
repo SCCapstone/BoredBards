@@ -32,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 /**
- * @author Caroline Barrineau
+ * @author Andrew MacMurray - FrozenDrew
  */
 public class combat_activity extends Activity {
     FirebaseAuth mAuth;
@@ -57,34 +57,42 @@ public class combat_activity extends Activity {
         database = FirebaseDatabase.getInstance();
 
 
-
-
-
-
+        /**
+         * Gets the Title pointer for the Database
+         */
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
         combatTitle.setText(bundle.getString("CombatTitle"));
-        //CombatPath = bundle.getString("CombatTitle");
+
         }
         String Title = String.valueOf(combatTitle.getText());
 
-        //Firebase calls
 
 
 
+        //Creates an ArrayList for the Adapter to pull information from
         playerlist = new ArrayList<>();
 
+        //Calls RecyclerView
         RecyclerView recyclerView = findViewById(R.id.combatRecycler);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(combat_activity.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
+        //Calls the CombatApdater
         CombatAdapter playerAdapter = new CombatAdapter(combat_activity.this, playerlist);
 
+        //Sets the RecyclerView to the CombatAdpater
         recyclerView.setAdapter(playerAdapter);
 
+        //FireBase DatabaseReference to find the Players
         databaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
 
+        /**
+         * Adds players to the ArrayList playerList from the Firebase Realtime Database
+         * The CombatAdapter will set the CombatCard with the Values from the playerList
+         * Then the RecyclerView will Display the CombatCard
+         */
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -104,15 +112,15 @@ public class combat_activity extends Activity {
             }
         });
 
-        playerAdapter.onBindViewHolder(Title = String.valueOf(combatTitle));
+
 
 
 
         //button calls
         backBtn = findViewById(R.id.CombatbackBtn);
-
-
-
+        /**
+         * Will send the User back to the Campaign Menu with the Title pointer
+         */
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
