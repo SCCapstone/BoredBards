@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class addPlayer extends AppCompatActivity {
 
    TextInputEditText Name, Race, CClass, HP, AC;
@@ -31,6 +33,7 @@ public class addPlayer extends AppCompatActivity {
    DatabaseReference reference;
    TextView CTitle;
    String Title = "";
+
 
 
 
@@ -47,9 +50,11 @@ public class addPlayer extends AppCompatActivity {
         createChar = findViewById(R.id.createChar);
         CTitle = findViewById(R.id.CTitle);
 
+        //FireBase Auth Calls
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
+        //Gets Pointer infromation from PlayerList
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             Title = bundle.getString("Title");
@@ -58,7 +63,10 @@ public class addPlayer extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference();
 
-
+        /**
+         * Inserts the Players information into the Users database if All Text boxes were filled out properly
+         * Will prompt the user with a message if they left any boxes blank
+         */
         createChar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,27 +75,34 @@ public class addPlayer extends AppCompatActivity {
                 String cclass = String.valueOf(CClass.getText());
                 String hp = String.valueOf(HP.getText());
                 String ac = String.valueOf(AC.getText());
+
+                //Checks if name is entered if not will prompt the user
                 if ( name.length() == 0){
                     Toast.makeText(addPlayer.this, "Please enter a name", Toast.LENGTH_SHORT).show();
                 return;
                 }
+                //Checks if race is entered if not will prompt the user
                 if ( race.length() == 0){
                     Toast.makeText(addPlayer.this, "Please enter race", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //Checks if class is entered if not will prompt the user
                 if ( cclass.length() == 0){
                     Toast.makeText(addPlayer.this, "Please enter a Class", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //Checks if hp is entered if not will prompt the user
                 if ( hp.length() == 0){
                     Toast.makeText(addPlayer.this, "Please enter Health Points", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //Checks if Armor Class is entered if not will prompt the user
                 if ( ac.length() == 0){
                     Toast.makeText(addPlayer.this, "Please enter Armor Class", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 InsertPlayer();
+                //Send the Database point to the next playerList page
                 Toast.makeText(addPlayer.this, "Player Created", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), playerList.class);
                 intent.putExtra("PlayerTitle", Title);
@@ -95,6 +110,11 @@ public class addPlayer extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        /**
+         * Will cancel the Creation of a Player and send them back to the playerList page
+         */
         cancel = findViewById(R.id.cancel_button);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +160,9 @@ public class addPlayer extends AppCompatActivity {
 
     }
 
+    /**
+     * This will use the Firebase RealTime Database references to insert the Players information under the User's selected Campaign.
+     */
     private void InsertPlayer(){
 
 

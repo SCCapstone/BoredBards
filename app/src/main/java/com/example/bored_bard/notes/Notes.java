@@ -23,7 +23,7 @@ public class Notes {
 
     }
     /**
-     * Constructor for Campaign
+     * Constructor for Notes
      * @param title the user's name for the Note
      * @param description the information about the Note
      * @param id the Notes specific Id used to keep track of the Note in the database

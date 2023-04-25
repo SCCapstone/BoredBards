@@ -38,7 +38,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class google_signin_activity extends AppCompatActivity {
 
     TextInputEditText editTextEmailAddress, editTextPassword;
@@ -47,7 +49,11 @@ public class google_signin_activity extends AppCompatActivity {
     TextView textView;
     FirebaseAuth mAuth;
 
-
+    /**
+     * On the Start of the App it will check if the User is currently logged in
+     * If the user is logged in it will grab their Information and move them to the home page
+     * If the user is not logged start up on the login page
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -64,11 +70,13 @@ public class google_signin_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_signin);
+       //All buttons and View called
         editTextEmailAddress = findViewById(R.id.loginEmail);
         editTextPassword = findViewById(R.id.loginPassword);
         buttonLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.RegisterNow);
+       //Firebase Auth Call
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -83,7 +91,12 @@ public class google_signin_activity extends AppCompatActivity {
         });
 
 
-        //logs the user in.
+        /**
+         * Will Log the User in if the Username and Password are found in the in FirebaseAuth
+         * If the Email box is empty will prompt the User to enter an email
+         * If the Password box is empty will prompt the User to enter a password
+         * On successful login the User will be sent to the Home screen (campaign_activity.class)
+         */
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.bored_bard.R;
 import com.example.bored_bard.campaign.Campaign;
 import com.example.bored_bard.dice_roller.DieRoller;
+import com.example.bored_bard.encyclopedia.Encyclopedia;
 import com.example.bored_bard.notes.NotesMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +31,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class addCampaign_activity extends AppCompatActivity{
 
 
@@ -50,6 +53,7 @@ FirebaseAuth mAuth;
         createCampaign = findViewById(R.id.campaign1);
         CampaignInfo = findViewById(R.id.Bio);
         CampaignTitle = findViewById(R.id.NewTitle);
+        //Firebase
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -58,8 +62,12 @@ FirebaseAuth mAuth;
        String campaignDescription = CampaignInfo.getText().toString();
 
 
-
-        createCampaign.setOnClickListener(new View.OnClickListener() {
+        /**
+         * Will Insert a Campaign into the User's Database under the "Campaigns" branch
+         * If the Title is blank it will prompt the user to enter an Title
+         * If the Description is blank it will prompt the user to enter a Description
+          */
+       createCampaign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = user.getDisplayName(), Title;
@@ -79,11 +87,8 @@ FirebaseAuth mAuth;
                 }
 
 
+                //Is the reference calls from the Database
                 Campaign Ccampign = new Campaign(CampaignTitle.getText().toString(), CampaignInfo.getText().toString());
-
-
-
-
                 databaseReference.child(username).child("Campaigns").child(Title).setValue(Ccampign).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -92,10 +97,6 @@ FirebaseAuth mAuth;
                         finish();
                     }
                 });
-
-
-
-
             }
         });
 
@@ -104,27 +105,31 @@ FirebaseAuth mAuth;
         BottomNavigationView bottomNavView = findViewById(R.id.bottom_nav);
         bottomNavView.setSelectedItemId(R.id.campaigns_page);
         // bottom navigation bar to move between activities
-        bottomNavView.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.campaigns_page:
-                    startActivity(new Intent(getApplicationContext(), campaign_activity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.dice_page:
-                    startActivity(new Intent(getApplicationContext(), DieRoller.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.notes_page:
-                    startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                case R.id.settings_page:
-                    // start the settings activity here
-                    return true;
+        bottomNavView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.campaigns_page) {
+                startActivity(new Intent(getApplicationContext(), campaign_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.dice_page) {
+                startActivity(new Intent(getApplicationContext(), DieRoller.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.notes_page) {
+                startActivity(new Intent(getApplicationContext(), NotesMainActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.settings_page) {
+                startActivity(new Intent(getApplicationContext(), settings_activity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (item.getItemId() == R.id.encyclopedia) {
+                startActivity(new Intent(getApplicationContext(), Encyclopedia.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else {
+                return false;
             }
-            return false;
         });
 
-        // @TODO buttons and textinputs
     }
 }

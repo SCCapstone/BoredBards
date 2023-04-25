@@ -29,24 +29,33 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class PlayerAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
    private Context context;
-
     private ArrayList<Player> Plist;
 
-
-
-
+    /**
+     *
+     * @param context is context
+     * @param Plist is the Array of the Players
+     */
     public PlayerAdapter(Context context, ArrayList<Player> Plist) {
         this.context = context;
         this.Plist = Plist;
     }
 
 
-
-
+    /**
+     *
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return
+     */
     @NonNull
     @Override
     public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,9 +64,17 @@ public class PlayerAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> 
 
     }
 
+    /**
+     *
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     *
+     */
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
 
+            //Sets the Views to the Values of the Player from the Player ArrayList
             holder.Name.setText(Plist.get(position).getName());
             holder.Race.setText(Plist.get(position).getRace());
             holder.CClass.setText(Plist.get(position).getCclass());

@@ -35,7 +35,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class playerList extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth mAuth;
@@ -70,6 +72,7 @@ public class playerList extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         database = FirebaseDatabase.getInstance();
 
+        //Gets pointer information
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             PlayerCampaignTitle.setText(bundle.getString("PlayerTitle"));
@@ -94,7 +97,11 @@ public class playerList extends AppCompatActivity {
 
      PlayerDatabaseReference = database.getReference(username).child("Campaigns").child(Title).child("Players");
 
-        eventListener = PlayerDatabaseReference.addValueEventListener(new ValueEventListener() {
+        /**
+         * Pulls the Player informaiton from the Firebase RealTimeDatabase
+         * Then adds it to the Player ArrayList for the PlayerAdapter to set the information to the Card.
+          */
+     eventListener = PlayerDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -114,10 +121,10 @@ public class playerList extends AppCompatActivity {
         });
 
 
-
-
-
-        addPlayerBtn.setOnClickListener(new View.OnClickListener() {
+        /**
+         * Will take you to the AddPlayers Class sends the Title Pointer
+          */
+     addPlayerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), addPlayer.class);
@@ -128,7 +135,10 @@ public class playerList extends AppCompatActivity {
         });
 
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        /**
+         * Will take you back to the Campaign menu and will send the Title Pointer
+          */
+     backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), campaign_menu_activity.class);

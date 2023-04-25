@@ -29,7 +29,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Time;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class campaign_menu_activity extends AppCompatActivity {
 
 
@@ -51,18 +53,19 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         playerStats = findViewById(R.id.playerStats);
         TitleC = findViewById(R.id.header_title);
+
         //button calls
         backBtn = findViewById(R.id.backBtn);
         beginCombatBtn = findViewById(R.id.beginCombat);
         monstersBtn = findViewById(R.id.EandM);
         deleteCampaign = findViewById(R.id.deleteCampaign);
 
-
+        //Firebase Auth Calls
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        String username = user.getDisplayName();
 
-        String username = user.getDisplayName(), Title;
-
+        //Grabs the Campaign Title Pointer
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             TitleC.setText(bundle.getString("Title"));
@@ -71,11 +74,13 @@ public class campaign_menu_activity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns").child(TitleC.getText().toString());
 
-         Title = TitleC.getText().toString();
+         String Title = TitleC.getText().toString();
 
 
-
-         monstersBtn.setOnClickListener(new View.OnClickListener() {
+        /**
+         * Will take the User to the Enemies and Monsters page
+         */
+        monstersBtn.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  Intent intent = new Intent(getApplicationContext(), enemiesAndMonstersList.class);
@@ -84,6 +89,9 @@ public class campaign_menu_activity extends AppCompatActivity {
              }
          });
 
+        /**
+         * Will take the User to the PlayersList page and send the Reference Pointer
+         */
         playerStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +102,9 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Will take the User to the Combat page and send the Reference Pointer
+         */
         beginCombatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +119,9 @@ public class campaign_menu_activity extends AppCompatActivity {
 
 
 
+        /**
+         * Will take the User back to the home page
+         */
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,12 +131,19 @@ public class campaign_menu_activity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Will Prompt the User asking if they want to delete the Campaign
+         * If Yes that Campaign and all information saved under it will be deleted
+         * If No the it will close the prompt
+         */
         deleteCampaign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Creates the Prompt
                 AlertDialog.Builder builder = new AlertDialog.Builder(campaign_menu_activity.this);
                 builder.setTitle("Deleting Campaign");
                 builder.setMessage("Are you sure you want to Delete this Campaign? Once Deleted all data with it will be deleted as well.");
+                //Will Delete the selected Campaign's information
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -137,6 +158,7 @@ public class campaign_menu_activity extends AppCompatActivity {
                         finish();
                     }
                 });
+                //Will close the Prompt
                 builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

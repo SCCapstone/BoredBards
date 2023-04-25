@@ -21,17 +21,33 @@ import android.view.View;
 
 
 import java.util.List;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
     private List<Campaign> campaignList;
 
+    /**
+     *
+     * @param context is context
+     * @param campaignList is an ArrayList that stores the Information of a Campaign from the Database
+     *                     this ArrayList will be used to set all the data on the CardViews
+     */
     public CampaignAdapter(Context context, List<Campaign> campaignList) {
         this.context = context;
         this.campaignList = campaignList;
     }
 
+    /**
+     *
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return the CampaignCard View
+     */
     @NonNull
     @Override
     public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,10 +56,17 @@ public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder
         return new MyAdapter.MyViewHolder(view);
     }
 
+    /**
+     *
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
           holder.CampaignTitle.setText(campaignList.get(position).getTitle());
 
+          //will take the User to the Campaign Menu for the selected Campaign
           holder.CampaignCard.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
@@ -60,12 +83,19 @@ public class CampaignAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder
           });
     }
 
+    /**
+     *
+     * @return the size of the list
+     */
     @Override
     public int getItemCount() {
         return campaignList.size();
     }
 }
 
+/**
+ *  will hold the views that are present in the CardView to be set by the ArrayList
+ */
 class MyViewHolder extends RecyclerView.ViewHolder{
     TextView CampaignTitle, TitleC;
     CardView CampaignCard;

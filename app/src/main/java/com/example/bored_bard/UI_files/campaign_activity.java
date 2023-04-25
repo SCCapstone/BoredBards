@@ -28,6 +28,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class campaign_activity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
@@ -43,25 +46,34 @@ public class campaign_activity extends AppCompatActivity {
         setContentView(R.layout.main_campaigns_screen);
 
 
+        //Firebase User Auth Calls
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         textView = findViewById(R.id.username);
-        RecyclerView RV = findViewById(R.id.recyclerview);
 
-        // recycler content viewing
+        //RecyclerView Calls
+        RecyclerView RV = findViewById(R.id.recyclerview);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(campaign_activity.this, 1);
         RV.setLayoutManager(gridLayoutManager);
 
+        //Creates an Arraylist of Campaigns
         campaignList = new ArrayList<>();
         CampaignAdapter adapter = new CampaignAdapter(campaign_activity.this, campaignList);
         RV.setAdapter(adapter);
 
+        //More User Auth Calls
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         assert user != null;
         String username = user.getDisplayName();
 
         assert username != null;
+
+        /**
+         * Adds the Database's stored Campaigns to an ArrayList
+         * That ArrayList will be used to set the Values of the CardView
+         */
+
         databaseReference = FirebaseDatabase.getInstance().getReference(username).child("Campaigns");
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
 
@@ -82,6 +94,11 @@ public class campaign_activity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
         //UI references
         Button campaign1 = (Button) findViewById(R.id.campaign1);
         FloatingActionButton FABaddCampaign = (FloatingActionButton) findViewById(R.id.FABaddCampaign);

@@ -24,7 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-
+/**
+ * @author Andrew MacMurray - FrozenDrew
+ */
 public class Register extends AppCompatActivity {
     TextInputEditText editTextEmailAddress, editTextPassword, editUsername;
     Button buttonRegister;
@@ -33,6 +35,10 @@ public class Register extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
 
+    /**
+     * If User is logged in will send the User to the Home Page(campaign_activity.class)
+     * If User is not logged will keep them on the Register Page
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -49,18 +55,24 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        //Sets the Views and Buttons
         editTextEmailAddress = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         editUsername = findViewById(R.id.username);
         buttonRegister = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.LoginNow);
+
+        //Calls the FirebaseAuth and DatabaseReferences
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         final FirebaseDatabase[] rootNode = new FirebaseDatabase[1];
         final DatabaseReference[] reference = new DatabaseReference[1];
 
 
+        /**
+         * Will take you back to the Login Screen
+         */
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +82,21 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        /**
+         * Will Register a User using Email, Password, and Username
+         * If Email is blank will prompt the user to Enter an Email
+         * If Email is not properly formatted it will prompt the User to Enter a valid Email
+         *
+         * If Password is blank will prompt the user to Enter a Password
+         * If Password is less that 6 characters long will prompt the User to Enter a longer password
+         *
+         * If Username is blank will prompt the user to Enter a Username
+         *
+         * If all data is formatted properly It will create an Account under FirebaseAuth
+         * Then it Create a User entry in the FireBase RealTime Database to store the User's Data
+         *
+         * After doing that it will Log the User in Sending them to the Home page (campaign_activity.class)
+         */
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,7 +138,7 @@ public class Register extends AppCompatActivity {
 
 
 
-                // creates the user account with email and password
+                // creates the user account with email and password in FirebaseAuth
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
@@ -120,6 +147,7 @@ public class Register extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+                                    //Sets the Username in FirebaseAuth
                                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                             .setDisplayName(Fuser.getUsername()).build();
 
@@ -128,6 +156,7 @@ public class Register extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                            if(task.isSuccessful()) {
 
+                                               //Will Create the User's Node in the RealTime Database for User Data Storage
                                                reference[0].child(username).child("UserInfo").setValue(Fuser);
                                                Toast.makeText(Register.this, "Username updated.",
                                                        Toast.LENGTH_SHORT).show();
@@ -153,8 +182,6 @@ public class Register extends AppCompatActivity {
                             }
                         });
 
-
-               //Sends user back to login in page after the user creates account
 
                 }
 
