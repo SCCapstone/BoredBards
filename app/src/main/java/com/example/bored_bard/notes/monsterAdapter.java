@@ -53,7 +53,7 @@ public class monsterAdapter extends RecyclerView.Adapter {
 
 
 
-    public static class monsterViewHolder extends RecyclerView.ViewHolder {
+    public static class monsterViewHolder extends RecyclerView.ViewHolder { //ViewHolder for Enemies & Monsters class
 
         TextView name, armor_class, hit_points, charisma, constitution, dexterity, intelligence, strength, wisdom;
         public monsterViewHolder(@NonNull View itemView) {

@@ -59,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
-        switch (viewType) {
+        switch (viewType) { //Switch case to determine which viewHolder and layoutInflator is necessary for given item.
             case  ABILITYSCORE:
                 v = LayoutInflater.from(context).inflate(R.layout.ability_score_row,parent,false);
                 return new abilityScoreViewHolder(v);
@@ -126,7 +126,7 @@ public class MyAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         try {
             Log.d("Item currently displayed: ",entryList.get(position).getString("name"));
-            switch (entryList.get(position).getString("type")) {
+            switch (entryList.get(position).getString("type")) { //SetView to current entry's type value and assign the unique class
                 case "AbilityScores":
                     abilityScores ability = gson.fromJson(entryList.get(position).toString(),abilityScores.class);
                     ((abilityScoreViewHolder) holder).setView(ability);
@@ -206,7 +206,7 @@ public class MyAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         try {
-            switch (entryList.get(position).getString("type")) {
+            switch (entryList.get(position).getString("type")) { //Set ViewType of current item
                 case "AbilityScores":
                     return ABILITYSCORE;
                 case "Alignments":

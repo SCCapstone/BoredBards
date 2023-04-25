@@ -152,15 +152,15 @@ public class Encyclopedia extends AppCompatActivity {
 
                                             for (DocumentChange dc : value.getDocumentChanges()) {
                                                 if (dc.getType() == DocumentChange.Type.ADDED) {
-                                                    String temp = gson.toJson(dc.getDocument().getData());
+                                                    String temp = gson.toJson(dc.getDocument().getData()); //Parse document changes from database into JSON String
                                                     JSONObject tempObject;
                                                     try {
                                                         tempObject = new JSONObject(temp);
-                                                        tempObject.put("type", i);
+                                                        tempObject.put("type", i); // Add type value to JSON String for clarity and ease of accessing
                                                     } catch (JSONException e) {
                                                         throw new RuntimeException(e);
                                                     }
-                                                    entryList.add(tempObject);
+                                                    entryList.add(tempObject); //Add JSON String to entryList
                                                 }
 
                                                 myAdapter.notifyDataSetChanged();
